@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #d4f1f4; /* Baby Blue */
+  --foreground: #171717; /* 保持文字顏色不變 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #05445e; /* Navy Blue */
+    --foreground: #ededed; /* 保持文字顏色不變 */
   }
 }
 
@@ -20,6 +20,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* 使用 @layer utilities 添加文本平衡功能 */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
