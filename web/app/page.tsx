@@ -1,6 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import mockProfile from "./lib/helper/mock";
-// import Image from "next/image";
+import { mockProfile } from "./lib/helper/mock/mock";
+import SkillSection from "./components/Skill/SkillSection";
+
+import CompetitionList from "./components/CompetitionCard";
+import HobbyList from "./components/HobbyCard";
+import PersonalLinkList from "./components/PersonalLink";
+import ProjectsList from "./components/project/ProjectsCards";
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="bg-navyBlue min-h-screen text-babyBlue p-10">
@@ -8,54 +16,61 @@ export default function Home() {
         <h1 className="text-5xl font-bold text-center mb-8">
           {mockProfile.title}
         </h1>
-
         <div className="bg-blueGrotto p-6 rounded-lg shadow-lg">
           <h2 className="text-3xl font-semibold mb-4">關於我</h2>
-          {/* <Image
+          <img
             src={mockProfile.aboutMe.stickersUrl}
-            height={mockProfile.aboutMe.
             alt="Profile Image"
-            className="w-full h-auto rounded-lg mb-4"
-          /> */}
+            className="h-[70px] rounded-lg mb-4"
+          />
           <p className="text-lg">{mockProfile.aboutMe.summary}</p>
           <p className="text-lg mt-4">{mockProfile.aboutMe.introduction}</p>
           <p className="text-lg mt-4">
+            <Image
+              src="/test/self/college.png"
+              alt="College"
+              width={24} // Adjust the width and height as needed
+              height={24}
+              className="inline-block mr-2"
+            />
             學歷: {mockProfile.aboutMe.details.college}
             <br />
+            <Image
+              src="/test/common/age.png"
+              alt="College"
+              width={24} // Adjust the width and height as needed
+              height={24}
+              className="inline-block mr-2"
+            />
             年齡: {mockProfile.aboutMe.details.age}
             <br />
+            <Image
+              src="/test/self/major.png"
+              alt="College"
+              width={24} // Adjust the width and height as needed
+              height={24}
+              className="inline-block mr-2"
+            />
             主修: {mockProfile.aboutMe.details.major}
           </p>
+          {/* skill card div*/}
+
+          <SkillSection skills={mockProfile.aboutMe.skill} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-          {mockProfile.aboutMe.projects.map((project, index) => (
-            <div key={index} className="bg-blueGreen p-6 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-semibold mb-4">{project.name}</h3>
-              <p className="text-lg">{project.shortDescription}</p>
-              <a
-                href="#"
-                className="text-navyBlue underline hover:text-babyBlue mt-4 inline-block"
-              >
-                查看詳情
-              </a>
-            </div>
-          ))}
-        </div>
+        {/* detail */}
+        <div className="flex flex-col space-y-4 pt-6">
+          {/* proj */}
+          <ProjectsList projects={mockProfile.aboutMe.projects} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-          {mockProfile.aboutMe.hobbies.map((hobby, index) => (
-            <div key={index} className="bg-blueGreen p-6 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-semibold mb-4">{hobby.name}</h3>
-              <p className="text-lg">{hobby.shortDescription}</p>
-              <a
-                href="#"
-                className="text-navyBlue underline hover:text-babyBlue mt-4 inline-block"
-              >
-                查看詳情
-              </a>
-            </div>
-          ))}
+          {/* CompetitionList */}
+          <CompetitionList competitions={mockProfile.aboutMe.competition} />
+
+          {/* hobby */}
+          <HobbyList hobbies={mockProfile.aboutMe.hobbies} />
+
+          {/* PersonalLinkCards */}
+          <PersonalLinkList links={mockProfile.aboutMe.personalLink} />
         </div>
       </div>
     </div>

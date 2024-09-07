@@ -63,9 +63,34 @@ This project is a comprehensive personal resume web application, built with a **
 - Python (>= 3.8)
 - Docker and Docker Compose
 
-### Installation
+### Installation and Development
 
 1. **Clone** this repository:
+
    ```bash
    git clone https://github.com/s990093/self-blog.git
    ```
+
+2. **Install Node.js and npm**
+
+   - If Node.js and npm are not installed, download and install them from [Node.js official website](https://nodejs.org/).
+
+3. **Set Up Yarn**
+
+   - Install Yarn (if not already installed):
+     ```bash
+     npm install -g yarn
+     ```
+
+4. **Initialize Yarn**
+
+   - Initialize Yarn:
+     ```bash
+     yarn install
+     ```
+
+5. **Start the Development Server**
+   - Start the development server:
+     ```bash
+     yarn dev
+     ```
