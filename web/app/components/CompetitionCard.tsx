@@ -1,57 +1,102 @@
+import React from "react";
+import { FaTrophy, FaMedal, FaStar } from "react-icons/fa"; // Import icons
 import { Competition } from "../interface/base";
 
 interface CompetitionCardProps {
   competition: Competition;
 }
-interface CompetitionListProps {
-  competitions: Competition[];
+interface MedalProps {
+  name: string;
+  prizeRank: "first" | "second" | "third";
+  prizeDescription?: string;
+  startDate: Date;
 }
 
-const CompetitionCard: React.FC<CompetitionCardProps> = ({ competition }) => {
+const Medal: React.FC<MedalProps> = ({
+  name,
+  startDate,
+  prizeRank,
+  prizeDescription,
+}) => {
+  const medalStyles = {
+    first:
+      "bg-gradient-to-r from-yellow-400 to-yellow-600 border-yellow-500 shadow-lg",
+    second:
+      "bg-gradient-to-r from-gray-300 to-gray-500 border-gray-400 shadow-md",
+    third:
+      "bg-gradient-to-r from-amber-500 to-amber-700 border-amber-600 shadow-md",
+  };
+
+  // Format the start date
+  const formattedDate = startDate
+    ? startDate.toLocaleDateString()
+    : "No date provided";
+
   return (
-    <div className="bg-babyBlue border border-blueGrotto rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold mb-2 text-navyBlue">
-        {competition.name}
-      </h2>
-      <p className="text-blueGrotto mb-4">{competition.shortDescription}</p>
-      <p className="text-blueGreen mb-2">
-        <strong>Technology/Theme:</strong> {competition.techno}
-      </p>
-      <p className="text-blueGreen mb-2">
-        <strong>Start Date:</strong>{" "}
-        {competition.startDate.toLocaleDateString()}
-      </p>
-      <p className="text-blueGreen mb-4">
-        <strong>End Date:</strong> {competition.endDate.toLocaleDateString()}
-      </p>
-      {competition.location && (
-        <p className="text-blueGreen mb-4">
-          <strong>Location:</strong> {competition.location}
-        </p>
-      )}
-      {competition.prizes && (
-        <div className="mt-4">
-          <h3 className="text-lg font-semibold mb-2 text-navyBlue">Prizes</h3>
-          {competition.prizes.firstPrize && (
-            <p className="text-blueGreen">
-              <strong>First Prize:</strong> {competition.prizes.firstPrize}
-            </p>
-          )}
-          {competition.prizes.secondPrize && (
-            <p className="text-blueGreen">
-              <strong>Second Prize:</strong> {competition.prizes.secondPrize}
-            </p>
-          )}
-          {competition.prizes.thirdPrize && (
-            <p className="text-blueGreen">
-              <strong>Third Prize:</strong> {competition.prizes.thirdPrize}
-            </p>
-          )}
+    <div className="flex flex-col items-center">
+      <div
+        className={`w-60 h-60 rounded-full border-8 ${medalStyles[prizeRank]} flex items-center justify-center relative`}
+      >
+        <div className="absolute inset-0 rounded-full bg-gradient-to-t from-transparent via-white/20 to-transparent opacity-50"></div>
+        {/* Competition name */}
+
+        {/* Prize description */}
+        <div className="absolute   top-6 text-white text-2xl font-bold capitalize">
+          {prizeDescription}
         </div>
-      )}
+        <h2 className="absolute top-[70px] text-3xl font-bold text-gray-800 line-clamp-2 m-1">
+          {name}
+        </h2>
+
+        {/* Start date */}
+        <div className="absolute bottom-4 text-gray-200 text-sm font-semibold">
+          {formattedDate}
+        </div>
+      </div>
     </div>
   );
 };
+const CompetitionCard: React.FC<CompetitionCardProps> = ({ competition }) => {
+  return (
+    <div className="flex flex-col items-center space-y-6">
+      {/* <h2 className="text-3xl font-bold text-gray-800">{competition.name}</h2>
+      <p className="text-gray-600 text-center max-w-lg">
+        {competition.shortDescription}
+      </p> */}
+
+      <div className="flex space-x-6">
+        {competition.prizes?.firstPrize && (
+          <Medal
+            name={competition.name}
+            prizeRank="first"
+            startDate={competition.startDate}
+            prizeDescription={competition.prizes.firstPrize}
+          />
+        )}
+        {competition.prizes?.secondPrize && (
+          <Medal
+            name={competition.name}
+            startDate={competition.startDate}
+            prizeRank="second"
+            prizeDescription={competition.prizes.secondPrize}
+          />
+        )}
+        {competition.prizes?.thirdPrize && (
+          <Medal
+            name={competition.name}
+            startDate={competition.startDate}
+            prizeRank="third"
+            prizeDescription={competition.prizes.thirdPrize}
+          />
+        )}
+      </div>
+    </div>
+  );
+};
+
+interface CompetitionListProps {
+  competitions: Competition[];
+}
 
 const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
   return (

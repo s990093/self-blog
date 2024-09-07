@@ -1,7 +1,25 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 import { Project } from "@/app/interface/base";
 import React from "react";
 import { FaGithub, FaHandPointRight } from "react-icons/fa"; // Import the icons you need
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const settings = {
+  dots: true, // 顯示分頁點
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  customPaging: (i: number) => (
+    <div className="block w-3 h-3 bg-gray-500 rounded-full cursor-pointer hover:bg-gray-600" />
+  ),
+  dotsClass: "slick-dots flex justify-center mt-2",
+};
 
 interface CardProps {
   project: Project;
@@ -14,15 +32,31 @@ const Card: React.FC<CardProps> = ({ project }) => {
     <div className="bg-[#03394a] text-[#cdeef3] shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
       <h2 className="text-xl font-bold mb-2 text-[#1ca4c0]">{project.name}</h2>
       {/* Project Images */}
-      {project.projectImages.length > 0 && (
+      {project.projectImages.length > 1 && (
+        <div>
+          <Slider {...settings}>
+            {project.projectImages.map((image, index) => (
+              <div key={index} className="mb-4">
+                <img
+                  src={image}
+                  alt={`${project.name} screenshot ${index + 1}`}
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      )}
+      {project.projectImages.length == 1 && (
         <div className="mb-4">
           <img
             src={project.projectImages[0]}
-            alt={`${project.name} screenshot`}
+            alt={`${project.name} screenshot 1`}
             className="w-full h-48 object-cover rounded-lg"
           />
         </div>
       )}
+
       <p className="text-gray-300 mb-4">{project.shortDescription}</p>
 
       {/* Technologies Used */}

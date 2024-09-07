@@ -53,7 +53,7 @@ export interface Competition {
   shortDescription: string; // Short description of the competition
   rewardImage?: string; //
   techno?: string; // Technology or theme related to the competition
-  startDate?: Date; // Start date of the competition
+  startDate: Date; // Start date of the competition
   endDate?: Date; // End date of the competition
   location?: string; // Optional location where the competition is held
   participants?: string[]; // Optional array of participant names or IDs
@@ -69,7 +69,8 @@ export interface Competition {
 export interface Hobby {
   name: string; // Name of the hobby or interest
   shortDescription: string; // Short description of the hobby
-  relatedItems: Technology[]; // Array of related items or technologies used
+  relatedItems?: Technology[] | []; // Array of related items or technologies used
+  imageUrl: string; // Add this field for the image URL
 }
 
 // Shared Interface for Technologies
@@ -84,5 +85,5 @@ export interface Technology {
 export interface PersonalLink {
   platform: string; // e.g., "GitHub", "Instagram", "Facebook"
   url: string; // The URL of the platform
-  icon?: string; // Optional icon or image URL for the platform
+  icon: string; // Optional icon or image URL for the platform
 }

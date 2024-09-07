@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { mockProfile } from "./lib/helper/mock/mock";
+import { mockProfile } from "./lib/mock/mock";
 import SkillSection from "./components/Skill/SkillSection";
 
 import CompetitionList from "./components/CompetitionCard";
@@ -73,6 +73,7 @@ export default function Home() {
           <PersonalLinkList links={mockProfile.aboutMe.personalLink} />
         </div>
       </div>
+      {/* <VersionDisplay /> */}
     </div>
   );
 }
