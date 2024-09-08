@@ -9,7 +9,7 @@ export interface Profile {
 
 export interface AboutMe {
   summary: string; // A brief summary about you
-  stickersUrl: string;
+  stickersUrls: string[];
   introduction: string; // A more detailed introduction
   details: PersonalDetails; // Detailed information like college, age, and major
   projects: Project[]; // Collection of your projects

@@ -12,7 +12,7 @@ export const mockTechnologies: Technology[] = [
 ];
 
 export const mockProfile: Profile = {
-  title: "Welcome to my profile",
+  title: "Welcome to my profile ",
   aboutMe: {
     summary:
       "A passionate developer with a love for building web applications.",
@@ -25,7 +25,7 @@ export const mockProfile: Profile = {
     },
     projects: selfprojects,
     hobbies: hobbies,
-    stickersUrl: "/test/self/self.png",
+    stickersUrls: ["/test/self/self.png", "/test/self/self-2.png"],
     skill: technologies,
     personalLink: links,
     competition: competitions,

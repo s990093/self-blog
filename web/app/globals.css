@@ -7,14 +7,14 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 :root {
-  --background: #d4f1f4; /* Baby Blue */
-  --foreground: #171717; /* 保持文字顏色不變 */
+  --background: #d4f1f4;
+  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #05445e; /* Navy Blue */
-    --foreground: #ededed; /* 保持文字顏色不變 */
+    --background: #05445e;
+    --foreground: #ededed;
   }
 }
 

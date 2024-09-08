@@ -1,6 +1,7 @@
 import React from "react";
 import SkillCard from "./SkillCard"; // Adjust the path as needed
 import { Technology } from "../../interface/base";
+import { SlideEffect } from "../Animation";
 
 interface SkillListProps {
   skills: Technology[];
@@ -25,7 +26,14 @@ const SkillList: React.FC<SkillListProps> = ({ skills }) => {
     <div className="space-y-1 max-w-[600px]">
       {Object.keys(groupedSkills).map((type) => (
         <div key={type}>
-          <h2 className="text-base font-semibold mb-2 capitalize">{type}</h2>
+          <div className="mb-2 capitalize">
+            <SlideEffect
+              text={type}
+              fontSize="text-sm font-serif"
+              duration={1.5}
+              delay={0.03}
+            />
+          </div>
           <div className="grid grid-cols-5">
             {groupedSkills[type].map((tech, index) => (
               <SkillCard key={index} technology={tech} />

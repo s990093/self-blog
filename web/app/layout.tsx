@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import VersionDisplay from "./components/VersionDisplay";
+import VantaBackground from "./components/common/VantaBackground";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,10 +30,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="relative min-h-screen bg-gray-100">
-          {children}
-          <VersionDisplay />
-        </div>
+        <VantaBackground>
+          <div className="relative min-h-screen ">
+            {children}
+            <VersionDisplay />
+          </div>
+        </VantaBackground>
       </body>
     </html>
   );

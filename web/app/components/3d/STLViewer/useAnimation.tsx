@@ -9,7 +9,6 @@ export const useAnimation = (
   modelRef: React.RefObject<THREE.Group>,
   config: AnimationConfig
 ): Promise<void> => {
-  console.log(modelRef);
   const clockRef = useRef(new THREE.Clock());
   const rotationCount = useRef(0);
   return new Promise((resolve) => {

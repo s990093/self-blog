@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Technology } from "@/app/interface/base";
 import React from "react";
+import { SlideEffect } from "../Animation";
 
 interface CardProps {
   technology: Technology;
@@ -27,7 +28,7 @@ const SkillCard: React.FC<CardProps> = ({ technology }) => {
         className="inline-block w-6 h-6 mr-2 align-middle rounded-full"
       />
       <div className="block truncate overflow-hidden whitespace-nowrap max-w-[100px]">
-        {technology.name}
+        <SlideEffect text={technology.name} fontSize="text-[12px] font-mono" />
       </div>
     </div>
   );
