@@ -13,14 +13,14 @@ import STLViewer from "./components/3d/STLViewer/STLViewer";
 import BaseMedalViewer from "./components/3d/STLViewer/BaseMadel";
 
 export default function Home() {
-  const textArray: TextItem[] = [
-    { name: "First Place", x: -18, y: -3, color: "#FFD700" }, // Gold color
-    { name: "2024/1/2", x: -12, y: -15, size: 3.4, color: "#000000" }, // Black color
-  ];
+  // const textArray: TextItem[] = [
+  //   { name: "First Place", x: -18, y: -3, color: "#FFD700" }, // Gold color
+  //   { name: "2024/1/2", x: -12, y: -15, size: 3.4, color: "#000000" }, // Black color
+  // ];
 
   return (
     <div className="bg-navyBlue min-h-screen text-babyBlue p-10">
-      <BaseMedalViewer
+      {/* <BaseMedalViewer
         xOffset={-55}
         yOffset={-50}
         scale={2.9}
@@ -40,7 +40,7 @@ export default function Home() {
           delayMs: 100, // 2 seconds delay
           repeatTimes: 20, // Rotate 5 times
         }}
-      />
+      /> */}
       <div className="flex flex-wrap gap-4 p-4"></div>
       <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl font-bold text-center mb-8">

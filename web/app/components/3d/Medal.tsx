@@ -8,6 +8,7 @@ interface MedalProps {
   prizeRank: PrizeType;
   prizeDescription?: string;
   startDate: Date;
+  index: number;
 }
 
 const Medal: React.FC<MedalProps> = ({
@@ -15,6 +16,7 @@ const Medal: React.FC<MedalProps> = ({
   prizeRank,
   prizeDescription,
   startDate,
+  index,
 }) => {
   const formattedDate = `${startDate.getFullYear().toString().slice(-2)}/${
     startDate.getMonth() + 1
@@ -47,7 +49,7 @@ const Medal: React.FC<MedalProps> = ({
   ];
 
   return (
-    <STLViewer
+    <BaseMedalViewer
       xOffset={-55}
       yOffset={-50}
       scale={2.9}
@@ -60,6 +62,13 @@ const Medal: React.FC<MedalProps> = ({
       texturePath="/3d/textures/metal.jpg"
       textArray={textItems}
       fontPath="/fonts/helvetiker_bold.typeface.json"
+      animationConfig={{
+        type: "rotation",
+        axis: "y",
+        speed: 13,
+        delayMs: 1000 + index * 200, // 2 seconds delay
+        repeatTimes: 3,
+      }}
     />
   );
 };

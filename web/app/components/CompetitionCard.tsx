@@ -6,6 +6,7 @@ import { Medal } from "./3d";
 
 interface CompetitionCardProps {
   competition: Competition;
+  index: number;
 }
 
 // const Medal: React.FC<MedalProps> = ({
@@ -52,7 +53,10 @@ interface CompetitionCardProps {
 //     // </div>
 //   );
 // };
-const CompetitionCard: React.FC<CompetitionCardProps> = ({ competition }) => {
+const CompetitionCard: React.FC<CompetitionCardProps> = ({
+  competition,
+  index,
+}) => {
   return (
     <div className="flex flex-col items-center justify-center ">
       <Medal
@@ -60,8 +64,9 @@ const CompetitionCard: React.FC<CompetitionCardProps> = ({ competition }) => {
         startDate={competition.startDate}
         prizeRank={competition.prizes}
         prizeDescription={competition.shortDescription}
+        index={index}
       />
-      <div className="text-center text-lg font-semibold text-gray-800 mt-4 truncate max-w-full">
+      <div className="text-center text-lg font-semibold text-[#111827] mt-4 truncate max-w-full">
         {competition.name}
       </div>
     </div>
@@ -76,7 +81,7 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
       {competitions.map((competition, index) => (
-        <CompetitionCard key={index} competition={competition} />
+        <CompetitionCard key={index} competition={competition} index={index} />
       ))}
     </div>
   );
