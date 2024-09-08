@@ -8,10 +8,40 @@ import HobbyList from "./components/HobbyCard";
 import PersonalLinkList from "./components/PersonalLink";
 import ProjectsList from "./components/project/ProjectsCards";
 import Image from "next/image";
+import { TextItem } from "./components/3d/STLViewer/helper";
+import STLViewer from "./components/3d/STLViewer/STLViewer";
+import BaseMedalViewer from "./components/3d/STLViewer/BaseMadel";
 
 export default function Home() {
+  const textArray: TextItem[] = [
+    { name: "First Place", x: -18, y: -3, color: "#FFD700" }, // Gold color
+    { name: "2024/1/2", x: -12, y: -15, size: 3.4, color: "#000000" }, // Black color
+  ];
+
   return (
     <div className="bg-navyBlue min-h-screen text-babyBlue p-10">
+      <BaseMedalViewer
+        xOffset={-55}
+        yOffset={-50}
+        scale={2.9}
+        height={320}
+        width={320}
+        stlPath={"/3d/Medal.STL"}
+        medalType={"champion"}
+        reflectivity={10}
+        shininess={100}
+        texturePath="/3d/textures/metal.jpg"
+        textArray={textArray}
+        fontPath="/fonts/helvetiker_bold.typeface.json"
+        animationConfig={{
+          type: "rotation",
+          axis: "y",
+          speed: 0.8,
+          delayMs: 100, // 2 seconds delay
+          repeatTimes: 20, // Rotate 5 times
+        }}
+      />
+      <div className="flex flex-wrap gap-4 p-4"></div>
       <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl font-bold text-center mb-8">
           {mockProfile.title}
@@ -73,7 +103,6 @@ export default function Home() {
           <PersonalLinkList links={mockProfile.aboutMe.personalLink} />
         </div>
       </div>
-      {/* <VersionDisplay /> */}
     </div>
   );
 }

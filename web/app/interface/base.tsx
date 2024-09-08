@@ -47,21 +47,27 @@ export interface Project {
 // Competitions Section
 
 // competition.interface.ts
+export enum PrizeType {
+  FirstPrize = "First Prize",
+  SecondPrize = "Second Prize",
+  ThirdPrize = "Third Prize",
+  HonorableMention = "Honorable Mention",
+  ExcellentWork = "Excellent Prize",
+  Selection = "Selection",
+  Participation = "Participation", // 新增參加獎
+}
 
 export interface Competition {
   name: string; // Competition name
   shortDescription: string; // Short description of the competition
   rewardImage?: string; //
+  url?: string; // comp website url
   techno?: string; // Technology or theme related to the competition
   startDate: Date; // Start date of the competition
   endDate?: Date; // End date of the competition
   location?: string; // Optional location where the competition is held
   participants?: string[]; // Optional array of participant names or IDs
-  prizes?: {
-    firstPrize?: string; // Optional first prize description
-    secondPrize?: string; // Optional second prize description
-    thirdPrize?: string; // Optional third prize description
-  };
+  prizes: PrizeType; // Array of prizes
 }
 
 // Hobbies Section
