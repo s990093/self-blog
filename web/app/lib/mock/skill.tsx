@@ -50,6 +50,13 @@ export const technologies: Technology[] = [
     type: "Database",
     description: "Lightweight, serverless, self-contained SQL database engine",
   },
+  // fornt
+  {
+    name: "Three.js",
+    icon: "threejs.png",
+    type: "Frontend",
+    description: "JavaScript library designed to 3D adn use WebGL",
+  },
   {
     name: "jQuery",
     icon: "jquery.png",

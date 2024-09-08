@@ -6,6 +6,7 @@ import { useSTLModel } from "./useSTLModel";
 import { useControls } from "./useControls";
 import { useResize } from "./useResize";
 import { useAnimation } from "./useAnimation";
+import { useOpeningAnimation } from "./Animation/opening";
 
 interface BaseMadeViewerProps extends STLViewerProps {
   animationConfig: AnimationConfig;
@@ -53,7 +54,12 @@ const BaseMedalViewer: React.FC<BaseMadeViewerProps> = ({
     rendererRef,
   });
 
-  useAnimation(modelRef, animationConfig);
+  const runAnimations = async () => {
+    useAnimation(modelRef, animationConfig); // Run first animation
+    useOpeningAnimation(modelRef); // Run second animation
+  };
+
+  runAnimations();
 
   useEffect(() => {
     const animate = () => {
