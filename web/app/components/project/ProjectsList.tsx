@@ -5,6 +5,7 @@ import { Project, ProjType } from "@/app/interface/base";
 import ProjectCard from "./ProjectsCards";
 import ProjectsSection from "./ProjectsSection";
 import { motion, useAnimation } from "framer-motion";
+import { Tilt } from "react-tilt";
 
 interface ProjectsListProps {
   projects: Project[];
@@ -39,7 +40,16 @@ const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => {
         transition={{ duration: 0.5 }}
       >
         {filteredProjects.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+          <Tilt
+            className=""
+            options={{
+              max: 20, // Maximum tilt angle
+              scale: 1.05, // Element scaling on hover
+              speed: 400, // Speed of the enter/exit transition
+            }}
+          >
+            <ProjectCard key={project.name} project={project} />
+          </Tilt>
         ))}
       </motion.div>
     </div>
