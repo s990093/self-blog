@@ -5,6 +5,8 @@ import { PersonalLink } from "../interface/base";
 import { iconMapping } from "../lib/utils/iconMapping";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
+import { TagName } from "./common";
+import Link from "next/link";
 
 interface PersonalLinkProps {
   link: PersonalLink;
@@ -12,6 +14,7 @@ interface PersonalLinkProps {
 }
 interface PersonalLinkCardsProps {
   links: PersonalLink[];
+  name: string;
 }
 const PersonalLinkCard: React.FC<PersonalLinkProps> = ({ link, position }) => {
   const IconComponent = iconMapping[link.icon]; // Get the icon component
@@ -22,18 +25,21 @@ const PersonalLinkCard: React.FC<PersonalLinkProps> = ({ link, position }) => {
       animate={{ opacity: 1, top: position.top, right: position.right }}
       transition={{ duration: 1 }} // Adjust the duration as needed
     >
-      <a href={link.url} target="_blank" rel="noopener noreferrer">
+      <Link href={link.url} target="_blank" rel="noopener noreferrer">
         {IconComponent ? (
           <IconComponent className="w-10 h-10 mr-2" /> // Render the React Icon component
         ) : (
           <span className="text-lg font-medium">{link.platform}</span>
         )}
-      </a>
+      </Link>
     </motion.div>
   );
 };
 
-const PersonalLinkList: React.FC<PersonalLinkCardsProps> = ({ links }) => {
+const PersonalLinkList: React.FC<PersonalLinkCardsProps> = ({
+  links,
+  name,
+}) => {
   const linkPositions = [
     { top: "2%", right: "25%" },
     { top: "30%", right: "55%" },
@@ -54,6 +60,7 @@ const PersonalLinkList: React.FC<PersonalLinkCardsProps> = ({ links }) => {
           className="w-full h-full object-cover"
         />
       </motion.div>
+      <TagName name={name} right="60%" top="20%" angle={-20} />
 
       {links.map((link, index) => (
         <PersonalLinkCard

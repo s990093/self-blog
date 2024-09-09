@@ -14,6 +14,7 @@ export const mockTechnologies: Technology[] = [
 export const mockProfile: Profile = {
   title: "Welcome to my profile ",
   aboutMe: {
+    name: "Lai Hung Wei",
     summary:
       "A passionate developer with a love for building web applications.",
     introduction:

@@ -1,25 +1,68 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
 
-// c
+// c  const router = useRouter();
 import SkillCard from "./SkillCard";
 import { Technology } from "../../interface/base";
 import { SlideEffect } from "../Animation";
-import AnimatedNumbers from "react-animated-numbers";
-import { FiMoreHorizontal } from "react-icons/fi";
-import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
-import { SeparatorIsland } from "../common";
 import TotalSkills from "./TotalSkills";
+import { useIntersectionObserver } from "../common";
 
 interface SkillListProps {
   skills: Technology[];
 }
+interface GroupedSkillsProps {
+  type: string;
+  remainingSkills: number;
+  technologies: Technology[];
+}
 
+const GroupedSkills: React.FC<GroupedSkillsProps> = ({
+  type,
+  technologies,
+}) => {
+  const { ref: skillRef, isVisible: isSkillVisible } = useIntersectionObserver({
+    root: null,
+    threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
+  });
+  const SkillStatus = isSkillVisible ? Date.now() : "";
+
+  return (
+    <div ref={skillRef} key={type}>
+      <Link href={`/skill/${type}`} passHref>
+        {/* Navigate to the skill type page */}
+        <div className="flex flex-row">
+          <SlideEffect
+            text={type}
+            fontSize="text-lg font-serif"
+            duration={1.5}
+            delay={0.03}
+          />
+          {/* <FaArrowRight className="ml-2 text-lg" /> Arrow icon */}
+        </div>
+      </Link>
+      {/* {isSkillVisible && (
+        <div
+          className="grid grid-cols-2 md:grid-cols-6 gap-4"
+          key={SkillStatus}
+        >
+          {technologies.map((tech, index) => (
+            <SkillCard key={index} technology={tech} index={index} />
+          ))}
+        </div>
+      )} */}
+
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-4" key={SkillStatus}>
+        {technologies.map((tech, index) => (
+          <SkillCard key={index} technology={tech} index={index} />
+        ))}
+      </div>
+    </div>
+  );
+};
 const SkillList: React.FC<SkillListProps> = ({ skills }) => {
   const totalSkills = skills.length;
-  const router = useRouter();
 
   // Group skills by their type
   const groupedSkills = skills.reduce<Record<string, Technology[]>>(
@@ -41,44 +84,19 @@ const SkillList: React.FC<SkillListProps> = ({ skills }) => {
       <div className="relative">
         <TotalSkills totalSkills={totalSkills} />
       </div>
+
       {Object.keys(groupedSkills).map((type) => {
         const skillsOfType = groupedSkills[type];
-        const displayedSkills = skillsOfType.slice(0, 6);
+        // const displayedSkills = skillsOfType.slice(0, 6);
         const remainingSkills = skillsOfType.length - 6;
 
         return (
-          <div key={type}>
-            <Link href={`/skill/${type}`} passHref>
-              {/* Navigate to the skill type page */}
-              <div className="flex flex-row">
-                <SlideEffect
-                  text={type}
-                  fontSize="text-lg font-serif"
-                  duration={1.5}
-                  delay={0.03}
-                />
-                {/* <FaArrowRight className="ml-2 text-lg" /> Arrow icon */}
-              </div>
-            </Link>
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-              {displayedSkills.map((tech, index) => (
-                <SkillCard key={index} technology={tech} />
-              ))}
-              {remainingSkills > 0 && (
-                <div
-                  className="ml-2 cursor-pointer flex items-center hover:underline"
-                  onClick={() => router.push(`/skill/${type}`)} // Navigate to the corresponding skill type page
-                >
-                  <FiMoreHorizontal className="mr-1 text-lg" /> {/* Icon */}
-                  <AnimatedNumbers
-                    includeComma
-                    animateToNumber={remainingSkills}
-                    fontStyle={{ fontSize: "1rem", fontFamily: "sans-serif" }}
-                  />
-                </div>
-              )}
-            </div>
-          </div>
+          <GroupedSkills
+            key={type}
+            type={type}
+            remainingSkills={remainingSkills}
+            technologies={skillsOfType}
+          />
         );
       })}
     </div>

@@ -8,6 +8,7 @@ export interface Profile {
 // About Me Section
 
 export interface AboutMe {
+  name: string;
   summary: string; // A brief summary about you
   stickersUrls: string[];
   introduction: string; // A more detailed introduction
