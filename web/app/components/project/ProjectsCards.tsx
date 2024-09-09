@@ -47,7 +47,7 @@ const ProjectCard: React.FC<CardProps> = ({ project }) => {
                   key={String(isProjVisible)}
                   src={project.projectImages[0]}
                   alt={`${project.name} screenshot 1`}
-                  className="w-full h-full object-cover rounded-t-[20px] transition-transform duration-500 ease-in-out transform hover:scale-105 animate-fadeInShort"
+                  className="w-full h-full object-cover rounded-t-[20px] transition-transform duration-500 ease-in-out transform hover:scale-105"
                 />
               )}
             </div>

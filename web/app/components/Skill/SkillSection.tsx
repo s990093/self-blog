@@ -81,9 +81,9 @@ const SkillList: React.FC<SkillListProps> = ({ skills }) => {
   return (
     <div className="space-y-4 ">
       {/* total */}
-      <div className="relative">
+      {/* <div className="relative">
         <TotalSkills totalSkills={totalSkills} />
-      </div>
+      </div> */}
 
       {Object.keys(groupedSkills).map((type) => {
         const skillsOfType = groupedSkills[type];

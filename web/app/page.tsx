@@ -22,6 +22,8 @@ export default function Home() {
   //   { name: "First Place", x: -18, y: -3, color: "#FFD700" }, // Gold color
   //   { name: "2024/1/2", x: -12, y: -15, size: 3.4, color: "#000000" }, // Black color
   // ];
+
+  // console.log(OPENING_EFFECTS);
   const [showZoom, setShowZoom] = useState(OPENING_EFFECTS); // 控制是否显示放大效果
   // 設定要監視的區塊
   const { ref: aboutMeRef, isVisible: isAboutMeVisible } =

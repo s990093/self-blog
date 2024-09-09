@@ -12,11 +12,11 @@ const useIntersectionObserver = (options: IntersectionObserverInit) => {
       setIsVisible(isIntersecting);
 
       // 當觀察到變化時，記錄狀態到控制台
-      if (isIntersecting) {
-        console.log("元素進入視窗: ", entry.target);
-      } else {
-        console.log("元素離開視窗: ", entry.target);
-      }
+      // if (isIntersecting) {
+      //   console.log("元素進入視窗: ", entry.target);
+      // } else {
+      //   console.log("元素離開視窗: ", entry.target);
+      // }
     }, options);
 
     if (currentRef) {

@@ -1,6 +1,5 @@
 import { PrizeType } from "@/app/interface/base";
 import { TextItem } from "./STLViewer/helper";
-import STLViewer from "./STLViewer/STLViewer";
 import BaseMedalViewer from "./STLViewer/BaseMadel";
 
 interface MedalProps {
