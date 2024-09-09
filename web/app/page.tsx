@@ -9,7 +9,6 @@ import SkillSection from "./components/Skill/SkillSection";
 import CompetitionList from "./components/CompetitionCard";
 import HobbyList from "./components/HobbyCard";
 import PersonalLinkList from "./components/PersonalLink";
-import ProjectsList from "./components/project/ProjectsCards";
 import Image from "next/image";
 import { TextItem } from "./components/3d/STLViewer/helper";
 import STLViewer from "./components/3d/STLViewer/STLViewer";
@@ -20,12 +19,16 @@ import ProfileImage from "./components/ProfileImage";
 import ZoomEffect from "./components/ZoomEffect";
 import { SeparatorIsland } from "./components/common";
 
+import { TypeAnimation } from "react-type-animation";
+import { OPENING_EFFECTS } from "./lib/utils";
+import ProjectsList from "./components/project/ProjectsList";
+
 export default function Home() {
   // const textArray: TextItem[] = [
   //   { name: "First Place", x: -18, y: -3, color: "#FFD700" }, // Gold color
   //   { name: "2024/1/2", x: -12, y: -15, size: 3.4, color: "#000000" }, // Black color
   // ];
-  const [showZoom, setShowZoom] = useState(true); // 控制是否显示放大效果
+  const [showZoom, setShowZoom] = useState(OPENING_EFFECTS); // 控制是否显示放大效果
 
   const handleZoomComplete = () => {
     setShowZoom(false); // 放大动画完成后隐藏
@@ -65,9 +68,12 @@ export default function Home() {
 
       <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl font-bold text-center mb-8">
-          <TypingEffect charId={mockProfile.title} />
+          <TypingEffect
+            sequence={[mockProfile.title, 2000, "Hello World !", 1000]}
+            fontSize={50}
+          />
         </h1>
-        <div className="bg-blueGrotto p-6 rounded-lg shadow-lg">
+        <div className=" bg-blueGrotto bg-opacity-80 p-6 rounded-lg shadow-lg">
           <h2 className="text-3xl font-semibold mb-4">
             <SlideEffect
               text="About me"

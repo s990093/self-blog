@@ -102,7 +102,7 @@ export const technologies: Technology[] = [
     description: "Cross-platform software development framework",
   },
   {
-    name: "Material UI",
+    name: "MUI",
     icon: "mui.png",
     type: "Frontend",
     description: "React UI framework implementing Google's Material Design",
@@ -358,6 +358,11 @@ export const technologies: Technology[] = [
   {
     name: "Figma",
     icon: "figma.png",
+    type: "Tool",
+  },
+  {
+    name: "Git",
+    icon: "git.png",
     type: "Tool",
   },
 

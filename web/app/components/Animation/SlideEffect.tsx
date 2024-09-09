@@ -2,6 +2,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const buttonVariants = {
+  initial: { opacity: 0, y: -10 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 10 },
+};
+
 interface SlideEffectProps {
   text: string;
   fontSize?: string;

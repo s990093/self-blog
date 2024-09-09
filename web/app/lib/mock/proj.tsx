@@ -1,8 +1,9 @@
-import { Project } from "@/app/interface/base";
+import { Project, ProjType } from "@/app/interface/base";
 
 export const selfprojects: Project[] = [
   {
     name: "Personal Blog",
+    projTypes: [ProjType.Web],
     shortDescription:
       "A personal blog developed using Next.js, Django, Docker, and Nginx.",
     projectImages: ["/test/self/proj/personal-blog.png"],
@@ -35,6 +36,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Student Task Manager",
+    projTypes: [ProjType.Web],
     shortDescription:
       "A to-do list application specifically designed for students. It uses AI to automatically classify tasks based on their content using BERT technology, and is built with Django and Next.js for a modern, full-stack approach.",
     projectImages: ["/test/self/proj/todolist.png"],
@@ -56,6 +58,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Tea Leaf Water Conservation System",
+    projTypes: [ProjType.System],
     projectImages: ["/test/self/proj/tea-water-con.png"], // Replace with actual image paths
     shortDescription:
       "A system designed to optimize water usage in tea leaf cultivation by monitoring and controlling irrigation efficiently.",
@@ -81,6 +84,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Wind Power Educational Kit",
+    projTypes: [ProjType.System],
     projectImages: ["/test/self/proj/wind-power-edu.png"], // Replace with actual image paths
     shortDescription:
       "An educational kit for teaching wind power concepts. It includes interactive components for demonstrating wind energy principles.",
@@ -104,6 +108,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Low Power Node for Mountain Climbing",
+    projTypes: [ProjType.System, ProjType.Mobile],
     projectImages: ["/test/self/proj/low-power-mountain.png"], // Replace with actual image paths
     shortDescription:
       "A low power consumption node system designed for tracking and communication in mountain climbing scenarios.",
@@ -131,6 +136,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Psychological Testing App with Robot Integration",
+    projTypes: [ProjType.System, ProjType.Mobile, ProjType.Embedded],
     projectImages: [
       "/test/self/proj/psychological-robot.png",
       "/test/self/proj/psychological-robot-2.png",
@@ -155,6 +161,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Campus Irrigation System",
+    projTypes: [ProjType.Web, ProjType.Embedded],
     projectImages: ["/test/self/proj/irrigation-sys.png"],
     shortDescription:
       "A low-power irrigation system for campus use that leverages solar energy and body detection to optimize water usage and energy efficiency, particularly during hot summer months.",
@@ -184,6 +191,13 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Campus Pre-Order Meal System",
+    projTypes: [
+      ProjType.Web,
+      ProjType.Server,
+      ProjType.Embedded,
+      ProjType.System,
+    ],
+
     projectImages: ["/test/self/proj/cpop.png"],
     shortDescription:
       "An online pre-order system for campus meal services that allows students to order and pay for their meals in advance, improving convenience and reducing wait times.",
@@ -209,6 +223,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Iriver",
+    projTypes: [ProjType.Web, ProjType.Server, ProjType.Mobile],
     projectImages: [
       "/test/self/proj/iriver.png",
       "/test/self/proj/iriver-2.png",
@@ -241,6 +256,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Second-Generation Campus Administration System",
+    projTypes: [ProjType.Mobile],
     projectImages: ["/test/self/proj/campus-academic.png"],
     shortDescription:
       "An upgraded campus administration system built with Flutter, where all static screens have been transformed into dynamic, interactive interfaces for a better user experience.",
@@ -262,6 +278,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "AIoT Home Automation System  勝群盃19屆",
+    projTypes: [ProjType.Embedded, ProjType.System],
     projectImages: ["/test/self/proj/Smart-home-holtek19.png"],
     shortDescription:
       "A cutting-edge AIoT home automation system developed, leveraging new chip technology to control various home devices seamlessly.",
@@ -279,6 +296,8 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Item Donation Website",
+    projTypes: [ProjType.Web],
+
     projectImages: ["/test/self/proj/ItemDonation.png"],
     shortDescription:
       "A self-made website that allows users to donate items easily. The platform connects donors with those in need, providing a streamlined and user-friendly experience.",

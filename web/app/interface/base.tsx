@@ -35,9 +35,19 @@ export interface Skill {
   relatedItems: Technology[]; // Array of related items or technologies used
 }
 
+export enum ProjType {
+  Web = "Web",
+  Embedded = "Embedded",
+  System = "System",
+  Mobile = "Mobile",
+  Server = "Server",
+  Other = "Other",
+}
+
 export interface Project {
   name: string; // Project name
   projectImages: string[] | [];
+  projTypes: ProjType[];
   shortDescription: string; // Short description of the project]
   technologiesUsed: Technology[]; // Array of technologies used in the project
   githubUrl?: string; //
