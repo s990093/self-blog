@@ -185,15 +185,18 @@ export default function Home() {
           <ProjectsList projects={mockProfile.aboutMe.projects} />
 
           {/* CompetitionList */}
-          <div ref={competitionListRef}>
+          {/* <div ref={competitionListRef}>
             {isCompetitionListVisible && (
               <CompetitionList
                 key={competitionListStatus}
                 competitions={mockProfile.aboutMe.competition}
               />
             )}
-          </div>
-
+          </div> */}
+          <CompetitionList
+            key={String(competitionListStatus)}
+            competitions={mockProfile.aboutMe.competition}
+          />
           {/* hobby */}
           <HobbyList hobbies={mockProfile.aboutMe.hobbies} />
 

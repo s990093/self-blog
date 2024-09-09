@@ -20,7 +20,7 @@ const config: Config = {
         blink: 'blink 1s step-end infinite',
         fadeInShort: 'fadeIn 1s ease-in-out',
         fadeIn: 'fadeIn 2s ease-in-out',
-        fadeInLong: 'fadeIn 4s ease-in-out',
+        fadeInLong: 'fadeIn 3s ease-in-out',
         shake: 'shake 0.5s ease-in-out',
         rotate: 'rotate 10s linear infinite',
       },
