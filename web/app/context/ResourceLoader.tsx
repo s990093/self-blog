@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, ReactNode } from "react";
 import { useSpring, animated } from "@react-spring/web"; // 导入 react-spring/web
+import { Tilt } from "react-tilt";
 
 interface ResourceLoaderProps {
   resourceUrls: string[];
@@ -52,9 +53,14 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
         <>{children}</>
       ) : (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500">
-          <span className="text-white text-2xl font-bold animate-pulse">
-            Loading...
-          </span>
+          <Tilt
+            options={{ max: 50, scale: 1.3 }}
+            className="p-4 rounded shadow-lg animate-rotate"
+          >
+            <span className="text-white text-2xl font-bold animate-pulse">
+              Loading...
+            </span>
+          </Tilt>
         </div>
       )}
     </>

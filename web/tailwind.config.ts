@@ -23,6 +23,7 @@ const config: Config = {
         fadeInLong: 'fadeIn 3s ease-in-out',
         shake: 'shake 0.5s ease-in-out',
         rotate: 'rotate 10s linear infinite',
+        
         gradient: 'gradient 3s ease infinite',
       },
       keyframes: {
