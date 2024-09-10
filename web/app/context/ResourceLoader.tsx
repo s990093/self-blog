@@ -2,6 +2,7 @@
 import React, { useState, useEffect, ReactNode } from "react";
 import { useSpring } from "@react-spring/web"; // 导入 react-spring/web
 import { TypingEffect } from "../components/Animation";
+import { getDeviceType } from "../lib/utils/func";
 
 interface ResourceLoaderProps {
   resourceUrls: string[];
@@ -15,6 +16,8 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
   children,
 }) => {
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
+
+  const deviceWith = getDeviceType();
 
   // 定义 spring 动画
   const fadeInStyle = useSpring({
@@ -56,7 +59,7 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
           <div className="grid rid-cols-1 gap-4">
             <TypingEffect
               sequence={["Loading", 600, "Hello World !", 1000]}
-              fontSize={100}
+              fontSize={30 * deviceWith}
             />
             <div className="flex items-center justify-center">
               <div className="border border-gray-300 p-4 rounded-lg shadow-lg mt-[30px]">
