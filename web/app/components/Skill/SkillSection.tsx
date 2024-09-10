@@ -92,7 +92,7 @@ const SkillList: React.FC<SkillListProps> = ({ skills }) => {
         }} // Animation state
         transition={{ duration: 0.5 }} // Transition duration
       >
-        <TotalSkills totalSkills={totalSkills} />
+        {/* <TotalSkills totalSkills={totalSkills} /> */}
       </motion.div>
 
       {Object.keys(groupedSkills).map((type) => {
