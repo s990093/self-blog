@@ -54,7 +54,7 @@ class FogComponent extends Component<FogComponentProps> {
         ref={this.vantaRef}
         style={{
           width: "100%",
-          height: "100%",
+          height: "200%",
 
           zIndex: -1,
         }}
