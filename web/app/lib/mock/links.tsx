@@ -3,17 +3,17 @@ import { PersonalLink } from "@/app/interface/base";
 export const links: PersonalLink[] = [
   {
     platform: "GitHub",
-    url: "https://github.com/yourusername",
+    url: "https://github.com/s990093",
     icon: "GitHub", // This should match the key in your iconMapping
   },
   {
     platform: "Instagram",
-    url: "https://instagram.com/yourusername",
+    url: "https://www.instagram.com/lai0195/",
     icon: "Instagram",
   },
   {
     platform: "Facebook",
-    url: "https://facebook.com/yourusername",
+    url: "https://www.instagram.com/lai0195/",
     icon: "Facebook",
   },
 ];

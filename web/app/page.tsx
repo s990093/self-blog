@@ -18,6 +18,7 @@ import ProjectsList from "./components/project/ProjectsList";
 import ResourceLoader from "./context/ResourceLoader";
 
 export default function PreLoadHomePage() {
+  const BaseUrl = "https://lai.iside.space/static/";
   const stickersUrls = "/test/self/self.png";
   const linksImages = mockProfile.aboutMe.skill.map(
     (skill) => `/test/technology/color/${skill.icon}`

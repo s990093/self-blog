@@ -1,6 +1,16 @@
 import { Competition, PrizeType } from "@/app/interface/base";
 export const competitions: Competition[] = [
   {
+    name: "kumamoto   ICDC",
+    shortDescription: "Excellence Prize",
+    startDate: new Date("2024-07-01"),
+    endDate: new Date("2024-07-02"),
+    techno: "國際交流",
+    location: "熊本, 日本",
+    participants: ["參賽者Y", "參賽者Z", "參賽者AA"],
+    prizes: PrizeType.ThirdPrize,
+  },
+  {
     name: "技職盃黑客松競賽",
     shortDescription: "全國第六名",
     startDate: new Date("2024-05-01"),
@@ -76,15 +86,5 @@ export const competitions: Competition[] = [
     location: "中山醫學大學",
     participants: ["參賽者V", "參賽者W", "參賽者X"],
     prizes: PrizeType.ExcellentWork,
-  },
-  {
-    name: "kumamoto   ICDC",
-    shortDescription: "Excellence Prize",
-    startDate: new Date("2024-07-01"),
-    endDate: new Date("2024-07-02"),
-    techno: "國際交流",
-    location: "熊本, 日本",
-    participants: ["參賽者Y", "參賽者Z", "參賽者AA"],
-    prizes: PrizeType.ThirdPrize,
   },
 ];
