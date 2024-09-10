@@ -15,10 +15,9 @@ export const mockProfile: Profile = {
   title: "Welcome to my profile ",
   aboutMe: {
     name: "Lai Hung Wei",
-    summary:
-      "A passionate developer with a love for building web applications.",
+    summary: "A passionate about life have a strong interest in software",
     introduction:
-      "I am a Full Stack Developer with 5 years of experience in building responsive and scalable applications. My expertise lies in React, Node.js, and Python. I love solving complex problems and turning ideas into reality.",
+      "I am currently a junior in college, passionate about turning my ideas into reality and enjoying collaboration with others. Through continuous discussion and communication, I strive to solve problems. In addition to my enthusiasm for programming, I also love participating in outdoor activities such as music festivals and surfing, which keep me energetic and refreshed.",
     details: {
       college: "National Kaohsiung University of Science and Technology",
       age: 21,

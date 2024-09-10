@@ -12,7 +12,7 @@ interface CardProps {
   index: number;
 }
 
-const SkillCard: React.FC<CardProps> = ({ technology }) => {
+const SkillCard: React.FC<CardProps> = React.memo(({ technology }) => {
   const randomPositions = generateRandomPosition();
 
   return (
@@ -45,6 +45,6 @@ const SkillCard: React.FC<CardProps> = ({ technology }) => {
       </div>
     </motion.div>
   );
-};
+});
 
 export default SkillCard;

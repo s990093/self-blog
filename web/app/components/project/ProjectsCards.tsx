@@ -11,11 +11,12 @@ import ReactCardFlip from "react-card-flip";
 import { SeparatorIsland, useIntersectionObserver } from "../common";
 import { SlideEffect } from "../Animation";
 import Link from "next/link";
+import ClickableIcon from "../common/ClickableIcon";
 
 interface CardProps {
   project: Project;
 }
-const ProjectCard: React.FC<CardProps> = ({ project }) => {
+const ProjectCard: React.FC<CardProps> = React.memo(({ project }) => {
   const { ref: projRef, isVisible: isProjVisible } = useIntersectionObserver({
     root: null,
     threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
@@ -36,8 +37,9 @@ const ProjectCard: React.FC<CardProps> = ({ project }) => {
     <div ref={projRef}>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         {/* Front side */}
+
         <div
-          className="rounded-lg shadow-lg max-w-sm mx-auto rounded-[20px] max-w-[500px] max-h-[400px]"
+          className="rounded-lg shadow-lg max-w-sm mx-auto rounded-[20px] max-w-[500px] h-[350px]"
           onClick={handleFlip} // Optional: flip on click
         >
           <div className="relative">
@@ -56,6 +58,9 @@ const ProjectCard: React.FC<CardProps> = ({ project }) => {
             <h2 className="text-base font-semibold text-white">
               {project.name}
             </h2>
+            <div className="absolute top-[20px] right-[30px]">
+              <ClickableIcon />
+            </div>
           </div>
         </div>
 
@@ -135,6 +140,6 @@ const ProjectCard: React.FC<CardProps> = ({ project }) => {
       </ReactCardFlip>
     </div>
   );
-};
+});
 
 export default ProjectCard;

@@ -6,7 +6,8 @@ import ProjectCard from "./ProjectsCards";
 import ProjectsSection from "./ProjectsSection";
 import { motion, useAnimation } from "framer-motion";
 import { Tilt } from "react-tilt";
-import { useIntersectionObserver } from "../common";
+import { Tooltip, useIntersectionObserver } from "../common";
+import { TiltWrapper } from "../Animation";
 
 interface ProjectsListProps {
   projects: Project[];
@@ -36,7 +37,7 @@ const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => {
   }, [filter, projects, controls]);
 
   return (
-    <div ref={projRef} className="container mx-auto">
+    <div ref={projRef} className="container mx-auto ">
       {isProjVisible && (
         <ProjectsSection
           key={String(isProjVisible)}
@@ -46,22 +47,15 @@ const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => {
       )}
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 p-3"
         animate={controls}
         initial={{ x: -100, opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {filteredProjects.map((project) => (
-          <Tilt
-            key={project.name}
-            options={{
-              max: 20, // Maximum tilt angle
-              scale: 1.05, // Element scaling on hover
-              speed: 400, // Speed of the enter/exit transition
-            }}
-          >
+        {filteredProjects.map((project, index) => (
+          <TiltWrapper>
             <ProjectCard key={project.name} project={project} />
-          </Tilt>
+          </TiltWrapper>
         ))}
       </motion.div>
     </div>

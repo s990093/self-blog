@@ -6,7 +6,7 @@ interface ProfileImageProps {
   imageUrl: string;
 }
 
-const ProfileImage: React.FC<ProfileImageProps> = ({ imageUrl }) => {
+const ProfileImage: React.FC<ProfileImageProps> = React.memo(({ imageUrl }) => {
   return (
     <div className="relative flex items-center justify-center">
       <motion.div
@@ -22,6 +22,6 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ imageUrl }) => {
       </motion.div>
     </div>
   );
-};
+});
 
 export default ProfileImage;

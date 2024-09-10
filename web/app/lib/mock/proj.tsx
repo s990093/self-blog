@@ -4,6 +4,7 @@ export const selfprojects: Project[] = [
   {
     name: "Personal Blog",
     projTypes: [ProjType.Web],
+    githubUrl: "https://github.com/s990093/self-blog",
     shortDescription:
       "A personal blog developed using Next.js, Django, Docker, and Nginx.",
     projectImages: ["/test/self/proj/personal-blog.png"],
@@ -37,6 +38,7 @@ export const selfprojects: Project[] = [
   {
     name: "Student Task Manager",
     projTypes: [ProjType.Web],
+    githubUrl: "https://github.com/s990093/todolist",
     shortDescription:
       "A to-do list application specifically designed for students. It uses AI to automatically classify tasks based on their content using BERT technology, and is built with Django and Next.js for a modern, full-stack approach.",
     projectImages: ["/test/self/proj/todolist.png"],
@@ -60,6 +62,7 @@ export const selfprojects: Project[] = [
     name: "Tea Leaf Water Conservation System",
     projTypes: [ProjType.System],
     projectImages: ["/test/self/proj/tea-water-con.png"], // Replace with actual image paths
+    githubUrl: "https://github.com/s990093/MAKERTHON-2023",
     shortDescription:
       "A system designed to optimize water usage in tea leaf cultivation by monitoring and controlling irrigation efficiently.",
     technologiesUsed: [
@@ -85,6 +88,7 @@ export const selfprojects: Project[] = [
   {
     name: "Wind Power Educational Kit",
     projTypes: [ProjType.System],
+    githubUrl: "https://github.com/s990093/MAKERTHON_2024",
     projectImages: ["/test/self/proj/wind-power-edu.png"], // Replace with actual image paths
     shortDescription:
       "An educational kit for teaching wind power concepts. It includes interactive components for demonstrating wind energy principles.",
@@ -161,6 +165,7 @@ export const selfprojects: Project[] = [
   },
   {
     name: "Campus Irrigation System",
+    githubUrl: "https://github.com/s990093/MAKERTHON-2023",
     projTypes: [ProjType.Web, ProjType.Embedded],
     projectImages: ["/test/self/proj/irrigation-sys.png"],
     shortDescription:
@@ -297,7 +302,7 @@ export const selfprojects: Project[] = [
   {
     name: "Item Donation Website",
     projTypes: [ProjType.Web],
-
+    githubUrl: "https://github.com/s990093/ItemDonation",
     projectImages: ["/test/self/proj/ItemDonation.png"],
     shortDescription:
       "A self-made website that allows users to donate items easily. The platform connects donors with those in need, providing a streamlined and user-friendly experience.",

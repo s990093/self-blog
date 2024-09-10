@@ -44,7 +44,6 @@ const TagName: React.FC<TagNameProps> = ({
         style={{
           transform: `rotate(${angle}deg)`, // Apply rotation based on angle prop
         }}
-        init
       >
         {name}
       </h1>

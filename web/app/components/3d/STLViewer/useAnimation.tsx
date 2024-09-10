@@ -8,61 +8,60 @@ import { AnimationConfig } from "./helper";
 export const useAnimation = (
   modelRef: React.RefObject<THREE.Group>,
   config: AnimationConfig
-): Promise<void> => {
+) => {
   const clockRef = useRef(new THREE.Clock());
   const rotationCount = useRef(0);
-  return new Promise((resolve) => {
-    useEffect(() => {
-      if (!modelRef.current) return; // Make sure the group is available
-      const {
-        type,
-        axis = "y",
-        speed = 0.01,
-        delayMs = 0,
-        repeatTimes = 1,
-        scaleFactor = 1.05,
-      } = config;
 
-      const animate = () => {
-        const deltaTime = clockRef.current.getDelta();
-        const group = modelRef.current!; // Access the group object
+  useEffect(() => {
+    if (!modelRef.current) return; // Make sure the group is available
+    const {
+      type,
+      axis = "y",
+      speed = 0.01,
+      delayMs = 0,
+      repeatTimes = 1,
+      scaleFactor = 1.05,
+    } = config;
 
-        switch (type) {
-          case "rotation":
-            if (axis === "x") group.rotation.x += speed * deltaTime;
-            else if (axis === "y") group.rotation.y += speed * deltaTime;
-            else if (axis === "z") group.rotation.z += speed * deltaTime;
+    const animate = () => {
+      const deltaTime = clockRef.current.getDelta();
+      const group = modelRef.current!; // Access the group object
 
-            // Reset after a full rotation
-            if (group.rotation[axis] >= Math.PI * 2) {
-              group.rotation[axis] = 0;
-              rotationCount.current += 1;
+      switch (type) {
+        case "rotation":
+          if (axis === "x") group.rotation.x += speed * deltaTime;
+          else if (axis === "y") group.rotation.y += speed * deltaTime;
+          else if (axis === "z") group.rotation.z += speed * deltaTime;
 
-              if (rotationCount.current >= repeatTimes) return; // Stop after repeats
-            }
-            break;
+          // Reset after a full rotation
+          if (group.rotation[axis] >= Math.PI * 2) {
+            group.rotation[axis] = 0;
+            rotationCount.current += 1;
 
-          case "scaling":
-            group.scale.set(
-              group.scale.x * scaleFactor,
-              group.scale.y * scaleFactor,
-              group.scale.z * scaleFactor
-            );
-            break;
+            if (rotationCount.current >= repeatTimes) return; // Stop after repeats
+          }
+          break;
 
-          // Add more animations here if needed
-        }
+        case "scaling":
+          group.scale.set(
+            group.scale.x * scaleFactor,
+            group.scale.y * scaleFactor,
+            group.scale.z * scaleFactor
+          );
+          break;
 
-        requestAnimationFrame(animate);
-      };
+        // Add more animations here if needed
+      }
 
-      const timeout = setTimeout(() => {
-        animate();
-      }, delayMs);
+      requestAnimationFrame(animate);
+    };
 
-      return () => {
-        clearTimeout(timeout); // Clean up the timeout
-      };
-    }, [modelRef, config]);
-  });
+    const timeout = setTimeout(() => {
+      animate();
+    }, delayMs);
+
+    return () => {
+      clearTimeout(timeout); // Clean up the timeout
+    };
+  }, [modelRef, config]);
 };

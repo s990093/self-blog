@@ -1,7 +1,7 @@
 import { Hobby } from "../interface/base";
 import React from "react";
 import Image from "next/image";
-import { TypingEffect } from "./Animation";
+import { TiltWrapper, TypingEffect } from "./Animation";
 
 interface HobbiesProps {
   hobbies: Hobby[];
@@ -28,22 +28,24 @@ const HobbyCard: React.FC<HobbyProps> = ({ hobby }) => {
     </div>
   );
 };
-const HobbyList: React.FC<HobbiesProps> = ({ hobbies }) => {
+const HobbyList: React.FC<HobbiesProps> = React.memo(({ hobbies }) => {
   return (
     <div className="">
       <div className="mb-4">
         <TypingEffect
-          sequence={["My Hobbies", 2000, "My sInterests", 2000]}
+          sequence={["My Hobbies", 2000, "My Interests", 2000]}
           fontSize={50}
         />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {hobbies.map((hobby, idx) => (
-          <HobbyCard key={idx} hobby={hobby} />
+          <TiltWrapper>
+            <HobbyCard key={idx} hobby={hobby} />
+          </TiltWrapper>
         ))}
       </div>
     </div>
   );
-};
+});
 
 export default HobbyList;

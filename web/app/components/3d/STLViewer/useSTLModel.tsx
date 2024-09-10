@@ -63,6 +63,7 @@ export const useSTLModel = ({
       scene.add(light);
 
       const loader = new STLLoader();
+
       loader.load(stlPath, (geometry) => {
         const material = new THREE.MeshPhongMaterial({
           color: new THREE.Color(getMedalColor(medalType)),

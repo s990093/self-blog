@@ -4,5 +4,5 @@ export { default as RotatingWrapper } from './RotatingWrapper';
 
 
 
-// 
+// effects
 export { default as TiltWrapper } from './TiltWrapper';
