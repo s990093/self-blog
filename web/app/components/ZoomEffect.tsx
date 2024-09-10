@@ -16,7 +16,7 @@ const ZoomEffect: React.FC<ZoomEffectProps> = ({
       <motion.div
         initial={{ scale: 1, rotate: 0, y: 0 }}
         animate={{
-          scale: [1, 2, 0.1], // Scale down to 0.1
+          scale: [1, 2.4, 0.1], // Scale down to 0.1
           rotate: [0, 720], // Rotate continuously
         }}
         transition={{

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-import { mockProfile } from "./lib/mock/mock";
+import { mockProfile } from "./lib/mock/mockProfile";
 
 // component
 import SkillSection from "./components/Skill/SkillSection";
@@ -14,39 +14,53 @@ import ProfileImage from "./components/ProfileImage";
 import ZoomEffect from "./components/ZoomEffect";
 import { SeparatorIsland, useIntersectionObserver } from "./components/common";
 
-import { OPENING_EFFECTS } from "./lib/utils";
 import ProjectsList from "./components/project/ProjectsList";
-import BaseLoad from "./context/BaseLoad";
 import ResourceLoader from "./context/ResourceLoader";
 
-// export default function PreLoadHomePage() {
-//   return (
-//     <>
-//       <ResourceLoader resourceUrls={[]}>
-//         <Home />
-//       </ResourceLoader>
-//     </>
-//   );
-// }
-export default function Home() {
-  // console.log(OPENING_EFFECTS);
-  const [showZoom, setShowZoom] = useState(OPENING_EFFECTS); // 控制是否显示放大效果
-  // 設定要監視的區塊
+export default function PreLoadHomePage() {
+  const stickersUrls = "/test/self/self.png";
+  const linksImages = mockProfile.aboutMe.skill.map(
+    (skill) => `/test/technology/color/${skill.icon}`
+  );
+  const stl = "/3d/Medal.STL";
+
+  const projectImages = mockProfile.aboutMe.projects.map(
+    (proj) => proj.projectImages[0]
+  );
+
+  // 將所有 URL 合併成一個 array
+  const allUrls = [
+    stickersUrls, // 單一圖片 URL
+    ...linksImages, // 展開 linksImages 中的所有元素
+    stl, // 單一 STL 文件 URL
+    ...projectImages, // 展開 projectImages 中的所有元素
+  ];
+
+  return (
+    <>
+      <ResourceLoader resourceUrls={allUrls}>
+        <Home />
+      </ResourceLoader>
+    </>
+  );
+}
+function Home() {
+  const [showZoom, setShowZoom] = useState(true);
   const { ref: aboutMeRef, isVisible: isAboutMeVisible } =
     useIntersectionObserver({
       root: null,
-      threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
+      threshold: 0.1,
     });
   const { ref: competitionListRef, isVisible: isCompetitionListVisible } =
     useIntersectionObserver({
       root: null,
-      threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
+      threshold: 0.1,
     });
 
   const { ref: hobbyListRef, isVisible: isHobbyListVisible } =
     useIntersectionObserver({
       root: null,
-      threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
+      threshold: 0.1,
     });
 
   const aboutMeStatus = isAboutMeVisible ? Date.now() : "";
@@ -61,11 +75,28 @@ export default function Home() {
     <>
       <div className="min-h-screen text-babyBlue p-10">
         {showZoom && (
-          <ZoomEffect
-            imageUrl={mockProfile.aboutMe.stickersUrls[0]}
-            onAnimationComplete={handleZoomComplete}
-          />
+          <div
+            style={{
+              position: "absolute",
+              top: "0%",
+              right: "0%",
+              width: "100%",
+            }}
+          >
+            <ZoomEffect
+              imageUrl={mockProfile.aboutMe.stickersUrls[0]}
+              onAnimationComplete={handleZoomComplete}
+            />
+          </div>
         )}
+        <div
+          style={{
+            position: "absolute",
+            top: "0%",
+            right: "0%",
+            width: "100%",
+          }}
+        ></div>
 
         <div className="max-w-4xl mx-auto">
           {/* type */}
@@ -90,7 +121,7 @@ export default function Home() {
               </h2>
               {/* ProfileImage */}
 
-              {isAboutMeVisible && (
+              {isAboutMeVisible && !showZoom && (
                 <ProfileImage
                   key={aboutMeStatus}
                   imageUrl={mockProfile.aboutMe.stickersUrls[0]}
@@ -98,7 +129,6 @@ export default function Home() {
               )}
 
               {/* summary */}
-
               <div className="flex flex-col  space-y-4">
                 {isAboutMeVisible && (
                   <SlideEffect
