@@ -99,7 +99,9 @@ const ProjectCard: React.FC<CardProps> = React.memo(({ project }) => {
                         }`}
                       >
                         <LazyLoadImage
-                          src={`/test/technology/color/${tech.icon}.png`} // Adjust path as needed
+                          src={getStaticUrl(
+                            `test/technology/color/${tech.icon}.png`
+                          )} // Adjust path as needed
                           alt={`${tech.name} icon`}
                           className="w-5 h-5"
                         />
