@@ -13,7 +13,7 @@ export const competitions: Competition[] = [
   {
     name: "技職盃黑客松競賽南區",
     shortDescription: "佳作",
-    startDate: new Date("2024-05-01"),
+    startDate: new Date("2024-04-01"),
     endDate: new Date("2024-05-02"),
     techno: "黑客松",
     location: "南區",
@@ -23,7 +23,7 @@ export const competitions: Competition[] = [
   {
     name: "校內賽客松",
     shortDescription: "亞軍",
-    startDate: new Date("2024-04-15"),
+    startDate: new Date("2023-11-20"),
     endDate: new Date("2024-04-16"),
     location: "校內",
     participants: ["參賽者G", "參賽者H", "參賽者I"],
@@ -32,7 +32,7 @@ export const competitions: Competition[] = [
   {
     name: "系上黑客松",
     shortDescription: "第一次冠軍",
-    startDate: new Date("2023-11-10"),
+    startDate: new Date("2023-12-01"),
     endDate: new Date("2023-11-11"),
     location: "系內",
     participants: ["參賽者J", "參賽者K", "參賽者L"],
@@ -41,7 +41,7 @@ export const competitions: Competition[] = [
   {
     name: "系上黑客松",
     shortDescription: "第二次冠軍",
-    startDate: new Date("2024-04-10"),
+    startDate: new Date("2024-03-05"),
     endDate: new Date("2024-04-11"),
     location: "系內",
     participants: ["參賽者M", "參賽者N", "參賽者O"],

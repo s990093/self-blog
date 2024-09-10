@@ -10,6 +10,7 @@ interface FogComponentProps {
 class FogComponent extends Component<FogComponentProps> {
   private vantaRef = React.createRef<HTMLDivElement>();
   private vantaEffect?: any;
+  private scrollHandler?: () => void;
 
   componentDidMount() {
     this.vantaEffect = FOG({
@@ -28,15 +29,36 @@ class FogComponent extends Component<FogComponentProps> {
       speed: 2.1,
       zoom: 0.8,
     });
+
+    // Set up scroll event listener
+    this.scrollHandler = () => {
+      if (this.vantaRef.current) {
+        const scrollPosition = window.scrollY;
+        this.vantaRef.current.style.transform = `translateY(${
+          scrollPosition * 0.5
+        }px)`;
+      }
+    };
+    window.addEventListener("scroll", this.scrollHandler);
   }
 
   componentWillUnmount() {
     if (this.vantaEffect) this.vantaEffect.destroy();
+    if (this.scrollHandler)
+      window.removeEventListener("scroll", this.scrollHandler);
   }
 
   render() {
     return (
-      <div style={{ height: "100%", width: "100%" }} ref={this.vantaRef}>
+      <div
+        ref={this.vantaRef}
+        style={{
+          width: "100%",
+          height: "100%",
+
+          zIndex: -1,
+        }}
+      >
         {this.props.children}
       </div>
     );
