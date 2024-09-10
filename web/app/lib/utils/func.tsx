@@ -1,3 +1,4 @@
+"use client";
 export const generateRandomPosition = () => {
   const angle = Math.random() * 360;
   const radius = 200; // Adjust the radius as needed
@@ -8,8 +9,13 @@ export const generateRandomPosition = () => {
   return { x, y };
 };
 
+// utils/getDeviceType.ts
 export const getDeviceType = (): number => {
-  // 使用視口寬度來判斷裝置類型
+  if (typeof window === "undefined") {
+    // 伺服器端渲染期間，返回默認值
+    return 3; // 默認為桌面
+  }
+
   const width = window.innerWidth;
 
   if (width <= 767) {
