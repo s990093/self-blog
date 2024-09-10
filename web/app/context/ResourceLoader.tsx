@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect, ReactNode } from "react";
-import { useSpring, animated } from "@react-spring/web"; // 导入 react-spring/web
-import { Tilt } from "react-tilt";
+import { useSpring } from "@react-spring/web"; // 导入 react-spring/web
 import { TypingEffect } from "../components/Animation";
 
 interface ResourceLoaderProps {
@@ -55,7 +54,7 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
       ) : (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500">
           <TypingEffect
-            sequence={["Loading", 2000, "Hello World !", 1000]}
+            sequence={["Loading", 1000, "Hello World !", 1000]}
             fontSize={100}
           />
         </div>
