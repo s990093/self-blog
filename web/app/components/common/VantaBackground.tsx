@@ -49,19 +49,7 @@ class FogComponent extends Component<FogComponentProps> {
   }
 
   render() {
-    return (
-      <div
-        ref={this.vantaRef}
-        style={{
-          width: "100%",
-          height: "200%",
-
-          zIndex: -1,
-        }}
-      >
-        {this.props.children}
-      </div>
-    );
+    return <div ref={this.vantaRef}>{this.props.children}</div>;
   }
 }
 
