@@ -16,6 +16,7 @@ import { SeparatorIsland, useIntersectionObserver } from "./components/common";
 
 import ProjectsList from "./components/project/ProjectsList";
 import ResourceLoader from "./context/ResourceLoader";
+import VantaBackground from "./components/common/VantaBackground";
 
 export default function PreLoadHomePage() {
   const BaseUrl = "https://lai.iside.space/static/";
@@ -40,7 +41,9 @@ export default function PreLoadHomePage() {
   return (
     <>
       <ResourceLoader resourceUrls={allUrls}>
-        <Home />
+        <VantaBackground>
+          <Home />
+        </VantaBackground>
       </ResourceLoader>
     </>
   );

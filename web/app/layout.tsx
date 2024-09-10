@@ -63,12 +63,10 @@ export default function RootLayout({
           ]}
         />
         <AppProvider>
-          <VantaBackground>
-            <div className="relative min-h-screen font-mono">
-              {children}
-              <VersionDisplay />
-            </div>
-          </VantaBackground>
+          <div className="relative min-h-screen font-mono">
+            {children}
+            <VersionDisplay />
+          </div>
         </AppProvider>
       </body>
     </html>
