@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <AnimatedCursor
+        <AnimatedCursor
           innerSize={8}
           outerSize={8}
           color="193, 11, 111"
@@ -61,14 +61,12 @@ export default function RootLayout({
               target: ".custom",
             },
           ]}
-        /> */}
+        />
         <AppProvider>
           <VantaBackground>
-            <div className="custom-cursor">
-              <div className="relative min-h-screen font-mono">
-                {children}
-                <VersionDisplay />
-              </div>
+            <div className="relative min-h-screen font-mono">
+              {children}
+              <VersionDisplay />
             </div>
           </VantaBackground>
         </AppProvider>
