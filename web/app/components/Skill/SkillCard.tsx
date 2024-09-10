@@ -6,6 +6,7 @@ import { SlideEffect } from "../Animation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 import { generateRandomPosition } from "@/app/lib/utils/func";
+import { getStaticUrl } from "@/app/cfg/constants";
 
 interface CardProps {
   technology: Technology;
@@ -31,7 +32,7 @@ const SkillCard: React.FC<CardProps> = React.memo(({ technology }) => {
       >
         {/* TODO: change img src */}
         <LazyLoadImage
-          src={`/test/technology/color/${technology.icon}`}
+          src={getStaticUrl(`test/technology/color/${technology.icon}`)}
           alt={technology.name}
           className="inline-block w-6 h-6 mr-2 align-middle rounded-full"
         />

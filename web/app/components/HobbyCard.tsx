@@ -2,6 +2,7 @@ import { Hobby } from "../interface/base";
 import React from "react";
 import Image from "next/image";
 import { TiltWrapper, TypingEffect } from "./Animation";
+import { getStaticUrl } from "../cfg/constants";
 
 interface HobbiesProps {
   hobbies: Hobby[];
@@ -12,11 +13,12 @@ interface HobbyProps {
 }
 
 const HobbyCard: React.FC<HobbyProps> = ({ hobby }) => {
+  console.log(getStaticUrl(`test/self/hobbies/${hobby.imageUrl}.png`));
   return (
     <div className="bg-[#03394a] text-[#cdeef3] shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
       <div className="relative w-full h-48 mb-4">
         <Image
-          src={`/test/self/hobbies/${hobby.imageUrl}.png`}
+          src={getStaticUrl(`test/self/hobbies/${hobby.imageUrl}.png`)}
           alt={hobby.name}
           layout="fill"
           objectFit="cover"

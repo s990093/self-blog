@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 
 import { mockProfile } from "./lib/mock/mockProfile";
+import Image from "next/image"; // Import the correct Image component
+import Link from "next/link";
 
 // component
 import SkillSection from "./components/Skill/SkillSection";
@@ -17,17 +19,19 @@ import { SeparatorIsland, useIntersectionObserver } from "./components/common";
 import ProjectsList from "./components/project/ProjectsList";
 import ResourceLoader from "./context/ResourceLoader";
 import VantaBackground from "./components/common/VantaBackground";
+import { getStaticUrl } from "./cfg/constants";
+import MovieLinker from "./components/common/MovieLinker";
 
 export default function PreLoadHomePage() {
-  const BaseUrl = "https://lai.iside.space/static/";
-  const stickersUrls = "/test/self/self.png";
-  const linksImages = mockProfile.aboutMe.skill.map(
-    (skill) => `/test/technology/color/${skill.icon}`
+  const stickersUrls = getStaticUrl("test/self/self.png");
+  // const stickersUrls = "/test/self/self.png";
+  const linksImages = mockProfile.aboutMe.skill.map((skill) =>
+    getStaticUrl(`test/technology/color/${skill.icon}`)
   );
-  const stl = "/3d/Medal.STL";
+  const stl = getStaticUrl("3d/Medal.STL");
 
-  const projectImages = mockProfile.aboutMe.projects.map(
-    (proj) => proj.projectImages[0]
+  const projectImages = mockProfile.aboutMe.projects.map((proj) =>
+    getStaticUrl(proj.projectImages[0])
   );
 
   // 將所有 URL 合併成一個 array
@@ -88,7 +92,7 @@ function Home() {
             }}
           >
             <ZoomEffect
-              imageUrl={mockProfile.aboutMe.stickersUrls[0]}
+              imageUrl={getStaticUrl(mockProfile.aboutMe.stickersUrls[0])}
               onAnimationComplete={handleZoomComplete}
             />
           </div>
@@ -110,7 +114,7 @@ function Home() {
               fontSize={50}
             />
           </h1>
-          <div className=" bg-blueGrotto bg-opacity-80 p-6 rounded-lg shadow-lg">
+          <div className=" bg-blueGrotto bg-opacity-65 p-6 rounded-lg shadow-lg">
             {/* block -1 aboutme */}
             <div ref={aboutMeRef}>
               <h2 className="text-3xl font-semibold mb-4">
@@ -128,7 +132,7 @@ function Home() {
               {isAboutMeVisible && !showZoom && (
                 <ProfileImage
                   key={aboutMeStatus}
-                  imageUrl={mockProfile.aboutMe.stickersUrls[0]}
+                  imageUrl={getStaticUrl(mockProfile.aboutMe.stickersUrls[0])}
                 />
               )}
 
@@ -159,7 +163,7 @@ function Home() {
                 {isAboutMeVisible && (
                   <LazyLoadImage
                     key={`${aboutMeStatus}-image`}
-                    src="/test/self/college.png"
+                    src={getStaticUrl("test/self/college.png")}
                     alt="College"
                     width={24} // Adjust the width and height as needed
                     height={24}
@@ -176,7 +180,7 @@ function Home() {
 
               <div className="flex items-center mt-3">
                 <LazyLoadImage
-                  src="/test/self/major.png"
+                  src={getStaticUrl("test/self/major.png")}
                   alt="College"
                   width={24} // Adjust the width and height as needed
                   height={24}
@@ -220,6 +224,10 @@ function Home() {
 
             {/* hobby */}
             <HobbyList hobbies={mockProfile.aboutMe.hobbies} />
+
+            {/* link */}
+            {isHobbyListVisible && <MovieLinker />}
+
             {/* PersonalLinkCards */}
             <div ref={hobbyListRef}>
               {isHobbyListVisible && (

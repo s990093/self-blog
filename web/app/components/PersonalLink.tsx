@@ -7,6 +7,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 import { TagName } from "./common";
 import Link from "next/link";
+import { getStaticUrl } from "../cfg/constants";
 
 interface PersonalLinkProps {
   link: PersonalLink;
@@ -53,7 +54,7 @@ const PersonalLinkList: React.FC<PersonalLinkCardsProps> = React.memo(
           transition={{ duration: 1 }} // Adjust the duration as needed
         >
           <LazyLoadImage
-            src="/test/self/person-link.png"
+            src={getStaticUrl("test/self/person-link.png")}
             alt="Personal Links Background"
             className="w-full h-full object-cover"
           />

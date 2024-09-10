@@ -52,11 +52,18 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
       {resourcesLoaded ? (
         <>{children}</>
       ) : (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500">
-          <TypingEffect
-            sequence={["Loading", 1000, "Hello World !", 1000]}
-            fontSize={100}
-          />
+        <div className="flex items-center justify-center bg-gradient-to-r from-blue-400 to-purple-500 py-6  min-h-screen">
+          <div className="grid rid-cols-1 gap-4">
+            <TypingEffect
+              sequence={["Loading", 600, "Hello World !", 1000]}
+              fontSize={100}
+            />
+            <div className="flex items-center justify-center">
+              <div className="border border-gray-300 p-4 rounded-lg shadow-lg mt-[30px]">
+                <div className="text-lg  font-mono">For NTU GDSC</div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </>

@@ -12,6 +12,7 @@ import { SeparatorIsland, useIntersectionObserver } from "../common";
 import { SlideEffect } from "../Animation";
 import Link from "next/link";
 import ClickableIcon from "../common/ClickableIcon";
+import { getStaticUrl } from "@/app/cfg/constants";
 
 interface CardProps {
   project: Project;
@@ -47,7 +48,7 @@ const ProjectCard: React.FC<CardProps> = React.memo(({ project }) => {
               {isProjVisible && (
                 <LazyLoadImage
                   key={String(isProjVisible)}
-                  src={project.projectImages[0]}
+                  src={getStaticUrl(project.projectImages[0])}
                   alt={`${project.name} screenshot 1`}
                   className="w-full h-full object-cover rounded-t-[20px] transition-transform duration-500 ease-in-out transform hover:scale-105"
                 />
