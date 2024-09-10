@@ -1,6 +1,7 @@
 import { Hobby } from "../interface/base";
 import React from "react";
 import Image from "next/image";
+import { TypingEffect } from "./Animation";
 
 interface HobbiesProps {
   hobbies: Hobby[];
@@ -29,10 +30,18 @@ const HobbyCard: React.FC<HobbyProps> = ({ hobby }) => {
 };
 const HobbyList: React.FC<HobbiesProps> = ({ hobbies }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {hobbies.map((hobby, idx) => (
-        <HobbyCard key={idx} hobby={hobby} />
-      ))}
+    <div className="">
+      <div className="mb-4">
+        <TypingEffect
+          sequence={["My Hobbies", 2000, "My sInterests", 2000]}
+          fontSize={50}
+        />
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {hobbies.map((hobby, idx) => (
+          <HobbyCard key={idx} hobby={hobby} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -31,11 +31,11 @@ export default function Home() {
       root: null,
       threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
     });
-  const { ref: competitionListRef, isVisible: isCompetitionListVisible } =
-    useIntersectionObserver({
-      root: null,
-      threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
-    });
+  // const { ref: competitionListRef, isVisible: isCompetitionListVisible } =
+  //   useIntersectionObserver({
+  //     root: null,
+  //     threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
+  //   });
 
   const { ref: hobbyListRef, isVisible: isHobbyListVisible } =
     useIntersectionObserver({
@@ -44,7 +44,7 @@ export default function Home() {
     });
 
   const aboutMeStatus = isAboutMeVisible ? Date.now() : "";
-  const competitionListStatus = isCompetitionListVisible ? Date.now() : "";
+  // const competitionListStatus = isCompetitionListVisible ? Date.now() : "";
   const hobbyListStatus = isHobbyListVisible ? Date.now() : "";
 
   const handleZoomComplete = () => {
@@ -195,10 +195,7 @@ export default function Home() {
               />
             )}
           </div> */}
-          <CompetitionList
-            key={String(competitionListStatus)}
-            competitions={mockProfile.aboutMe.competition}
-          />
+          <CompetitionList competitions={mockProfile.aboutMe.competition} />
           {/* hobby */}
           <HobbyList hobbies={mockProfile.aboutMe.hobbies} />
 
