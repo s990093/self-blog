@@ -1776,6 +1776,11 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@ramonak/react-progress-bar@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@ramonak/react-progress-bar/-/react-progress-bar-5.2.0.tgz#30d72850b0f2f5020d59d5bcc94d54f8f2393aec"
+  integrity sha512-hgsn1YSXzDplCVNJ/YiCM0nVbVHKu7+2OHlj3kr2wU9ELPa9A/qj+c+GKGKqzJullsofRJV5yMN/Y/jL9aE4/Q==
+
 "@react-spring/animated@~9.6.1":
   version "9.6.1"
   resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.6.1.tgz#ccc626d847cbe346f5f8815d0928183c647eb425"

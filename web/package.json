@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/fira-code": "^5.0.20",
+    "@ramonak/react-progress-bar": "^5.2.0",
     "@react-spring/web": "^9.7.4",
     "@react-three/drei": "^9.112.0",
     "@react-three/fiber": "^8.17.7",
