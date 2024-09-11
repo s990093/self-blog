@@ -48,7 +48,7 @@ export default function PreLoadHomePage() {
     <>
       <ResourceLoader resourceUrls={allUrls}>
         <>
-          {deviceType <= 2 ? ( // 手机和平板使用 FloatingBackground
+          {deviceType <= 2 ? (
             <FloatingBackground>
               <Home />
             </FloatingBackground>
@@ -255,7 +255,7 @@ function Home() {
             <HobbyList hobbies={mockProfile.aboutMe.hobbies} />
 
             {/* link */}
-            {isHobbyListVisible && <MovieLinker />}
+            <MovieLinker />
 
             {/* PersonalLinkCards */}
             <div ref={hobbyListRef}>

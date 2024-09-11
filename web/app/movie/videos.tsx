@@ -2,6 +2,32 @@ import { Video } from "../interface/movie";
 
 export const videos: Video[] = [
   {
+    title: "Love Letter",
+    description: "Love Letter",
+    director: "Shunji Iwai",
+    favorite: true,
+    genre: "Drama/Romance",
+    image: "love_letter.jpg",
+  },
+  {
+    title: "Schindler's List",
+    description:
+      "A historical drama about Oskar Schindler, a German businessman who saved over a thousand Polish Jews during the Holocaust.",
+    director: "Steven Spielberg",
+    genre: "Drama/History",
+    image: "schindlers_list.jpg",
+    favorite: true,
+  },
+  {
+    title: "海角七號", // Title in Chinese
+    description:
+      "A film about a unique, possibly humorous or dramatic story involving a mysterious 'No. 7' dumpling.",
+    director: "Director's Name", // Replace with the actual director's name
+    genre: "Genre", // Replace with the actual genre of the film
+    image: "hai_jiao_7.jpg",
+    favorite: true,
+  },
+  {
     title: "Leon",
     description: "Léon: The Professional",
     director: "Luc Besson",
@@ -22,19 +48,14 @@ export const videos: Video[] = [
     genre: "Drama/Romance",
     image: "marriage_story.jpg",
   },
-  {
-    title: "In the Mood for Love",
-    description: "In the Mood for Love",
-    director: "Wong Kar-wai",
-    genre: "Romance/Drama",
-    image: "in_the_mood_for_love.jpg",
-  },
+
   {
     title: "Decision to Leave",
     description: "Decision to Leave",
     director: "Park Chan-wook",
     genre: "Drama/Romance",
     image: "decision_to_leave.jpg",
+    favorite: true,
   },
   {
     title: "Interstellar",
@@ -78,6 +99,7 @@ export const videos: Video[] = [
     director: "John Carney",
     genre: "Romance/Drama",
     image: "begin_again.jpg",
+    favorite: true,
   },
   {
     title: "Hana and Alice",
@@ -101,14 +123,6 @@ export const videos: Video[] = [
     favorite: true,
     genre: "Drama/Coming-of-Age",
     image: "april_story.jpg",
-  },
-  {
-    title: "Love Letter",
-    description: "Love Letter",
-    director: "Shunji Iwai",
-    favorite: true,
-    genre: "Drama/Romance",
-    image: "love_letter.jpg",
   },
   {
     title: "Spirited Away",
@@ -146,5 +160,13 @@ export const videos: Video[] = [
     director: "Robert Zemeckis",
     genre: "Drama",
     image: "forrest_gump.jpg",
+  },
+  {
+    title: "Top Gun 2",
+    description:
+      "A story of young fighter pilots in a dramatic coming-of-age journey.",
+    director: "Joseph Kosinski",
+    genre: "Action/Drama",
+    image: "top_gun_2.jpg", // Adjusted to use the lowercase title with ".jpg" extension
   },
 ];

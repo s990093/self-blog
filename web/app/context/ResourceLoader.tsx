@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, ReactNode } from "react";
-import { useSpring } from "@react-spring/web"; // 导入 react-spring/web
 import { TypingEffect } from "../components/animation";
 import { getDeviceType } from "../lib/utils/func";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 interface ResourceLoaderProps {
   resourceUrls: string[];
@@ -10,12 +10,28 @@ interface ResourceLoaderProps {
 }
 
 const cachedResources: { [key: string]: any } = {};
+interface ProgressProps {
+  progress: number; // Add the progress prop to the component
+}
+const Progress: React.FC<ProgressProps> = ({ progress }) => {
+  return (
+    <div className="w-[200px] max-w-xs mt-6">
+      <ProgressBar
+        completed={progress}
+        maxCompleted={100}
+        bgColor="#3b82f6"
+        customLabel="@"
+      />
+    </div>
+  );
+};
 
 const ResourceLoader: React.FC<ResourceLoaderProps> = ({
   resourceUrls,
   children,
 }) => {
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const deviceWith = getDeviceType();
   let fontSize;
@@ -35,21 +51,18 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
       break;
   }
 
-  // 定义 spring 动画
-  const fadeInStyle = useSpring({
-    opacity: resourcesLoaded ? 1 : 0, // 根据资源加载状态调整透明度
-    transform: resourcesLoaded ? "translateY(0)" : "translateY(20px)", // 淡入时的位移效果
-    config: { tension: 200, friction: 20 }, // 动画配置，控制弹性和阻力
-  });
-
   useEffect(() => {
     const loadResources = async () => {
       try {
+        let loadedCount = 0;
+        const totalResources = resourceUrls.length;
         const loadPromises = resourceUrls.map(async (url) => {
           if (!cachedResources[url]) {
             const response = await fetch(url);
             if (response.ok) {
               cachedResources[url] = await response.blob();
+              loadedCount++;
+              setProgress(Math.round((loadedCount / totalResources) * 100)); // Round progress
             } else {
               throw new Error(`Failed to load resource: ${url}`);
             }
@@ -69,19 +82,22 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
   return (
     <>
       {resourcesLoaded ? (
-        <>{children}</>
+        children
       ) : (
-        <div className="flex items-center justify-center min-h-screen  bg-gradient-to-r from-blue-400 to-purple-500 py-6 bg-[length:200%_200%]  animate-gradient-move">
-          <div className="grid rid-cols-1 gap-4">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500 py-6 bg-[length:200%_200%] animate-gradient-move">
+          <div className="grid grid-cols-1 gap-4">
             <TypingEffect
               sequence={["Loading", 600, "Hello World !", 1000]}
               fontSize={fontSize}
               singleLine={true}
             />
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center mt-4">
               <div className="border border-gray-300 p-4 rounded-lg shadow-lg mt-[30px]">
-                <div className="text-lg  font-mono">For NTU GDSC</div>
+                <div className="text-lg font-mono">For NTU GDSC</div>
               </div>
+            </div>
+            <div className="flex items-center justify-center mt-4">
+              <Progress progress={progress} />
             </div>
           </div>
         </div>

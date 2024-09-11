@@ -12,7 +12,7 @@ interface TiltWrapperProps {
     "max-glare"?: number;
     perspective?: number;
   };
-  className?: string; // Optional prop for additional custom styles
+  className?: string;
 }
 
 const TiltWrapper: React.FC<TiltWrapperProps> = ({
