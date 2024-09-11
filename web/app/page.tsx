@@ -7,10 +7,10 @@ import Link from "next/link";
 
 // component
 import SkillSection from "./components/Skill/SkillSection";
-import CompetitionList from "./components/Competition/CompetitionList";
+import CompetitionList from "./components/competition/CompetitionList";
 import HobbyList from "./components/HobbyCard";
 import PersonalLinkList from "./components/PersonalLink";
-import { SlideEffect, TypingEffect } from "./components/Animation";
+import { SlideEffect, TypingEffect } from "./components/animation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ProfileImage from "./components/ProfileImage";
 import ZoomEffect from "./components/ZoomEffect";

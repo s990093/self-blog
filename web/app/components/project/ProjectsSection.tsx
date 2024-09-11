@@ -1,6 +1,6 @@
 import { ProjType } from "@/app/interface/base";
 import { motion } from "framer-motion";
-import { TypingEffect } from "../Animation";
+import { TypingEffect } from "../animation";
 import { useMemo } from "react";
 import { generateRandomPosition } from "@/app/lib/utils/func";
 

@@ -7,7 +7,7 @@ import ProjectsSection from "./ProjectsSection";
 import { motion, useAnimation } from "framer-motion";
 import { Tilt } from "react-tilt";
 import { Tooltip, useIntersectionObserver } from "../common";
-import { TiltWrapper } from "../Animation";
+import { TiltWrapper } from "../animation";
 
 interface ProjectsListProps {
   projects: Project[];

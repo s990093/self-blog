@@ -1,7 +1,7 @@
 import { Hobby } from "../interface/base";
 import React from "react";
 import Image from "next/image";
-import { TiltWrapper, TypingEffect } from "./Animation";
+import { TiltWrapper, TypingEffect } from "./animation";
 import { getStaticUrl } from "../cfg/constants";
 
 interface HobbiesProps {

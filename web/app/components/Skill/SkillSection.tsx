@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 // c  const router = useRouter();
 import SkillCard from "./SkillCard";
 import { Technology } from "../../interface/base";
-import { SlideEffect } from "../Animation";
+import { SlideEffect } from "../animation";
 import Link from "next/link";
 import TotalSkills from "./TotalSkills";
 import { useIntersectionObserver } from "../common";

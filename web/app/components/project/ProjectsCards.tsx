@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ReactCardFlip from "react-card-flip";
 import { SeparatorIsland, useIntersectionObserver } from "../common";
-import { SlideEffect } from "../Animation";
+import { SlideEffect } from "../animation";
 import Link from "next/link";
 import ClickableIcon from "../common/ClickableIcon";
 import { getStaticUrl } from "@/app/cfg/constants";

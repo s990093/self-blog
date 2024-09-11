@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, ReactNode } from "react";
 import { useSpring } from "@react-spring/web"; // 导入 react-spring/web
-import { TypingEffect } from "../components/Animation";
+import { TypingEffect } from "../components/animation";
 import { getDeviceType } from "../lib/utils/func";
 
 interface ResourceLoaderProps {

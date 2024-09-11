@@ -2,7 +2,7 @@ import React from "react";
 import { Competition } from "../../interface/base";
 import { Medal } from "../3d";
 import { motion } from "framer-motion";
-import { SlideEffect } from "../Animation";
+import { SlideEffect } from "../animation";
 
 interface CompetitionCardProps {
   competition: Competition;

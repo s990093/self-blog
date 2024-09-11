@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Technology } from "@/app/interface/base";
 import React from "react";
-import { SlideEffect } from "../Animation";
+import { SlideEffect } from "../animation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 import { generateRandomPosition } from "@/app/lib/utils/func";

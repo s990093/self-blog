@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Competition } from "../../interface/base";
-import CompetitionCardtMemo from "./CompetitionCard";
 import TotalSkills from "../Skill/TotalSkills";
-import { TypingEffect } from "../Animation";
+import { TypingEffect } from "../animation";
 import { BLOCKED_PAGES } from "next/dist/shared/lib/constants";
 import CompetitionCard from "./CompetitionCard";
 
