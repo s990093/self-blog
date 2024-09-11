@@ -25,6 +25,8 @@ import MovieLinker from "./components/common/MovieLinker";
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
   // const stickersUrls = "/test/self/self.png";
+
+  console.log(stickersUrls);
   const linksImages = mockProfile.aboutMe.skill.map((skill) =>
     getStaticUrl(`test/technology/color/${skill.icon}`)
   );
@@ -34,13 +36,7 @@ export default function PreLoadHomePage() {
     getStaticUrl(proj.projectImages[0])
   );
 
-  // 將所有 URL 合併成一個 array
-  const allUrls = [
-    stickersUrls, // 單一圖片 URL
-    ...linksImages, // 展開 linksImages 中的所有元素
-    stl, // 單一 STL 文件 URL
-    ...projectImages, // 展開 projectImages 中的所有元素
-  ];
+  const allUrls = [stickersUrls, ...linksImages, stl, ...projectImages];
 
   return (
     <>

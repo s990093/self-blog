@@ -63,9 +63,11 @@ export default function RootLayout({
           ]}
         />
         <AppProvider>
-          <div className="relative min-h-screen font-mono">
-            {children}
-            <VersionDisplay />
+          <div className="custom-cursor">
+            <div className="relative min-h-screen font-mono">
+              {children}
+              <VersionDisplay />
+            </div>
           </div>
         </AppProvider>
       </body>
