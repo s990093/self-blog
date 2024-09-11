@@ -34,7 +34,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       >
         <TypingEffect
           sequence={["Projects", 2000, "Achievements", 2000]}
-          fontSize={50}
+          fontSize={35}
         />
       </motion.h1>
       <motion.div

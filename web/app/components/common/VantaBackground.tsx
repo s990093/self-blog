@@ -2,6 +2,8 @@
 import React, { Component, ReactNode } from "react";
 import FOG from "vanta/dist/vanta.halo.min";
 import * as THREE from "three";
+import { getDeviceType } from "@/app/lib/utils/func";
+import { throttle } from "lodash";
 
 interface FogComponentProps {
   children?: ReactNode;
@@ -19,8 +21,7 @@ class FogComponent extends Component<FogComponentProps> {
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
-      minHeight: 200.0,
-      minWidth: 200.0,
+
       highlightColor: 0xe1ff00,
       midtoneColor: 0xeb3921,
       lowlightColor: 0x272537,

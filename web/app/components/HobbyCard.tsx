@@ -32,21 +32,21 @@ const HobbyCard: React.FC<HobbyProps> = ({ hobby }) => {
 };
 const HobbyList: React.FC<HobbiesProps> = React.memo(({ hobbies }) => {
   return (
-    <div className="">
-      <div className="mb-4">
+    <>
+      <div className="m-4 h-[100px]">
         <TypingEffect
           sequence={["My Hobbies", 2000, "My Interests", 2000]}
           fontSize={50}
         />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {hobbies.map((hobby, idx) => (
           <TiltWrapper>
             <HobbyCard key={idx} hobby={hobby} />
           </TiltWrapper>
         ))}
       </div>
-    </div>
+    </>
   );
 });
 

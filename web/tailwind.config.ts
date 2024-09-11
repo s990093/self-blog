@@ -23,8 +23,8 @@ const config: Config = {
         fadeInLong: 'fadeIn 3s ease-in-out',
         shake: 'shake 0.5s ease-in-out',
         rotate: 'rotate 10s linear infinite',
-        
         gradient: 'gradient 3s ease infinite',
+        'gradient-move': 'gradient 3s ease infinite',
       },
       keyframes: {
         blink: {
@@ -47,6 +47,11 @@ const config: Config = {
           '100%': { transform: 'rotateY(360deg)' },
         },
         gradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        float: {
           '0%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },

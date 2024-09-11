@@ -9,23 +9,22 @@ export const generateRandomPosition = () => {
   return { x, y };
 };
 
-// utils/getDeviceType.ts
 export const getDeviceType = (): number => {
   if (typeof window === "undefined") {
-    // 伺服器端渲染期間，返回默認值
-    return 3; // 默認為桌面
+    // 在非浏览器环境中返回一个默认值
+    return 3; // 默认返回电脑类型
   }
 
-  const width = window.innerWidth;
+  const width = window.innerWidth || 1024; // 提供一个默认宽度
 
   if (width <= 767) {
-    // 手機
+    // 手机
     return 1;
   } else if (width <= 1024) {
     // 平板
     return 2;
   } else {
-    // 電腦
+    // 电脑
     return 3;
   }
 };

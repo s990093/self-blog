@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 
 import { mockProfile } from "./lib/mock/mockProfile";
 import Image from "next/image"; // Import the correct Image component
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 // component
 import SkillSection from "./components/Skill/SkillSection";
@@ -21,6 +22,9 @@ import ResourceLoader from "./context/ResourceLoader";
 import VantaBackground from "./components/common/VantaBackground";
 import { getStaticUrl } from "./cfg/constants";
 import MovieLinker from "./components/common/MovieLinker";
+import FloatingBackground from "./components/common/FloatingBackground";
+import { getDeviceType } from "./lib/utils/func";
+import useDeviceType from "./context/UseDeviceType";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
@@ -38,12 +42,23 @@ export default function PreLoadHomePage() {
 
   const allUrls = [stickersUrls, ...linksImages, stl, ...projectImages];
 
+  const deviceType = useDeviceType();
+
   return (
     <>
       <ResourceLoader resourceUrls={allUrls}>
-        <VantaBackground>
-          <Home />
-        </VantaBackground>
+        <>
+          {deviceType <= 2 ? ( // 手机和平板使用 FloatingBackground
+            <FloatingBackground>
+              <Home />
+            </FloatingBackground>
+          ) : (
+            // 电脑使用 VantaBackground
+            <VantaBackground>
+              <Home />
+            </VantaBackground>
+          )}
+        </>
       </ResourceLoader>
     </>
   );
@@ -74,6 +89,24 @@ function Home() {
   const handleZoomComplete = () => {
     setShowZoom(false); // 放大动画完成后隐藏
   };
+
+  const deviceWith = getDeviceType();
+  let fontSize;
+
+  switch (deviceWith) {
+    case 1:
+      fontSize = 30;
+      break;
+    case 3:
+      fontSize = 30;
+      break;
+    case 2:
+      fontSize = 50;
+      break;
+    default:
+      fontSize = 16;
+      break;
+  }
 
   return (
     <>
@@ -107,7 +140,7 @@ function Home() {
           <h1 className="text-5xl font-bold text-center mb-8">
             <TypingEffect
               sequence={[mockProfile.title, 2000, "Hello World !", 1000]}
-              fontSize={50}
+              fontSize={fontSize}
             />
           </h1>
           <div className=" bg-blueGrotto bg-opacity-65 p-6 rounded-lg shadow-lg">

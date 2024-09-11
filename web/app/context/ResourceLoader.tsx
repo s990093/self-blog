@@ -18,6 +18,22 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
 
   const deviceWith = getDeviceType();
+  let fontSize;
+
+  switch (deviceWith) {
+    case 1:
+      fontSize = 30;
+      break;
+    case 3:
+      fontSize = 30;
+      break;
+    case 2:
+      fontSize = 60;
+      break;
+    default:
+      fontSize = 16;
+      break;
+  }
 
   // 定义 spring 动画
   const fadeInStyle = useSpring({
@@ -55,11 +71,12 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
       {resourcesLoaded ? (
         <>{children}</>
       ) : (
-        <div className="flex items-center justify-center bg-gradient-to-r from-blue-400 to-purple-500 py-6  min-h-screen">
+        <div className="flex items-center justify-center min-h-screen  bg-gradient-to-r from-blue-400 to-purple-500 py-6 bg-[length:200%_200%]  animate-gradient-move">
           <div className="grid rid-cols-1 gap-4">
             <TypingEffect
               sequence={["Loading", 600, "Hello World !", 1000]}
-              fontSize={30 * deviceWith}
+              fontSize={fontSize}
+              singleLine={true}
             />
             <div className="flex items-center justify-center">
               <div className="border border-gray-300 p-4 rounded-lg shadow-lg mt-[30px]">
