@@ -18,7 +18,10 @@ const MovieLinker: React.FC = () => {
   };
 
   return (
-    <button onClick={handle}>
+    <button
+      onClick={handle}
+      className="block w-full p-4 rounded-lg shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 transition-transform transform hover:scale-105 active:scale-95 cursor-pointer"
+    >
       <div className="flex items-center justify-center h-full text-white text-lg font-semibold space-x-2">
         <FaFilm size={24} />
         <animated.span style={props}>Explore Movies</animated.span>
