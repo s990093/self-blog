@@ -71,6 +71,10 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
     } else if (event instanceof WheelEvent) {
       // 處理桌面上的滾輪事件
       deltaY = event.deltaY;
+
+      if (pass == false) {
+        event.preventDefault();
+      }
     }
 
     const isScrollingUp = deltaY < 0;
