@@ -26,7 +26,7 @@ const getUpdatedCards = (
 
 const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
   const { ref: targetRef, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.7,
     triggerOnce: false, // 每次進出都會觸發
   });
 

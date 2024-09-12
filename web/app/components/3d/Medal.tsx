@@ -51,7 +51,6 @@ const Medal: React.FC<MedalProps> = ({
 
   return (
     <BaseMedalViewer
-      key={name}
       xOffset={-55}
       yOffset={-50}
       scale={2.9}

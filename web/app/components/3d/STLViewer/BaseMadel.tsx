@@ -60,7 +60,7 @@ const BaseMedalViewer: React.FC<BaseMadeViewerProps> = ({
   // };
 
   // runAnimations();
-  useAnimation(modelRef, animationConfig); // Run first animation
+  useAnimation(modelRef, animationConfig);
   useOpeningAnimation(modelRef);
 
   useEffect(() => {
