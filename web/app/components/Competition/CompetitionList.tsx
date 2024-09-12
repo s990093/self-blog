@@ -65,12 +65,7 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
       const touch = event.touches[0];
       deltaY = -(lastTouchY - touch.clientY);
       setLastTouchY(touch.clientY);
-
-      if (pass == false) {
-        event.preventDefault();
-      }
     } else if (event instanceof WheelEvent) {
-      // 處理桌面上的滾輪事件
       deltaY = event.deltaY;
     }
 
@@ -81,12 +76,17 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
         setScrollDistance((prevDistance) => {
           const newDistance = prevDistance + deltaY;
           if (Math.abs(newDistance) >= BLOCK_HEIGHT) {
-            setBlockCount((prevCount) => Math.max(prevCount - 1, 0));
-            if (blockCount == MAX_BLOCK_COUNT) {
-              document.body.style.overflow = "";
-              setPass(true);
-            }
-            return 0;
+            setBlockCount((prevCount) => {
+              const newCount = Math.max(prevCount - 1, 0);
+              if (newCount == 0) {
+                document.body.style.overflow = "";
+                setPass(true);
+              }
+              return newCount;
+            });
+          } else {
+            document.body.style.overflow = "hidden";
+            event.preventDefault();
           }
           return newDistance;
         });
@@ -100,7 +100,6 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
             setBlockCount((prevCount) => {
               const newCount = Math.min(prevCount + 1, MAX_BLOCK_COUNT);
               // 當 blockCount 達到
-              // console.log(newCount == MAX_BLOCK_COUNT, newCount);
               if (newCount == MAX_BLOCK_COUNT) {
                 document.body.style.overflow = "";
                 setPass(true);
@@ -108,6 +107,9 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
               return newCount;
             });
             return 0;
+          } else {
+            document.body.style.overflow = "hidden";
+            event.preventDefault();
           }
           return newDistance;
         });
@@ -117,13 +119,12 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
 
   const handleTouchStart = (event: TouchEvent) => {
     const touch = event.touches[0];
-    setLastTouchY(touch.clientY); // 記錄手指的初始位置
+    setLastTouchY(touch.clientY);
   };
 
   useEffect(() => {
     if (inView) {
       // console.log("In view", pass);
-      document.body.style.overflow = "hidden";
 
       setPass(false);
       // 禁用全局滾動

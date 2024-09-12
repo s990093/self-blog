@@ -13,7 +13,7 @@ interface HobbyProps {
 }
 
 const HobbyCard: React.FC<HobbyProps> = ({ hobby }) => {
-  console.log(getStaticUrl(`test/self/hobbies/${hobby.imageUrl}.png`));
+  // console.log(getStaticUrl(`test/self/hobbies/${hobby.imageUrl}.png`));
   return (
     <div className="bg-[#03394a] text-[#cdeef3] shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
       <div className="relative w-full h-48 mb-4">

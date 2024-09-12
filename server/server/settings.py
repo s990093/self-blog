@@ -30,8 +30,8 @@ ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_WHITELIST = [
     "http://127.0.0.1:8000",
     'http://localhost:3000',  
-    'http://0.0.0.0:3000',  # Next.js 開發伺服器
-    'http://49.213.238.75:3000',  # 確保包含協議
+    'http://0.0.0.0:3000', 
+    'http://49.213.238.75:3000',  
     "https://lai.iside.space"
 ]
 CSRF_TRUSTED_ORIGINS = CORS_ORIGIN_WHITELIST

@@ -51,8 +51,10 @@ export interface Project {
   projTypes: ProjType[];
   shortDescription: string; // Short description of the project]
   technologiesUsed: Technology[]; // Array of technologies used in the project
-  githubUrl?: string; //
+  githubUrl?: string;
+  startTime?: Date;
   time: string;
+  inProgress?: boolean;
 }
 
 // Competitions Section

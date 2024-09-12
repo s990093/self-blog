@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { mockProfile } from "./lib/mock/mockProfile";
 
 // component
-import SkillSection from "./components/Skill/SkillSection";
 import CompetitionList from "./components/competition/CompetitionList";
 import HobbyList from "./components/HobbyCard";
 import PersonalLinkList from "./components/PersonalLink";
@@ -225,7 +224,7 @@ function Home() {
             </div>
 
             <div className="mt-3">
-              <SkillSection skills={mockProfile.aboutMe.skill} />
+              {/* <SkillSection skills={mockProfile.aboutMe.skill} /> */}
             </div>
           </div>
           {/* Block - end */}
@@ -235,16 +234,6 @@ function Home() {
           <div className="flex flex-col space-y-4 pt-6">
             {/* proj */}
             <ProjectsList projects={mockProfile.aboutMe.projects} />
-
-            {/* CompetitionList */}
-            {/* <div ref={competitionListRef}>
-              {isCompetitionListVisible && (
-                <CompetitionList
-                  key={competitionListStatus}
-                  competitions={mockProfile.aboutMe.competition}
-                />
-              )}
-            </div> */}
 
             <CompetitionList competitions={mockProfile.aboutMe.competition} />
 

@@ -8,6 +8,8 @@ export const selfprojects: Project[] = [
     shortDescription:
       "A personal blog developed using Next.js, Django, Docker, and Nginx.",
     projectImages: ["/test/self/proj/personal-blog.png"],
+    startTime: new Date("2024-09-07"),
+    inProgress: true,
     technologiesUsed: [
       {
         name: "Next.js",
@@ -287,6 +289,7 @@ export const selfprojects: Project[] = [
     projectImages: ["/test/self/proj/Smart-home-holtek19.png"],
     shortDescription:
       "A cutting-edge AIoT home automation system developed, leveraging new chip technology to control various home devices seamlessly.",
+    inProgress: true,
     technologiesUsed: [
       {
         name: "C++",

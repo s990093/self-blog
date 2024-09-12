@@ -29,6 +29,7 @@ const config: Config = {
         gradient: 'gradient 3s ease infinite',
         'gradient-move': 'gradient 3s ease infinite',
         slideInOut: 'slideInOut 1s ease-out forwards',
+        hammer: 'hammer 0.5s ease-in-out infinite',
       },
       keyframes: {
         blink: {
@@ -74,6 +75,12 @@ const config: Config = {
             transform: 'translateX(300%)',
           },
         },
+        hammer: {
+          '0%': { transform: 'rotate(0deg)' },
+          '50%': { transform: 'rotate(-30deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
+      
       },
     },
   },

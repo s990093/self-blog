@@ -13,6 +13,7 @@ import { SlideEffect } from "../animation";
 import Link from "next/link";
 import ClickableIcon from "../common/ClickableIcon";
 import { getStaticUrl } from "@/app/cfg/constants";
+import { FaHammer } from "react-icons/fa";
 
 interface CardProps {
   project: Project;
@@ -26,6 +27,8 @@ const ProjectCard: React.FC<CardProps> = React.memo(({ project }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
+  let isthreeMonthsAgo = false;
+
   useEffect(() => {
     // Trigger animation on component mount
     setIsVisible(true);
@@ -34,29 +37,63 @@ const ProjectCard: React.FC<CardProps> = React.memo(({ project }) => {
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
   };
+
+  if (project.startTime) {
+    const startTime = new Date(project.startTime); // 假设 startTime 是一个日期字符串
+    const now = new Date();
+
+    // 计算3个月前的日期
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(now.getMonth() - 3);
+
+    // 判断 startTime 是否在三个月内
+    if (startTime >= threeMonthsAgo && startTime <= now) {
+      isthreeMonthsAgo = true;
+    }
+  }
   return (
     <div ref={projRef}>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         {/* Front side */}
 
         <div
-          className="rounded-lg shadow-lg max-w-sm mx-auto rounded-[20px] max-w-[500px] h-[350px]"
+          className="relative mx-auto rounded-[20px]  overflow-hidden"
           onClick={handleFlip} // Optional: flip on click
         >
+          {isthreeMonthsAgo && (
+            <div className="absolute top-5 left-5 z-10 w-[100px] h-[20px] flex items-center justify-center bg-red-600 text-white text-xs font-bold uppercase px-2 py-1 transform rotate-[-45deg] -translate-x-1/2 -translate-y-1/2">
+              <div>
+                <span
+                  className="font-mono"
+                  style={{ transform: "rotate(45deg)" }}
+                >
+                  New
+                </span>
+              </div>
+            </div>
+          )}
+          {project.inProgress && (
+            <div className="absolute bottom-5 left-10 z-10  flex items-center justify-center text-white text-xs font-bold uppercase px-2 py-1 transform  -translate-x-1/2 -translate-y-1/2">
+              <div className="flex items-center space-x-2">
+                <FaHammer className="text-2xl animate-hammer" />
+              </div>
+            </div>
+          )}
           <div className="relative">
-            <div className="overflow-hidden rounded-t-[20px] relative max-w-[500px] max-h-[300px]">
+            <div className="overflow-hidden rounded-[20px] relative bg-black w-full h-[300px]">
               {isProjVisible && (
                 <LazyLoadImage
                   key={String(isProjVisible)}
                   src={getStaticUrl(project.projectImages[0])}
                   alt={`${project.name} screenshot 1`}
-                  className="w-full h-full object-cover rounded-t-[20px] transition-transform duration-500 ease-in-out transform hover:scale-105"
+                  className="w-full h-full object-contain rounded-t-[20px] transition-transform duration-500 ease-in-out transform hover:scale-105"
                 />
               )}
             </div>
           </div>
+
           <div className="mt-4 text-center px-4">
-            <h2 className="text-base font-semibold text-white">
+            <h2 className="text-base absolute top-[100px] left-1/2 transform -translate-x-1/2 font-semibold text-white">
               {project.name}
             </h2>
             <div className="absolute top-[20px] right-[30px]">
