@@ -15,6 +15,9 @@ const config: Config = {
         blueGrotto: '#189ab4',
         blueGreen: '#75e6da',
         babyBlue: '#d4f1f4',
+        'darker-blue': '#000a1f', 
+        'darker-purple': '#1e1b4b',
+        'darker-gray': '#0d0d0d', 
       },
       animation: {
         blink: 'blink 1s step-end infinite',
@@ -25,6 +28,7 @@ const config: Config = {
         rotate: 'rotate 10s linear infinite',
         gradient: 'gradient 3s ease infinite',
         'gradient-move': 'gradient 3s ease infinite',
+        slideInOut: 'slideInOut 1s ease-out forwards',
       },
       keyframes: {
         blink: {
@@ -55,6 +59,20 @@ const config: Config = {
           '0%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
+        },
+        slideInOut: {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          '20%': {
+            transform: 'translateX(0)',
+          },
+          '80%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(300%)',
+          },
         },
       },
     },

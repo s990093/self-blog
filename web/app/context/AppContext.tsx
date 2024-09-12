@@ -1,11 +1,14 @@
 "use client";
-// context/AppContext.tsx
 import React, { createContext, useState, useContext, ReactNode } from "react";
+import NotificationList from "../components/common/NotificationListProps";
+import VersionDisplay from "../components/VersionDisplay";
+import { NOTIFICATION_DELAY } from "../cfg/control";
 
 // 定义状态类型
 interface AppState {
   user: { name: string } | null;
   theme: "light" | "dark";
+  notifications: { id: number; message: string }[]; // 添加 notifications
 }
 
 // 定义 Context 类型
@@ -13,6 +16,7 @@ interface AppContextType {
   state: AppState;
   setUser: (user: { name: string } | null) => void;
   setTheme: (theme: "light" | "dark") => void;
+  addNotification: (message: string) => void; // 添加 addNotification
 }
 
 // 创建 Context
@@ -25,21 +29,40 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
   const [state, setState] = useState<AppState>({
     user: null,
     theme: "light",
+    notifications: [], // 初始化 notifications
   });
 
   const setUser = (user: { name: string } | null) =>
     setState((prevState) => ({ ...prevState, user }));
+
   const setTheme = (theme: "light" | "dark") =>
     setState((prevState) => ({ ...prevState, theme }));
 
+  const addNotification = (message: string) => {
+    const id = Date.now();
+    setState((prevState) => ({
+      ...prevState,
+      notifications: [...prevState.notifications, { id, message }],
+    }));
+
+    setTimeout(() => {
+      setState((prevState) => ({
+        ...prevState,
+        notifications: prevState.notifications.filter(
+          (notification) => notification.id !== id
+        ),
+      }));
+    }, NOTIFICATION_DELAY); // 3 seconds
+  };
+
   return (
-    <AppContext.Provider value={{ state, setUser, setTheme }}>
+    <AppContext.Provider value={{ state, setUser, setTheme, addNotification }}>
       {children}
+      <NotificationList notifications={state.notifications} />
     </AppContext.Provider>
   );
 };
 
-// 创建自定义 Hook 来使用 Context
 export const useAppContext = (): AppContextType => {
   const context = useContext(AppContext);
   if (context === undefined) {

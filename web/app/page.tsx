@@ -143,7 +143,7 @@ function Home() {
               fontSize={fontSize}
             />
           </h1>
-          <div className=" bg-blueGrotto bg-opacity-65 p-6 rounded-lg shadow-lg">
+          <div className="bg-blueGrotto bg-opacity-65 p-6 rounded-lg shadow-lg">
             {/* block -1 aboutme */}
             <div ref={aboutMeRef}>
               <h2 className="text-3xl font-semibold mb-4">

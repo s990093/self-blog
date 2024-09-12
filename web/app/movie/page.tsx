@@ -12,12 +12,25 @@ import { SlideEffect, TiltWrapper } from "../components/animation";
 import { AiOutlineArrowLeft } from "react-icons/ai"; // 導入你需要的圖標
 import FloatingBackground from "../components/common/FloatingBackground";
 import { useRouter } from "next/navigation";
+import { useAppContext } from "../context/AppContext";
+import Netflix from "../components/common/bg/Netflix";
 
 interface FilmCardProps {
   video: Video;
   index: number; // 添加 index 作為 props
 }
 
+const VideoLayout: React.FC = () => {
+  const urls = videos.map((v) => getStaticUrl(`test/self/movie/${v.image}`));
+
+  console.log(urls);
+
+  return (
+    <Netflix resourceUrls={urls}>
+      <VideosPage />
+    </Netflix>
+  );
+};
 const FilmCard: React.FC<FilmCardProps> = ({ video, index }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -90,49 +103,47 @@ const FilmCard: React.FC<FilmCardProps> = ({ video, index }) => {
 };
 
 const VideosPage: React.FC = () => {
+  const { addNotification } = useAppContext();
   const router = useRouter();
   const handle = () => {
+    addNotification("Wait a moment ...");
+
     router.push("/");
   };
   return (
-    <div className=" relative  mx-auto p-4">
-      <button onClick={handle}>
-        <div className="absolute top-5 left-5 z-20 text-xl hover:text-gray-600">
-          <AiOutlineArrowLeft className="h-8 w-8" />
-        </div>
-      </button>
-      <h1 className="text-2xl font-bold mb-6 text-center">
-        My Favorite Movies
-      </h1>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 ">
-        {videos.map((video, index) => (
-          <div
-            key={index}
-            className="shadow-md rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg"
-          >
-            <motion.div
-              key={index}
-              className="overflow-hidden transform transition duration-300 hover:scale-105"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }} // 延遲動畫，使卡片有逐一顯示的效果
-            >
-              <TiltWrapper options={{ max: 45 }}>
-                <FilmCard video={video} index={index} />
-              </TiltWrapper>
-            </motion.div>
+    <>
+      <div className="relative mx-auto p-4  min-h-screen min-h-screen bg-gradient-to-br from-darker-blue via-darker-purple to-darker-gray bg-[length:200%_200%] animate-gradient-move">
+        <button onClick={handle}>
+          <div className="absolute top-5 left-5 z-20 text-xl hover:text-gray-600">
+            <AiOutlineArrowLeft className="h-8 w-8" />
           </div>
-        ))}
+        </button>
+        <h1 className="text-2xl font-bold mb-6 text-center">
+          My Favorite Movies
+        </h1>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 ">
+          {videos.map((video, index) => (
+            <div
+              key={index}
+              className="shadow-md rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              <motion.div
+                key={index}
+                className="overflow-hidden transform transition duration-300 hover:scale-105"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }} // 延遲動畫，使卡片有逐一顯示的效果
+              >
+                <TiltWrapper options={{ max: 45 }}>
+                  <FilmCard video={video} index={index} />
+                </TiltWrapper>
+              </motion.div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-const VideoLayout: React.FC = () => {
-  return (
-    <FloatingBackground>
-      <VideosPage />
-    </FloatingBackground>
-  );
-};
 export default VideoLayout;

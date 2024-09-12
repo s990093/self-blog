@@ -1,12 +1,13 @@
-// components/MovieLinker.tsx
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaFilm } from "react-icons/fa";
 import { useSpring, animated } from "@react-spring/web";
 import { useRouter } from "next/navigation";
+import { useAppContext } from "@/app/context/AppContext";
 
 const MovieLinker: React.FC = () => {
   const router = useRouter();
+  const { addNotification } = useAppContext();
 
   const [props, api] = useSpring(() => ({
     transform: "scale(1)",
@@ -14,6 +15,7 @@ const MovieLinker: React.FC = () => {
   }));
 
   const handle = () => {
+    addNotification("Wait a moment ...");
     router.push("/movie");
   };
 
