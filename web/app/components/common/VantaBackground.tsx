@@ -1,5 +1,6 @@
 "use client";
 import React, { Component, ReactNode } from "react";
+
 import FOG from "vanta/dist/vanta.halo.min";
 import * as THREE from "three";
 import { getDeviceType } from "@/app/lib/utils/func";

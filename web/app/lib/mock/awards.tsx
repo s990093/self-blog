@@ -3,7 +3,7 @@ export const competitions: Competition[] = [
   {
     name: "kumamoto   ICDC",
     shortDescription: "Excellence Prize",
-    startDate: new Date("2024-07-01"),
+    startDate: new Date("2024-08-10"),
     endDate: new Date("2024-07-02"),
     techno: "國際交流",
     location: "熊本, 日本",

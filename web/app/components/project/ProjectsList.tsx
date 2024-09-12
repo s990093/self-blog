@@ -53,8 +53,8 @@ const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => {
         transition={{ duration: 0.5 }}
       >
         {filteredProjects.map((project, index) => (
-          <TiltWrapper>
-            <ProjectCard key={project.name} project={project} />
+          <TiltWrapper key={index}>
+            <ProjectCard key={index} project={project} />
           </TiltWrapper>
         ))}
       </motion.div>

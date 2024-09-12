@@ -25,12 +25,12 @@ import MovieLinker from "./components/common/MovieLinker";
 import FloatingBackground from "./components/common/FloatingBackground";
 import { getDeviceType } from "./lib/utils/func";
 import useDeviceType from "./context/UseDeviceType";
+import { OPENING_EFFECTS } from "./lib/utils";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
   // const stickersUrls = "/test/self/self.png";
 
-  console.log(stickersUrls);
   const linksImages = mockProfile.aboutMe.skill.map((skill) =>
     getStaticUrl(`test/technology/color/${skill.icon}`)
   );
@@ -64,7 +64,7 @@ export default function PreLoadHomePage() {
   );
 }
 function Home() {
-  const [showZoom, setShowZoom] = useState(true);
+  const [showZoom, setShowZoom] = useState(OPENING_EFFECTS);
   const { ref: aboutMeRef, isVisible: isAboutMeVisible } =
     useIntersectionObserver({
       root: null,
@@ -228,7 +228,7 @@ function Home() {
             </div>
 
             <div className="mt-3">
-              <SkillSection skills={mockProfile.aboutMe.skill} />
+              {/* <SkillSection skills={mockProfile.aboutMe.skill} /> */}
             </div>
           </div>
           {/* Block - end */}
@@ -237,7 +237,7 @@ function Home() {
           {/* detail */}
           <div className="flex flex-col space-y-4 pt-6">
             {/* proj */}
-            <ProjectsList projects={mockProfile.aboutMe.projects} />
+            {/* <ProjectsList projects={mockProfile.aboutMe.projects} /> */}
 
             {/* CompetitionList */}
             {/* <div ref={competitionListRef}>
