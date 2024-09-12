@@ -228,7 +228,7 @@ function Home() {
             </div>
 
             <div className="mt-3">
-              {/* <SkillSection skills={mockProfile.aboutMe.skill} /> */}
+              <SkillSection skills={mockProfile.aboutMe.skill} />
             </div>
           </div>
           {/* Block - end */}
@@ -237,7 +237,7 @@ function Home() {
           {/* detail */}
           <div className="flex flex-col space-y-4 pt-6">
             {/* proj */}
-            {/* <ProjectsList projects={mockProfile.aboutMe.projects} /> */}
+            <ProjectsList projects={mockProfile.aboutMe.projects} />
 
             {/* CompetitionList */}
             {/* <div ref={competitionListRef}>
