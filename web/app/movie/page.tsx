@@ -23,8 +23,6 @@ interface FilmCardProps {
 const VideoLayout: React.FC = () => {
   const urls = videos.map((v) => getStaticUrl(`test/self/movie/${v.image}`));
 
-  console.log(urls);
-
   return (
     <Netflix resourceUrls={urls}>
       <VideosPage />

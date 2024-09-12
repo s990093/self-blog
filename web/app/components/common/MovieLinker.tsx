@@ -4,6 +4,7 @@ import { FaFilm } from "react-icons/fa";
 import { useSpring, animated } from "@react-spring/web";
 import { useRouter } from "next/navigation";
 import { useAppContext } from "@/app/context/AppContext";
+import ClickableIcon from "./ClickableIcon";
 
 const MovieLinker: React.FC = () => {
   const router = useRouter();
@@ -27,6 +28,9 @@ const MovieLinker: React.FC = () => {
       <div className="flex items-center justify-center h-full text-white text-lg font-semibold space-x-2">
         <FaFilm size={24} />
         <animated.span style={props}>Explore Movies</animated.span>
+        <div className="absolute top-[10px] right-[10px]">
+          <ClickableIcon />
+        </div>
       </div>
     </button>
   );

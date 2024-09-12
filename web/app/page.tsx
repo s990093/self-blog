@@ -1,10 +1,7 @@
 "use client";
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 
 import { mockProfile } from "./lib/mock/mockProfile";
-import Image from "next/image"; // Import the correct Image component
-import Link from "next/link";
-import { motion } from "framer-motion";
 
 // component
 import SkillSection from "./components/Skill/SkillSection";

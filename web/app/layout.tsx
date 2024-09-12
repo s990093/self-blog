@@ -6,6 +6,7 @@ import VantaBackground from "./components/common/VantaBackground";
 import { AppProvider } from "./context/AppContext";
 import React from "react";
 import AnimatedCursor from "react-animated-cursor";
+import VisitRecords from "./components/common/tool/VisitRecords";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -63,12 +64,14 @@ export default function RootLayout({
           ]}
         />
         <AppProvider>
-          <div className="custom-cursor">
-            <div className="relative min-h-screen font-mono">
-              {children}
-              <VersionDisplay />
+          <VisitRecords>
+            <div className="custom-cursor">
+              <div className="relative min-h-screen font-mono">
+                {children}
+                <VersionDisplay />
+              </div>
             </div>
-          </div>
+          </VisitRecords>
         </AppProvider>
       </body>
     </html>

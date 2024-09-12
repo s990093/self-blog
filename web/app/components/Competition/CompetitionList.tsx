@@ -39,7 +39,7 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
 
   let blockScale = 1;
   const device = getDeviceType();
-  console.log(device);
+  // console.log(device);
   switch (device) {
     case 1:
       blockScale = 9;
@@ -148,33 +148,6 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
       // setPass(true);
     };
   }, [inView]);
-
-  // useEffect(() => {
-  //   const container = containerRef.current;
-  //   if (container) {
-  //     const handleScroll = () => {
-  //       container.addEventListener("wheel", preventScroll);
-
-  //       const containerRect = container.getBoundingClientRect();
-  //       const containerHeight = containerRect.height;
-  //       const containerMiddle = containerRect.top + containerHeight / 2;
-  //       const viewportMiddle = window.innerHeight / 2;
-  //       const isMiddleVisible =
-  //         containerMiddle < viewportMiddle &&
-  //         containerMiddle > -containerHeight / 2;
-
-  //       setIsMiddleVisible(isMiddleVisible);
-  //     };
-
-  //     container.addEventListener("scroll", handleScroll, { passive: true });
-  //     handleScroll(); // Trigger initial check
-
-  //     return () => {
-  //       container.addEventListener("scroll", handleScroll, { passive: true });
-  //       container.removeEventListener("wheel", preventScroll);
-  //     };
-  //   }
-  // }, [blockCount]);
 
   return (
     <div ref={targetRef}>

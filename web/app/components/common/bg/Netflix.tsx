@@ -12,7 +12,7 @@ const Netflix: React.FC<ResourceLoaderProps> = ({ resourceUrls, children }) => {
   const [cachedResources, setCachedResources] = useState<{
     [key: string]: Blob;
   }>({});
-  const maxLoadTime = 4400;
+  const maxLoadTime = 4600;
 
   useEffect(() => {
     const loadResources = async () => {
