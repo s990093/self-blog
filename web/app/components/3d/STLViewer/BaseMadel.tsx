@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import { AnimationConfig, STLViewerProps } from "./helper";
 import { useSTLModel } from "./useSTLModel";
 // import { useControls } from "./useControls";
@@ -9,6 +9,7 @@ import { useAnimation } from "./useAnimation";
 import { useOpeningAnimation } from "./Animation/opening";
 
 interface BaseMadeViewerProps extends STLViewerProps {
+  name: string;
   animationConfig: AnimationConfig;
 }
 const BaseMedalViewer: React.FC<BaseMadeViewerProps> = ({
@@ -26,6 +27,7 @@ const BaseMedalViewer: React.FC<BaseMadeViewerProps> = ({
   textArray = [],
   fontPath,
   animationConfig,
+  name,
 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
 
@@ -60,7 +62,7 @@ const BaseMedalViewer: React.FC<BaseMadeViewerProps> = ({
   // };
 
   // runAnimations();
-  useAnimation(modelRef, animationConfig);
+  useAnimation(name, modelRef, animationConfig);
   useOpeningAnimation(modelRef);
 
   useEffect(() => {

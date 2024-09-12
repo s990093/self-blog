@@ -39,9 +39,10 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
 
   let blockScale = 1;
   const device = getDeviceType();
+  console.log(device);
   switch (device) {
     case 1:
-      blockScale = 10;
+      blockScale = 9;
       break;
   }
 
@@ -99,7 +100,7 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
             setBlockCount((prevCount) => {
               const newCount = Math.min(prevCount + 1, MAX_BLOCK_COUNT);
               // 當 blockCount 達到
-              console.log(newCount == MAX_BLOCK_COUNT, newCount);
+              // console.log(newCount == MAX_BLOCK_COUNT, newCount);
               if (newCount == MAX_BLOCK_COUNT) {
                 document.body.style.overflow = "";
                 setPass(true);
@@ -121,7 +122,7 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
 
   useEffect(() => {
     if (inView) {
-      console.log("In view", pass);
+      // console.log("In view", pass);
       document.body.style.overflow = "hidden";
 
       setPass(false);

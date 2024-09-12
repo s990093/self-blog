@@ -37,6 +37,7 @@ const CompetitionCard: React.FC<CompetitionCardProps> = ({
         </div>
 
         <Medal
+          key={`${competition.name}-${index}`}
           name={competition.name}
           startDate={competition.startDate}
           prizeRank={competition.prizes}
