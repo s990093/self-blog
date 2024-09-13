@@ -22,6 +22,7 @@ import FloatingBackground from "./components/common/FloatingBackground";
 import { getDeviceType } from "./lib/utils/func";
 import useDeviceType from "./context/UseDeviceType";
 import { OPENING_EFFECTS } from "./lib/utils";
+import BookLinker from "./components/common/BookLinker";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
@@ -242,6 +243,7 @@ function Home() {
 
             {/* link */}
             <MovieLinker />
+            <BookLinker />
 
             {/* PersonalLinkCards */}
             <div ref={hobbyListRef}>

@@ -1,1 +1,1 @@
-export const NOTIFICATION_DELAY = 1500;
+export const NOTIFICATION_DELAY = 2000;

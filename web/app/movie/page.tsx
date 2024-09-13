@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { videos } from "./videos";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ReactCardFlip from "react-card-flip";
@@ -11,7 +12,6 @@ import ClickableIcon from "../components/common/ClickableIcon";
 import { SlideEffect, TiltWrapper } from "../components/animation";
 import { AiOutlineArrowLeft } from "react-icons/ai"; // 導入你需要的圖標
 import FloatingBackground from "../components/common/FloatingBackground";
-import { useRouter } from "next/navigation";
 import { useAppContext } from "../context/AppContext";
 import Netflix from "../components/common/bg/Netflix";
 
@@ -110,7 +110,7 @@ const VideosPage: React.FC = () => {
   };
   return (
     <>
-      <div className="relative mx-auto p-4  min-h-screen min-h-screen bg-gradient-to-br from-darker-blue via-darker-purple to-darker-gray bg-[length:200%_200%] animate-gradient-move">
+      <div className="relative mx-auto p-4 min-h-screen min-h-screen bg-gradient-to-br from-darker-blue via-darker-purple to-darker-gray bg-[length:200%_200%] animate-gradient-move">
         <button onClick={handle}>
           <div className="absolute top-5 left-5 z-20 text-xl hover:text-gray-600">
             <AiOutlineArrowLeft className="h-8 w-8" />
