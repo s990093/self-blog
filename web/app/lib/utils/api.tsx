@@ -2,12 +2,24 @@
 
 import axios from "axios";
 
-const getApiUrl = (url: string) => {
-  const ip = process.env.NEXT_PUBLIC_IP || "49.213.238.75";
-  const port = process.env.NEXT_PUBLIC_PORT || 8000;
-  const http = process.env.NEXT_PUBLIC_HTTP || "http"; // 默认为 'http'
+const DEFAULT_URL = "https://lai.api.iside.space/";
 
-  return `${http}://${ip}:${port}/${url}`;
+const getApiUrl = (url: string) => {
+  const ip = process.env.NEXT_PUBLIC_IP;
+  const port = process.env.NEXT_PUBLIC_PORT;
+  const http = process.env.NEXT_PUBLIC_HTTP;
+
+  // If none of the environment variables are set, use the default URL
+  if (!ip && !port && !http) {
+    return `${DEFAULT_URL}${url}`;
+  }
+
+  // Otherwise, use the provided environment variables or fallbacks
+  const finalIp = ip || "49.213.238.75";
+  const finalPort = port || 8000;
+  const finalHttp = http?.trim() !== "" ? http : "https";
+
+  return `${finalHttp}://${finalIp}:${finalPort}/${url}`;
 };
 
 export const recordVisit = async () => {

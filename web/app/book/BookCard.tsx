@@ -17,7 +17,7 @@ export function BookCard({ href }: { href: string }) {
           className="FrontCover w-full h-full absolute rounded-r rounded-l-[3px] shadow-image-shadow"
         />
         <div className="Pages bg-[#fff] h-[calc(260px-2*6px)] w-[50px] top-[3px] absolute page-transform" />
-        <div className="BackCover rounded-r bg-[#01060f] h-[260px] w-[200px] left-0 absolute back-cover-transform back-cover-shadow" />
+        <div className="BackCover rounded-r bg-[#334155] h-[260px] w-[205px] left-0 absolute back-cover-transform back-cover-shadow" />
       </div>
     </div>
   );

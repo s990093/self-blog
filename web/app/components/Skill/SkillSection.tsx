@@ -27,11 +27,11 @@ const GroupedSkills: React.FC<GroupedSkillsProps> = ({
     root: null,
     threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
   });
-  const SkillStatus = isSkillVisible ? Date.now() : "";
+  const skillStatus = isSkillVisible ? Date.now() : "";
 
   return (
     <div ref={skillRef} key={type}>
-      <Link href={`/skill/${type}`} passHref>
+      <Link href={"#"} passHref>
         {/* Navigate to the skill type page */}
         <div className="flex flex-row">
           <SlideEffect
@@ -44,9 +44,13 @@ const GroupedSkills: React.FC<GroupedSkillsProps> = ({
         </div>
       </Link>
 
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-4" key={SkillStatus}>
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         {technologies.map((tech, index) => (
-          <SkillCard key={index} technology={tech} index={index} />
+          <SkillCard
+            key={`${index}-${skillStatus}`}
+            technology={tech}
+            index={index}
+          />
         ))}
       </div>
     </div>

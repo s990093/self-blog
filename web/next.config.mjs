@@ -7,8 +7,8 @@ const nextConfig = {
                 hostname: 'lai.iside.space',
             },
             {
-                protocol: 'http',
-                hostname: '49.213.238.75',
+                protocol: 'https',
+                hostname: 'lai.api.iside.space',
             },
         ],
     },

@@ -105,7 +105,6 @@ const VideosPage: React.FC = () => {
   const router = useRouter();
   const handle = () => {
     addNotification("Wait a moment ...");
-
     router.push("/");
   };
   return (

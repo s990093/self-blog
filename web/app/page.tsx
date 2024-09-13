@@ -25,6 +25,7 @@ import { OPENING_EFFECTS } from "./lib/utils";
 import BookLinker from "./components/common/BookLinker";
 import SkillSection from "./components/Skill/SkillSection";
 import Book3D from "./components/3d/book/Book3D";
+import HoverEffectDiv from "./components/animation/HoverEffectDiv";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
@@ -35,11 +36,11 @@ export default function PreLoadHomePage() {
   );
   const stl = getStaticUrl("3d/Medal.STL");
 
-  const projectImages = mockProfile.aboutMe.projects.map((proj) =>
-    getStaticUrl(proj.projectImages[0])
-  );
+  // const projectImages = mockProfile.aboutMe.projects.map((proj) =>
+  //   getStaticUrl(proj.projectImages[0])
+  // );
 
-  const allUrls = [stickersUrls, ...linksImages, stl, ...projectImages];
+  const allUrls = [stickersUrls, ...linksImages, stl];
 
   const deviceType = useDeviceType();
 
@@ -65,6 +66,7 @@ export default function PreLoadHomePage() {
     </>
   );
 }
+
 function Home() {
   const [showZoom, setShowZoom] = useState(OPENING_EFFECTS);
   const { ref: aboutMeRef, isVisible: isAboutMeVisible } =
@@ -196,16 +198,23 @@ function Home() {
                     key={`${aboutMeStatus}-image`}
                     src={getStaticUrl("test/self/college.png")}
                     alt="College"
-                    width={24} // Adjust the width and height as needed
+                    width={24}
                     height={24}
                     className="inline-block mr-2"
                   />
                 )}
 
-                <SlideEffect
+                {/* <SlideEffect
                   text={`${mockProfile.aboutMe.details.college}`}
                   fontSize="text-sm font-serif"
+                /> */}
+
+                <HoverEffectDiv
+                  text={mockProfile.aboutMe.details.college}
+                  fontSize={15}
+                  className="text-sm font-serif"
                 />
+
                 <div />
               </div>
 
@@ -217,13 +226,12 @@ function Home() {
                   height={24}
                   className="inline-block mr-2"
                 />
-                {isAboutMeVisible && (
-                  <SlideEffect
-                    key={aboutMeStatus}
-                    text={String(mockProfile.aboutMe.details.major)}
-                    fontSize="text-sm font-serif"
-                  />
-                )}
+
+                <HoverEffectDiv
+                  text={mockProfile.aboutMe.details.major}
+                  fontSize={15}
+                  className="text-sm font-serif"
+                />
               </div>
 
               <SeparatorIsland />
@@ -248,7 +256,7 @@ function Home() {
 
             {/* album */}
             <div className="relative w-full ">
-              <div className="m-4 h-[100px]">
+              <div className="m-4">
                 <TypingEffect sequence={["My album", 2000]} fontSize={50} />
               </div>
               <Book3D />

@@ -18,10 +18,10 @@ const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
   const controls = useAnimation();
 
-  const { ref: projRef, isVisible: isProjVisible } = useIntersectionObserver({
-    root: null,
-    threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
-  });
+  // const { ref: projRef, isVisible: isProjVisible } = useIntersectionObserver({
+  //   root: null,
+  //   threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
+  // });
 
   useEffect(() => {
     controls.start({ x: -100, opacity: 0 }).then(() => {
@@ -37,15 +37,16 @@ const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => {
   }, [filter, projects, controls]);
 
   return (
-    <div ref={projRef} className="container mx-auto ">
-      {isProjVisible && (
+    <div className="container mx-auto ">
+      {/* {isProjVisible && (
         <ProjectsSection
           key={String(isProjVisible)}
           filter={filter}
           setFilter={setFilter}
         />
-      )}
+      )} */}
 
+      <ProjectsSection filter={filter} setFilter={setFilter} />
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 p-3"
         animate={controls}

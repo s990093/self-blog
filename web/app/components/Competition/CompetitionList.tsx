@@ -42,7 +42,7 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
   // console.log(device);
   switch (device) {
     case 1:
-      blockScale = 9;
+      blockScale = 5;
       break;
   }
 
@@ -75,6 +75,7 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
       if (blockCount > 0) {
         setScrollDistance((prevDistance) => {
           const newDistance = prevDistance + deltaY;
+
           if (Math.abs(newDistance) >= BLOCK_HEIGHT) {
             setBlockCount((prevCount) => {
               const newCount = Math.max(prevCount - 1, 0);
@@ -85,8 +86,10 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
               return newCount;
             });
           } else {
-            document.body.style.overflow = "hidden";
-            event.preventDefault();
+            if (blockCount !== 0) {
+              document.body.style.overflow = "hidden";
+              event.preventDefault();
+            }
           }
           return newDistance;
         });
@@ -108,8 +111,10 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
             });
             return 0;
           } else {
-            document.body.style.overflow = "hidden";
-            event.preventDefault();
+            if (blockCount !== MAX_BLOCK_COUNT) {
+              document.body.style.overflow = "hidden";
+              event.preventDefault();
+            }
           }
           return newDistance;
         });
@@ -124,7 +129,7 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
 
   useEffect(() => {
     if (inView) {
-      // console.log("In view", pass);
+      document.body.style.overflow = "hidden";
 
       setPass(false);
       // 禁用全局滾動
