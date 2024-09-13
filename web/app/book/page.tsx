@@ -33,12 +33,14 @@ const BooksPage: React.FC<BooksPageProps> = () => {
         <h1 className="text-2xl font-bold mb-6 text-center">
           My Favorite Books
         </h1>{" "}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {books.map((book) => (
-            <BookCard
-              key={book.name}
-              href={getStaticUrl(`test/self/book/${book.imageUrl}`)}
-            />
+            <div className="scale-50 md:scale-40 lg:scale-75 ">
+              <BookCard
+                key={book.name}
+                href={getStaticUrl(`test/self/book/${book.imageUrl}`)}
+              />
+            </div>
           ))}
         </div>
       </div>

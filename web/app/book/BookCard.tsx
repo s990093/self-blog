@@ -1,4 +1,7 @@
 "use client";
+
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 export function BookCard({ href }: { href: string }) {
   return (
     <div className="BookContainer w-[200px] h-[260px] m-[30px] flex items-center justify-center perspective-900">
@@ -11,7 +14,7 @@ export function BookCard({ href }: { href: string }) {
           (e.currentTarget.style.transform = "rotateY(-30deg)")
         }
       >
-        <img
+        <LazyLoadImage
           src={href}
           alt="Book Cover"
           className="FrontCover w-full h-full absolute rounded-r rounded-l-[3px] shadow-image-shadow"
