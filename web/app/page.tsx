@@ -225,7 +225,7 @@ function Home() {
             </div>
 
             <div className="mt-3">
-              {/* <SkillSection skills={mockProfile.aboutMe.skill} /> */}
+              <SkillSection skills={mockProfile.aboutMe.skill} />
             </div>
           </div>
           {/* Block - end */}
