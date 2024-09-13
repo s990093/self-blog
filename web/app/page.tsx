@@ -24,6 +24,7 @@ import useDeviceType from "./context/UseDeviceType";
 import { OPENING_EFFECTS } from "./lib/utils";
 import BookLinker from "./components/common/BookLinker";
 import SkillSection from "./components/Skill/SkillSection";
+import Book3D from "./components/3d/book/Book3D";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
@@ -56,6 +57,9 @@ export default function PreLoadHomePage() {
               <Home />
             </VantaBackground>
           )}
+          {/* <div className="relative">
+            <Book3D />
+          </div> */}
         </>
       </ResourceLoader>
     </>
@@ -242,8 +246,17 @@ function Home() {
             {/* hobby */}
             <HobbyList hobbies={mockProfile.aboutMe.hobbies} />
 
+            {/* album */}
+            <div className="relative w-full ">
+              <div className="m-4 h-[100px]">
+                <TypingEffect sequence={["My album", 2000]} fontSize={50} />
+              </div>
+              <Book3D />
+            </div>
+
             {/* link */}
             <MovieLinker />
+
             <BookLinker />
 
             {/* PersonalLinkCards */}
