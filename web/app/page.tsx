@@ -23,6 +23,7 @@ import { getDeviceType } from "./lib/utils/func";
 import useDeviceType from "./context/UseDeviceType";
 import { OPENING_EFFECTS } from "./lib/utils";
 import BookLinker from "./components/common/BookLinker";
+import SkillSection from "./components/Skill/SkillSection";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
