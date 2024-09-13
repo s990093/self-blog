@@ -26,6 +26,7 @@ import BookLinker from "./components/common/BookLinker";
 import SkillSection from "./components/Skill/SkillSection";
 import Book3D from "./components/3d/book/Book3D";
 import HoverEffectDiv from "./components/animation/HoverEffectDiv";
+import ClickableIcon from "./components/common/ClickableIcon";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
@@ -256,6 +257,9 @@ function Home() {
 
             {/* album */}
             <div className="relative w-full ">
+              <div className="absolute top-[360px] md:top-[200px] right-[100px]">
+                <ClickableIcon />
+              </div>
               <div className="m-4">
                 <TypingEffect sequence={["My album", 2000]} fontSize={50} />
               </div>
