@@ -7,18 +7,18 @@ interface VisitRecordsProps {
 }
 
 const VisitRecords: React.FC<VisitRecordsProps> = ({ children }) => {
-  useEffect(() => {
-    // Call the recordVisit function asynchronously
-    const handleRecordVisit = async () => {
-      try {
-        await recordVisit(); // Make sure recordVisit is defined to handle the API call
-      } catch (error) {
-        console.error("Error recording visit:", error);
-      }
-    };
+  // useEffect(() => {
+  //   // Call the recordVisit function asynchronously
+  //   const handleRecordVisit = async () => {
+  //     try {
+  //       await recordVisit(); // Make sure recordVisit is defined to handle the API call
+  //     } catch (error) {
+  //       console.error("Error recording visit:", error);
+  //     }
+  //   };
 
-    handleRecordVisit();
-  }, []);
+  //   handleRecordVisit();
+  // }, []);
 
   return <>{children}</>;
 };
