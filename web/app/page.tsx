@@ -212,7 +212,7 @@ function Home() {
                 <HoverEffectDiv
                   text={mockProfile.aboutMe.details.college}
                   fontSize={15}
-                  className="text-sm font-serif"
+                  className="text-sm font-serif truncate"
                 />
 
                 <div />
