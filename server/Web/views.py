@@ -6,6 +6,14 @@ from .models import *
 from django.utils.timezone import now
 from rich.console import Console
 
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR', 'unknown')
+    return ip
+
 class RecordVisitView(APIView):
     def get(self, request, format=None):
         # Retrieve all visit records and serialize them
@@ -18,7 +26,9 @@ class RecordVisitView(APIView):
         console = Console()
 
         # 獲取 IP 地址
-        ip_address = request.META.get('REMOTE_ADDR', 'unknown')
+        ip_address = get_client_ip(request)
+        
+    
 
         # 檢查是否是本地 IP 地址
         # if ip_address == '127.0.0.1' or ip_address == '::1':
