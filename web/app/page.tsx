@@ -25,8 +25,8 @@ import { OPENING_EFFECTS } from "./lib/utils";
 import BookLinker from "./components/common/BookLinker";
 import SkillSection from "./components/Skill/SkillSection";
 import Book3D from "./components/3d/book/Book3D";
-import HoverEffectDiv from "./components/animation/HoverEffectDiv";
 import ClickableIcon from "./components/common/ClickableIcon";
+import { HoverEffectDiv } from "./components/animation/index";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
