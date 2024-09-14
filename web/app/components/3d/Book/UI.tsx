@@ -39,8 +39,6 @@ export const UI = () => {
     prevPageRef.current = page;
   }, [page]);
 
-  return <div>Your content here</div>;
-
   return (
     <>
       {/* <div className="pointer-events-none select-none z-10 absolute  inset-0 flex justify-between flex-col">
