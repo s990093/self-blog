@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, useState, useContext, ReactNode } from "react";
-import NotificationList from "../components/common/NotificationListProps";
+import NotificationList from "../components/Common/NotificationListProps";
 import { NOTIFICATION_DELAY } from "../cfg/control";
 
 // 定义状态类型

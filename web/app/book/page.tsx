@@ -6,7 +6,7 @@ import { getStaticUrl } from "../cfg/constants";
 // import { Book } from "../interface/book";
 import { BookCard } from "./BookCard";
 import { mockBooks } from "./mockBooks";
-import { useAppContext } from "../context/AppContext";
+import { useAppContext } from "../Context/AppContext";
 
 // interface BooksPageProps {
 //   books: Book[];

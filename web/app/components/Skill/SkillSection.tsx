@@ -6,7 +6,7 @@ import SkillCard from "./SkillCard";
 import { Technology } from "../../interface/base";
 import { SlideEffect } from "../Animation";
 import Link from "next/link";
-import { useIntersectionObserver } from "../common";
+import { useIntersectionObserver } from "../Common";
 import { motion } from "framer-motion";
 
 interface SkillListProps {

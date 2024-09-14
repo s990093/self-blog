@@ -5,7 +5,7 @@ import { PersonalLink } from "../interface/base";
 import { iconMapping } from "../lib/utils/iconMapping";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
-import { TagName } from "./common";
+import { TagName } from "./Common";
 import Link from "next/link";
 import { getStaticUrl } from "../cfg/constants";
 

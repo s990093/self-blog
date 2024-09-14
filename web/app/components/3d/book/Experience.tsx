@@ -1,7 +1,7 @@
 "use clinet ";
 import { Environment, Float } from "@react-three/drei";
 import { Book } from "./Book";
-import useDeviceType from "@/app/context/UseDeviceType";
+import useDeviceType from "@/app/Context/UseDeviceType";
 export const Experience = () => {
   const device = useDeviceType();
   const xScale = device * 0.5;

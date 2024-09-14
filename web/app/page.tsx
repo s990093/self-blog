@@ -4,28 +4,28 @@ import React, { useState } from "react";
 import { mockProfile } from "./lib/mock/mockProfile";
 
 // component
-import CompetitionList from "./components/competition/CompetitionList";
+import CompetitionList from "./components/Competition/CompetitionList";
 import HobbyList from "./components/HobbyCard";
 import PersonalLinkList from "./components/PersonalLink";
 import { SlideEffect, TypingEffect } from "./components/Animation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ProfileImage from "./components/ProfileImage";
 import ZoomEffect from "./components/ZoomEffect";
-import { SeparatorIsland, useIntersectionObserver } from "./components/common";
+import { SeparatorIsland, useIntersectionObserver } from "./components/Common";
 
-import ProjectsList from "./components/project/ProjectsList";
-import ResourceLoader from "./context/ResourceLoader";
-import VantaBackground from "./components/common/VantaBackground";
+import ProjectsList from "./components/Project/ProjectsList";
+import ResourceLoader from "./Context/ResourceLoader";
+import VantaBackground from "./components/Common/VantaBackground";
 import { getStaticUrl } from "./cfg/constants";
-import MovieLinker from "./components/common/MovieLinker";
-import FloatingBackground from "./components/common/FloatingBackground";
+import MovieLinker from "./components/Common/MovieLinker";
+import FloatingBackground from "./components/Common/FloatingBackground";
 import { getDeviceType } from "./lib/utils/func";
-import useDeviceType from "./context/UseDeviceType";
+import useDeviceType from "./Context/UseDeviceType";
 import { OPENING_EFFECTS } from "./lib/utils";
-import BookLinker from "./components/common/BookLinker";
+import BookLinker from "./components/Common/BookLinker";
 import SkillSection from "./components/Skill/SkillSection";
 import Book3D from "./components/3d/book/Book3D";
-import ClickableIcon from "./components/common/ClickableIcon";
+import ClickableIcon from "./components/Common/ClickableIcon";
 import { HoverEffectDiv } from "./components/Animation/index";
 
 export default function PreLoadHomePage() {

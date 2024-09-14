@@ -1,9 +1,9 @@
 import { FaFilm } from "react-icons/fa";
 import { useSpring, animated } from "@react-spring/web";
 import { useRouter } from "next/navigation";
-import { useAppContext } from "@/app/context/AppContext";
+import { useAppContext } from "@/app/Context/AppContext";
 import ClickableIcon from "./ClickableIcon";
-import HoverEffectDiv from "../Animation/HoverEffectDiv";
+import { HoverEffectDiv } from "../Animation";
 
 const MovieLinker: React.FC = () => {
   const router = useRouter();

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-import VantaBackground from "./components/common/VantaBackground";
+import VantaBackground from "./components/Common/VantaBackground";
 
 const Custom404: React.FC = () => {
   const router = useRouter();

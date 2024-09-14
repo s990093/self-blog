@@ -8,10 +8,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ReactCardFlip from "react-card-flip";
-import { SeparatorIsland, useIntersectionObserver } from "../common";
+import { SeparatorIsland, useIntersectionObserver } from "../Common";
 import { SlideEffect } from "../Animation";
 import Link from "next/link";
-import ClickableIcon from "../common/ClickableIcon";
+import ClickableIcon from "../Common/ClickableIcon";
 import { getStaticUrl } from "@/app/cfg/constants";
 import { FaHammer } from "react-icons/fa";
 
