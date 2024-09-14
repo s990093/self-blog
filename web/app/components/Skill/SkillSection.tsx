@@ -6,7 +6,6 @@ import SkillCard from "./SkillCard";
 import { Technology } from "../../interface/base";
 import { SlideEffect } from "../Animation";
 import Link from "next/link";
-import { useIntersectionObserver } from "../Common";
 import { motion } from "framer-motion";
 
 interface SkillListProps {
@@ -22,14 +21,14 @@ const GroupedSkills: React.FC<GroupedSkillsProps> = ({
   type,
   technologies,
 }) => {
-  const { ref: skillRef, isVisible: isSkillVisible } = useIntersectionObserver({
-    root: null,
-    threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
-  });
-  const skillStatus = isSkillVisible ? Date.now() : "";
+  // const { ref: skillRef, isVisible: isSkillVisible } = useIntersectionObserver({
+  //   root: null,
+  //   threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
+  // });
+  // const skillStatus = isSkillVisible ? Date.now() : "";
 
   return (
-    <div ref={skillRef} key={type}>
+    <div key={type}>
       <Link href={"#"} passHref>
         {/* Navigate to the skill type page */}
         <div className="flex flex-row">
@@ -45,11 +44,7 @@ const GroupedSkills: React.FC<GroupedSkillsProps> = ({
 
       <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         {technologies.map((tech, index) => (
-          <SkillCard
-            key={`${index}-${skillStatus}`}
-            technology={tech}
-            index={index}
-          />
+          <SkillCard key={index} technology={tech} index={index} />
         ))}
       </div>
     </div>
