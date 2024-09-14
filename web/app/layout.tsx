@@ -4,7 +4,6 @@ import "./globals.css";
 import { AppProvider } from "./Context/AppContext";
 import React from "react";
 import AnimatedCursor from "react-animated-cursor";
-import VisitRecords from "./components/Common/Tool/VisitRecords";
 import VersionDisplay from "./components/VersionDisplay";
 
 const geistSans = localFont({
@@ -63,14 +62,12 @@ export default function RootLayout({
           ]}
         />
         <AppProvider>
-          <VisitRecords>
-            <div className="custom-cursor">
-              <div className="relative min-h-screen font-mono">
-                {children}
-                <VersionDisplay />
-              </div>
+          <div className="custom-cursor">
+            <div className="relative min-h-screen font-mono">
+              {children}
+              <VersionDisplay />
             </div>
-          </VisitRecords>
+          </div>
         </AppProvider>
       </body>
     </html>

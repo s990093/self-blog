@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import { Project } from "@/app/interface/base";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaGithub, FaHandPointRight } from "react-icons/fa"; // Import the icons you need
 
 import "slick-carousel/slick/slick.css";
@@ -51,6 +51,19 @@ const ProjectCard: React.FC<CardProps> = React.memo(({ project }) => {
       isthreeMonthsAgo = true;
     }
   }
+  const prevIsFlippedRef = useRef<boolean>(isFlipped);
+
+  useEffect(() => {
+    // Check if the current value of isFlipped is true and the previous value was false
+    if (isFlipped && !prevIsFlippedRef.current) {
+      const audio = new Audio("/audios/page-flip-01a.mp3");
+      audio.play();
+    }
+
+    // Update the ref with the current isFlipped value
+    prevIsFlippedRef.current = isFlipped;
+  }, [isFlipped]);
+
   return (
     <div ref={projRef}>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">

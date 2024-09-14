@@ -40,7 +40,7 @@ const TagName: React.FC<TagNameProps> = ({
       }}
     >
       <h1
-        className="text-3xl md:text-4xl font-bold text-white mr-4"
+        className="text-sm md:text-4xl font-bold text-white mr-4"
         style={{
           transform: `rotate(${angle}deg)`, // Apply rotation based on angle prop
         }}

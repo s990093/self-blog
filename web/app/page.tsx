@@ -27,6 +27,7 @@ import SkillSection from "./components/Skill/SkillSection";
 import Book3D from "./components/3d/Book/Book3D";
 import ClickableIcon from "./components/Common/ClickableIcon";
 import { HoverEffectDiv } from "./components/Animation/index";
+import VisitRecords from "./components/Common/Tool/VisitRecords";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");
@@ -47,23 +48,25 @@ export default function PreLoadHomePage() {
 
   return (
     <>
-      <ResourceLoader resourceUrls={allUrls}>
-        <>
-          {deviceType <= 2 ? (
-            <FloatingBackground>
-              <Home />
-            </FloatingBackground>
-          ) : (
-            // 电脑使用 VantaBackground
-            <VantaBackground>
-              <Home />
-            </VantaBackground>
-          )}
-          {/* <div className="relative">
+      <VisitRecords>
+        <ResourceLoader resourceUrls={allUrls}>
+          <>
+            {deviceType <= 2 ? (
+              <FloatingBackground>
+                <Home />
+              </FloatingBackground>
+            ) : (
+              // 电脑使用 VantaBackground
+              <VantaBackground>
+                <Home />
+              </VantaBackground>
+            )}
+            {/* <div className="relative">
             <Book3D />
-          </div> */}
-        </>
-      </ResourceLoader>
+            </div> */}
+          </>
+        </ResourceLoader>
+      </VisitRecords>
     </>
   );
 }

@@ -1,5 +1,6 @@
+"use client";
 import { atom, useAtom } from "jotai";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const pictures = Array.from({ length: 15 }, (_, i) => `${String(i + 1)}`);
 
@@ -25,10 +26,20 @@ pages.push({
 export const UI = () => {
   const [page] = useAtom(pageAtom);
 
+  const prevPageRef = useRef<number | null>(null); // Adjust type if `page` is not a number
+
   useEffect(() => {
-    const audio = new Audio("/audios/page-flip-01a.mp3");
-    audio.play();
+    // Check if the current page is different from the previous page
+    if (prevPageRef.current !== null && prevPageRef.current !== page) {
+      const audio = new Audio("/audios/page-flip-01a.mp3");
+      audio.play();
+    }
+
+    // Update the ref with the current page value
+    prevPageRef.current = page;
   }, [page]);
+
+  return <div>Your content here</div>;
 
   return (
     <>
