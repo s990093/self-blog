@@ -3,7 +3,7 @@ import { Competition } from "../../interface/base";
 import { TypingEffect } from "../Animation";
 import CompetitionCard from "./CompetitionCard";
 import { useInView } from "react-intersection-observer";
-import { getDeviceType } from "@/app/lib/utils/func";
+import { getDeviceType } from "@/app/lib/Utils/func";
 
 interface CompetitionListProps {
   competitions: Competition[];

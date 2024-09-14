@@ -5,7 +5,7 @@ import React from "react";
 import { SlideEffect } from "../Animation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
-import { generateRandomPosition } from "@/app/lib/utils/func";
+import { generateRandomPosition } from "@/app/lib/Utils/func";
 import { getStaticUrl } from "@/app/cfg/constants";
 
 interface CardProps {

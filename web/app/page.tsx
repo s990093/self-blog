@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-import { mockProfile } from "./lib/mock/mockProfile";
+import { mockProfile } from "./lib/Mock/mockProfile";
 
 // component
 import CompetitionList from "./components/Competition/CompetitionList";
@@ -19,12 +19,12 @@ import VantaBackground from "./components/Common/VantaBackground";
 import { getStaticUrl } from "./cfg/constants";
 import MovieLinker from "./components/Common/MovieLinker";
 import FloatingBackground from "./components/Common/FloatingBackground";
-import { getDeviceType } from "./lib/utils/func";
+import { getDeviceType } from "./lib/Utils/func";
 import useDeviceType from "./Context/UseDeviceType";
-import { OPENING_EFFECTS } from "./lib/utils";
+import { OPENING_EFFECTS } from "./lib/Utils";
 import BookLinker from "./components/Common/BookLinker";
 import SkillSection from "./components/Skill/SkillSection";
-import Book3D from "./components/3d/book/Book3D";
+import Book3D from "./components/3d/Book/Book3D";
 import ClickableIcon from "./components/Common/ClickableIcon";
 import { HoverEffectDiv } from "./components/Animation/index";
 

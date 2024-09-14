@@ -1,4 +1,3 @@
-// src/components/VersionDisplay.tsx
 import React from "react";
 
 const VersionDisplay: React.FC = () => {

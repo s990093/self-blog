@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import VersionDisplay from "./components/VersionDisplay";
 import { AppProvider } from "./Context/AppContext";
 import React from "react";
 import AnimatedCursor from "react-animated-cursor";
 import VisitRecords from "./components/Common/Tool/VisitRecords";
+import VersionDisplay from "./components/VersionDisplay";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
