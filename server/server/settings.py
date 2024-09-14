@@ -32,7 +32,8 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',  
     'http://0.0.0.0:3000', 
     'http://49.213.238.75:3000',  
-    "https://lai.iside.space"
+    "https://lai.iside.space",
+    "https://lai.api.iside.space",
 ]
 CSRF_TRUSTED_ORIGINS = CORS_ORIGIN_WHITELIST
 CORS_ORIGIN_ALLOW_ALL = True  
