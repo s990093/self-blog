@@ -75,11 +75,11 @@ function Home() {
       root: null,
       threshold: 0.1,
     });
-  const { ref: competitionListRef, isVisible: isCompetitionListVisible } =
-    useIntersectionObserver({
-      root: null,
-      threshold: 0.1,
-    });
+  // const { ref: competitionListRef, isVisible: isCompetitionListVisible } =
+  //   useIntersectionObserver({
+  //     root: null,
+  //     threshold: 0.1,
+  //   });
 
   const { ref: hobbyListRef, isVisible: isHobbyListVisible } =
     useIntersectionObserver({
@@ -88,7 +88,7 @@ function Home() {
     });
 
   const aboutMeStatus = isAboutMeVisible ? Date.now() : "";
-  const competitionListStatus = isCompetitionListVisible ? Date.now() : "";
+  // const competitionListStatus = isCompetitionListVisible ? Date.now() : "";
   const hobbyListStatus = isHobbyListVisible ? Date.now() : "";
 
   const handleZoomComplete = () => {

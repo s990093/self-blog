@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect } from "react";
 import { AnimationConfig, STLViewerProps } from "./helper";
 import { useSTLModel } from "./useSTLModel";
 // import { useControls } from "./useControls";
@@ -21,8 +21,6 @@ const BaseMedalViewer: React.FC<BaseMadeViewerProps> = ({
   enableBackground = false,
   stlPath,
   medalType,
-  reflectivity = 1,
-  shininess = 30,
   texturePath,
   textArray = [],
   fontPath,

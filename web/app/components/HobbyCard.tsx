@@ -50,4 +50,6 @@ const HobbyList: React.FC<HobbiesProps> = React.memo(({ hobbies }) => {
   );
 });
 
+HobbyList.displayName = "Hobby List";
+
 export default HobbyList;

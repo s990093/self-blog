@@ -13,7 +13,7 @@ interface MedalProps {
 }
 
 const Medal: React.FC<MedalProps> = React.memo(
-  ({ name, prizeRank, prizeDescription, startDate, index }) => {
+  ({ name, prizeRank, startDate }) => {
     const formattedDate = `${startDate.getFullYear().toString().slice(-2)}/${
       startDate.getMonth() + 1
     }/${startDate.getDate()}`;
@@ -71,5 +71,7 @@ const Medal: React.FC<MedalProps> = React.memo(
     );
   }
 );
+
+Medal.displayName = "Medal";
 
 export default Medal;

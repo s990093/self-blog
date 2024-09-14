@@ -21,7 +21,7 @@ interface CardProps {
 const ProjectCard: React.FC<CardProps> = React.memo(({ project }) => {
   const { ref: projRef, isVisible: isProjVisible } = useIntersectionObserver({
     root: null,
-    threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
+    threshold: 0.1,
   });
 
   const [isFlipped, setIsFlipped] = useState(false);
@@ -181,5 +181,7 @@ const ProjectCard: React.FC<CardProps> = React.memo(({ project }) => {
     </div>
   );
 });
+
+ProjectCard.displayName = "ProjectsCards";
 
 export default ProjectCard;

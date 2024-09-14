@@ -24,4 +24,6 @@ const ProfileImage: React.FC<ProfileImageProps> = React.memo(({ imageUrl }) => {
   );
 });
 
+ProfileImage.displayName = "Profile Image";
+
 export default ProfileImage;

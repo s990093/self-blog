@@ -9,7 +9,8 @@ interface ResourceLoaderProps {
   children: ReactNode;
 }
 
-const cachedResources: { [key: string]: any } = {};
+const cachedResources: { [key: string]: Blob } = {};
+
 interface ProgressProps {
   progress: number; // Add the progress prop to the component
 }

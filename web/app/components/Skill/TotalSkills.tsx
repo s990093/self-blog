@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import AnimatedNumbers from "react-animated-numbers";
+import React from "react";
 
 interface TotalSkillsProps {
   totalSkills: number;
@@ -8,11 +7,7 @@ interface TotalSkillsProps {
   right?: string; // Optional prop for right position
 }
 
-const TotalSkills: React.FC<TotalSkillsProps> = ({
-  totalSkills,
-  top = "0px",
-  right = "0px",
-}) => {
+const TotalSkills: React.FC<TotalSkillsProps> = ({ totalSkills }) => {
   return (
     <div className="flex justify-center items-center bg-gradient-to-r from-blue-400 to-purple-500 p-1 rounded-lg shadow-lg w-[200px]">
       <h1 className="text-xl md:text-4xl font-bold text-white ">

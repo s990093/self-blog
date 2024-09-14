@@ -8,7 +8,6 @@ export const useOpeningAnimation = (modelRef: React.RefObject<THREE.Group>) => {
   const rotationStep = 0.3 * (Math.PI / 180); // Convert 3 degrees to radians
   const interval = 0.05; // Interval in seconds
   const animationDuration = 1; // Duration for each direction in seconds
-  const reverseDuration = animationDuration * 2; // Total duration including reverse
 
   useEffect(() => {
     if (!modelRef.current) return;

@@ -3,7 +3,12 @@ import { useRef, useEffect } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as THREE from "three";
 
-export const useControls = ({ cameraRef, rendererRef, mountRef }: any) => {
+interface UseControlsProps {
+  cameraRef: React.RefObject<THREE.PerspectiveCamera>;
+  rendererRef: React.RefObject<THREE.WebGLRenderer>;
+  mountRef: React.RefObject<HTMLDivElement>;
+}
+export const useControls = ({ cameraRef, rendererRef }: UseControlsProps) => {
   const controlsRef = useRef<OrbitControls | null>(null);
 
   useEffect(() => {

@@ -15,8 +15,6 @@ const STLViewer: React.FC<STLViewerProps> = ({
   enableBackground = false,
   stlPath,
   medalType,
-  reflectivity = 1,
-  shininess = 30,
   texturePath,
   textArray = [],
   fontPath,

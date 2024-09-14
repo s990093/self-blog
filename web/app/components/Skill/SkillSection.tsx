@@ -6,7 +6,6 @@ import SkillCard from "./SkillCard";
 import { Technology } from "../../interface/base";
 import { SlideEffect } from "../animation";
 import Link from "next/link";
-import TotalSkills from "./TotalSkills";
 import { useIntersectionObserver } from "../common";
 import { motion } from "framer-motion";
 
@@ -57,7 +56,6 @@ const GroupedSkills: React.FC<GroupedSkillsProps> = ({
   );
 };
 const SkillList: React.FC<SkillListProps> = ({ skills }) => {
-  const totalSkills = skills.length;
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

@@ -1,8 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Competition } from "../../interface/base";
-import TotalSkills from "../Skill/TotalSkills";
 import { TypingEffect } from "../animation";
-import { BLOCKED_PAGES } from "next/dist/shared/lib/constants";
 import CompetitionCard from "./CompetitionCard";
 import { useInView } from "react-intersection-observer";
 import { getDeviceType } from "@/app/lib/utils/func";
@@ -30,11 +28,10 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
     triggerOnce: false, // 每次進出都會觸發
   });
 
-  const [scrollDistance, setScrollDistance] = useState(0);
+  const [, setScrollDistance] = useState(0);
   const [blockCount, setBlockCount] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMiddleVisible, setIsMiddleVisible] = useState(false);
-  const [pass, setPass] = useState(false);
+  const [, setPass] = useState(false);
   const [lastTouchY, setLastTouchY] = useState(0); // 新增：用來記錄觸摸位置
 
   let blockScale = 1;

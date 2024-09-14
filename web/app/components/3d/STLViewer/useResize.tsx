@@ -1,7 +1,18 @@
 "use client";
 import { useEffect } from "react";
+import * as THREE from "three";
 
-export const useResize = ({ mountRef, cameraRef, rendererRef }: any) => {
+interface UseResizeProps {
+  mountRef: React.RefObject<HTMLDivElement>;
+  cameraRef: React.RefObject<THREE.PerspectiveCamera>;
+  rendererRef: React.RefObject<THREE.WebGLRenderer>;
+}
+
+export const useResize = ({
+  mountRef,
+  cameraRef,
+  rendererRef,
+}: UseResizeProps) => {
   useEffect(() => {
     const handleResize = () => {
       if (mountRef.current && cameraRef.current && rendererRef.current) {

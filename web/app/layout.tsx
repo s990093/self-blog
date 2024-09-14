@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import VersionDisplay from "./components/VersionDisplay";
-import VantaBackground from "./components/common/VantaBackground";
 import { AppProvider } from "./context/AppContext";
 import React from "react";
 import AnimatedCursor from "react-animated-cursor";

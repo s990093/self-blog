@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    enabled: process.env.ANALYZE === 'true',
+
     images: {
         remotePatterns: [
             {

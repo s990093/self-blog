@@ -48,4 +48,6 @@ const SkillCard: React.FC<CardProps> = React.memo(({ technology }) => {
   );
 });
 
+SkillCard.displayName = "Skill Card";
+
 export default SkillCard;

@@ -1,32 +1,25 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import { Project } from "@/app/interface/base";
 import React, { useEffect, useState } from "react";
-import { FaGithub, FaHandPointRight } from "react-icons/fa"; // Import the icons you need
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import ReactCardFlip from "react-card-flip";
-import { SeparatorIsland, useIntersectionObserver } from ".";
-import { SlideEffect } from "../animation";
-import Link from "next/link";
-import ClickableIcon from "./ClickableIcon";
-import { getStaticUrl } from "@/app/cfg/constants";
+import { useIntersectionObserver } from ".";
 
 interface CardProps {
   fornt: React.ReactNode;
   back?: React.ReactNode;
   other?: React.ReactNode;
 }
-const baseCard: React.FC<CardProps> = React.memo(({ fornt, back, other }) => {
-  const { ref: projRef, isVisible: isProjVisible } = useIntersectionObserver({
+const BaseCard: React.FC<CardProps> = React.memo(({ fornt, back }) => {
+  const { ref: projRef } = useIntersectionObserver({
     root: null,
     threshold: 0.1, // 當 10% 元件進入可視範圍時觸發
   });
 
   const [isFlipped, setIsFlipped] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [, setIsVisible] = useState(false);
 
   useEffect(() => {
     // Trigger animation on component mount
@@ -66,4 +59,6 @@ const baseCard: React.FC<CardProps> = React.memo(({ fornt, back, other }) => {
   );
 });
 
-export default baseCard;
+BaseCard.displayName = "BaseCard";
+
+export default BaseCard;

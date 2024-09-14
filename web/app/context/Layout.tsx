@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import useLoadEffect from "./useLoadEffect";
+import useLoadEffect from "./UseLoadEffect";
 
 interface LayoutProps {
   children: React.ReactNode;

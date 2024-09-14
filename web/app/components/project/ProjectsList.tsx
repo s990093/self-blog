@@ -5,8 +5,6 @@ import { Project, ProjType } from "@/app/interface/base";
 import ProjectCard from "./ProjectsCards";
 import ProjectsSection from "./ProjectsSection";
 import { motion, useAnimation } from "framer-motion";
-import { Tilt } from "react-tilt";
-import { Tooltip, useIntersectionObserver } from "../common";
 import { TiltWrapper } from "../animation";
 
 interface ProjectsListProps {

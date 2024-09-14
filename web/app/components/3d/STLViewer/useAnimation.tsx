@@ -14,7 +14,6 @@ export const useAnimation = (
     type,
     axis = "y",
     speed = 0.01,
-    delayMs = 0,
     repeatTimes = 1,
     scaleFactor = 1.05,
   } = config;

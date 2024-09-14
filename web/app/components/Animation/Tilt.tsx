@@ -6,7 +6,7 @@ interface TiltWrapperProps {
   children: React.ReactNode;
 }
 
-const TiltWrapper: React.FC<TiltWrapperProps> = ({ id, children }) => {
+const TiltWrapper: React.FC<TiltWrapperProps> = ({ children }) => {
   return (
     <Tilt
       options={{

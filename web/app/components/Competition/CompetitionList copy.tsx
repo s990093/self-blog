@@ -1,10 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Competition } from "../../interface/base";
-import TotalSkills from "../Skill/TotalSkills";
 import { TypingEffect } from "../animation";
-import { BLOCKED_PAGES } from "next/dist/shared/lib/constants";
 import CompetitionCard from "./CompetitionCard";
-import useDeviceType from "@/app/context/UseDeviceType";
 import { getDeviceType } from "@/app/lib/utils/func";
 
 interface CompetitionListProps {
@@ -25,10 +22,10 @@ const getUpdatedCards = (
 };
 
 const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
-  const [scrollDistance, setScrollDistance] = useState(0);
+  const [, setScrollDistance] = useState(0);
   const [blockCount, setBlockCount] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMiddleVisible, setIsMiddleVisible] = useState(false);
+  const [, setIsMiddleVisible] = useState(false);
 
   const device = getDeviceType();
 

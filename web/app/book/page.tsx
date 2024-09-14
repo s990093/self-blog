@@ -3,16 +3,16 @@ import { useRouter } from "next/navigation";
 
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { getStaticUrl } from "../cfg/constants";
-import { Book } from "../interface/book";
+// import { Book } from "../interface/book";
 import { BookCard } from "./BookCard";
 import { mockBooks } from "./mockBooks";
 import { useAppContext } from "../context/AppContext";
 
-interface BooksPageProps {
-  books: Book[];
-}
+// interface BooksPageProps {
+//   books: Book[];
+// }
 
-const BooksPage: React.FC<BooksPageProps> = () => {
+const BooksPage: React.FC = () => {
   const books = mockBooks;
   const { addNotification } = useAppContext();
   const router = useRouter();
@@ -35,9 +35,8 @@ const BooksPage: React.FC<BooksPageProps> = () => {
         </h1>{" "}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {books.map((book) => (
-            <div className="scale-50 md:scale-40 lg:scale-75 ">
+            <div className="scale-50 md:scale-40 lg:scale-75" key={book.name}>
               <BookCard
-                key={book.name}
                 href={getStaticUrl(`test/self/book/${book.imageUrl}`)}
               />
             </div>

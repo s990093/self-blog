@@ -11,7 +11,6 @@ import { Video } from "../interface/movie";
 import ClickableIcon from "../components/common/ClickableIcon";
 import { SlideEffect, TiltWrapper } from "../components/animation";
 import { AiOutlineArrowLeft } from "react-icons/ai"; // 導入你需要的圖標
-import FloatingBackground from "../components/common/FloatingBackground";
 import { useAppContext } from "../context/AppContext";
 import Netflix from "../components/common/bg/Netflix";
 

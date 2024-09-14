@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { motion } from "framer-motion";
 import { FaBook } from "react-icons/fa";
 import { useSpring, animated } from "@react-spring/web";
 import { useRouter } from "next/navigation";
@@ -11,7 +9,7 @@ const BookLinker: React.FC = () => {
   const router = useRouter();
   const { addNotification } = useAppContext();
 
-  const [props, api] = useSpring(() => ({
+  const [props] = useSpring(() => ({
     transform: "scale(1)",
     config: { tension: 300, friction: 20 },
   }));
