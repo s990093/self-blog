@@ -5,6 +5,7 @@ import { AppProvider } from "./Context/AppContext";
 import React from "react";
 import AnimatedCursor from "react-animated-cursor";
 import VersionDisplay from "./components/VersionDisplay";
+import CheckBrowser from "./components/Common/CheckBrowser";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -68,6 +69,7 @@ export default function RootLayout({
               <VersionDisplay />
             </div>
           </div>
+          <CheckBrowser />
         </AppProvider>
       </body>
     </html>
