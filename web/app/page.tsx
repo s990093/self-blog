@@ -7,7 +7,7 @@ import { mockProfile } from "./lib/mock/mockProfile";
 import CompetitionList from "./components/competition/CompetitionList";
 import HobbyList from "./components/HobbyCard";
 import PersonalLinkList from "./components/PersonalLink";
-import { SlideEffect, TypingEffect } from "./components/animation";
+import { SlideEffect, TypingEffect } from "./components/Animation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ProfileImage from "./components/ProfileImage";
 import ZoomEffect from "./components/ZoomEffect";
@@ -26,7 +26,7 @@ import BookLinker from "./components/common/BookLinker";
 import SkillSection from "./components/Skill/SkillSection";
 import Book3D from "./components/3d/book/Book3D";
 import ClickableIcon from "./components/common/ClickableIcon";
-import { HoverEffectDiv } from "./components/animation/index";
+import { HoverEffectDiv } from "./components/Animation/index";
 
 export default function PreLoadHomePage() {
   const stickersUrls = getStaticUrl("test/self/self.png");

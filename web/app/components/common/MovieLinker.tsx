@@ -3,7 +3,7 @@ import { useSpring, animated } from "@react-spring/web";
 import { useRouter } from "next/navigation";
 import { useAppContext } from "@/app/context/AppContext";
 import ClickableIcon from "./ClickableIcon";
-import HoverEffectDiv from "../animation/HoverEffectDiv";
+import HoverEffectDiv from "../Animation/HoverEffectDiv";
 
 const MovieLinker: React.FC = () => {
   const router = useRouter();

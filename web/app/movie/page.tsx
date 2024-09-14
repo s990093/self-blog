@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { getStaticUrl } from "../cfg/constants";
 import { Video } from "../interface/movie";
 import ClickableIcon from "../components/common/ClickableIcon";
-import { SlideEffect, TiltWrapper } from "../components/animation";
+import { SlideEffect, TiltWrapper } from "../components/Animation";
 import { AiOutlineArrowLeft } from "react-icons/ai"; // 導入你需要的圖標
 import { useAppContext } from "../context/AppContext";
 import Netflix from "../components/common/bg/Netflix";

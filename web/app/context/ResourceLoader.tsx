@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, ReactNode } from "react";
-import { TypingEffect } from "../components/animation";
+import { TypingEffect } from "../components/Animation";
 import { getDeviceType } from "../lib/utils/func";
 import ProgressBar from "@ramonak/react-progress-bar";
 

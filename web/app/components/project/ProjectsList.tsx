@@ -5,7 +5,7 @@ import { Project, ProjType } from "@/app/interface/base";
 import ProjectCard from "./ProjectsCards";
 import ProjectsSection from "./ProjectsSection";
 import { motion, useAnimation } from "framer-motion";
-import { TiltWrapper } from "../animation";
+import { TiltWrapper } from "../Animation";
 
 interface ProjectsListProps {
   projects: Project[];

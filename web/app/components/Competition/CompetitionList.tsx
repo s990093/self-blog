@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Competition } from "../../interface/base";
-import { TypingEffect } from "../animation";
+import { TypingEffect } from "../Animation";
 import CompetitionCard from "./CompetitionCard";
 import { useInView } from "react-intersection-observer";
 import { getDeviceType } from "@/app/lib/utils/func";
