@@ -28,7 +28,7 @@ const GroupedSkills: React.FC<GroupedSkillsProps> = ({
   // const skillStatus = isSkillVisible ? Date.now() : "";
 
   return (
-    <div key={type}>
+    <>
       <Link href={"#"} passHref>
         {/* Navigate to the skill type page */}
         <div className="flex flex-row">
@@ -47,7 +47,7 @@ const GroupedSkills: React.FC<GroupedSkillsProps> = ({
           <SkillCard key={index} technology={tech} index={index} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 const SkillList: React.FC<SkillListProps> = ({ skills }) => {

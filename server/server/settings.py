@@ -193,3 +193,6 @@ MQTT_PORT = 8884
 MQTT_KEEPALIVE = 60
 MQTT_USER = 'client_iot_0515'
 MQTT_PASSWORD = 'client_iot_0515A'
+
+TIME_ZONE = 'Asia/Taipei'
+USE_TZ = True
