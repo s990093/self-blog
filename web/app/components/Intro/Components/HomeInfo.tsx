@@ -89,8 +89,8 @@ const HomeInfo: React.FC<HomeInfoProps> = ({ currentStage }) => {
   if (currentStage === 2) {
     return (
       <HomeInfoCard
-        title="Passionate about life,"
-        description="and completed many exciting projects"
+        title="About Me"
+        description="Passionate about life"
         buttonText="About Me"
         icon={FaStar}
         buttonAction={handleAboutPage}
