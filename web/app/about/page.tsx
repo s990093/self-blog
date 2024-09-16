@@ -1,18 +1,18 @@
 "use client";
 import React, { useState } from "react";
-
+// react effectively
+import { motion } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+// data
 import { mockProfile } from "../lib/Mock/mockProfile";
-
 // component
 import CompetitionList from "../components/Competition/CompetitionList";
 import HobbyList from "../components/HobbyCard";
 import PersonalLinkList from "../components/PersonalLink";
 import { SlideEffect, TypingEffect } from "../components/Animation";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import ProfileImage from "../components/ProfileImage";
 import ZoomEffect from "../components/ZoomEffect";
 import { SeparatorIsland, useIntersectionObserver } from "../components/Common";
-
 import ProjectsList from "../components/Project/ProjectsList";
 import ResourceLoader from "../Context/ResourceLoader";
 import { getStaticUrl } from "../cfg/constants";
@@ -25,8 +25,6 @@ import SkillSection from "../components/Skill/SkillSection";
 import Book3D from "../components/3d/Book/Book3D";
 import { HoverEffectDiv } from "../components/Animation/index";
 import VisitRecords from "../components/Common/Tool/VisitRecords";
-
-import { motion } from "framer-motion";
 import StarsCanvas from "../components/Common/BG/Stars";
 
 export default function PreLoadHomePage() {

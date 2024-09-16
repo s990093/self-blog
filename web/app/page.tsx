@@ -3,11 +3,15 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
 
 import { HomeInfo, Loader } from "./components/Intro/Components";
-import { Island, Plane, Sky } from "./components/Intro/Models";
+import {
+  Island,
+  Plane,
+  Sky,
+  Bird,
+  Seagull,
+  Flamingo,
+} from "./components/Intro/Models";
 import { motion } from "framer-motion";
-import { Bird } from "./components/Intro/Models/Brid/Bird";
-import { Seagull } from "./components/Intro/Models/Brid/Seagull";
-import { Flamingo } from "./components/Intro/Models/Brid/Flamingo";
 
 const Home = () => {
   // const audioRef = useRef(new Audio(getStaticUrl("audios/sakura.mp3")));
@@ -67,7 +71,7 @@ const Home = () => {
 
   return (
     <section className="fixed top-0 left-0 w-full h-screen">
-      <div className="absolute top-10 left-0 right-0 z-10 flex items-center justify-center bg-opacity-45">
+      <div className="absolute top-[100px] md:top-10 left-0 right-0 z-10 flex items-center justify-center bg-opacity-45">
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
       <Canvas
