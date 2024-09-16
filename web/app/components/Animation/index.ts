@@ -1,9 +1,19 @@
-export { default as TypingEffect } from './TypingEffect';
-export { default as SlideEffect } from './SlideEffect';
-export { default as RotatingWrapper } from './RotatingWrapper';
-export { default as HoverEffectDiv } from './HoverEffectDiv';
+// Import all components
+import TypingEffect from './TypingEffect';
+import SlideEffect from './SlideEffect';
+import RotatingWrapper from './RotatingWrapper';
+import HoverEffectDiv from './HoverEffectDiv';
+import TiltWrapper from './TiltWrapper';
+import CircleIcon from './CircleIcon';
 
 
 
-// effects
-export { default as TiltWrapper } from './TiltWrapper';
+
+export {
+  TypingEffect,
+  SlideEffect,
+  RotatingWrapper,
+  HoverEffectDiv,
+  TiltWrapper,
+  CircleIcon
+};

@@ -6,6 +6,7 @@ import React from "react";
 import AnimatedCursor from "react-animated-cursor";
 import VersionDisplay from "./components/VersionDisplay";
 import CheckBrowser from "./components/Common/CheckBrowser";
+import { CircleIcon } from "./components/Animation";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -67,6 +68,7 @@ export default function RootLayout({
             <div className="relative min-h-screen font-mono">
               {children}
               <VersionDisplay />
+              <CircleIcon />
             </div>
           </div>
           <CheckBrowser />

@@ -27,7 +27,11 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/components/3d/Book/Book.jsx"
+    "app/components/3d/Book/Book.jsx",
+    "app/components/Common/BG/Stars.jsx",
+    "app/components/Intro/Models/Brid/Bird.jsx",
+    "app/components/Intro/Models/BirdFlock.jsx",
+    "app/components/Intro/Models/Brid/Seagull.jsx"
   ],
   "exclude": ["node_modules"]
 }

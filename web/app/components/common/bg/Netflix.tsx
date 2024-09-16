@@ -12,9 +12,23 @@ const Netflix: React.FC<ResourceLoaderProps> = ({ resourceUrls, children }) => {
   const [cachedResources, setCachedResources] = useState<{
     [key: string]: Blob;
   }>({});
+
   const maxLoadTime = 4600;
 
   useEffect(() => {
+    // const audio = new Audio("/audios/netflix-intro.mp3");
+
+    // audio.volume = 0.8;
+
+    // audio
+    //   .play()
+    //   .then(() => {
+    //     console.log("Intro audio playing...");
+    //   })
+    //   .catch((error) => {
+    //     console.error("Audio playback failed:", error);
+    //   });
+
     const loadResources = async () => {
       const startTime = Date.now();
 

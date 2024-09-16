@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import { videos } from "./videos";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ReactCardFlip from "react-card-flip";
@@ -10,9 +9,8 @@ import { getStaticUrl } from "../cfg/constants";
 import { Video } from "../interface/movie";
 import ClickableIcon from "../components/Common/ClickableIcon";
 import { SlideEffect, TiltWrapper } from "../components/Animation";
-import { AiOutlineArrowLeft } from "react-icons/ai"; // 導入你需要的圖標
-import { useAppContext } from "../Context/AppContext";
 import Netflix from "../components/Common/BG/Netflix";
+import StarsCanvas from "../components/Common/BG/Stars";
 
 interface FilmCardProps {
   video: Video;
@@ -24,7 +22,10 @@ const VideoLayout: React.FC = () => {
 
   return (
     <Netflix resourceUrls={urls}>
-      <VideosPage />
+      <>
+        <VideosPage />
+        <StarsCanvas />
+      </>
     </Netflix>
   );
 };
@@ -100,24 +101,24 @@ const FilmCard: React.FC<FilmCardProps> = ({ video, index }) => {
 };
 
 const VideosPage: React.FC = () => {
-  const { addNotification } = useAppContext();
-  const router = useRouter();
-  const handle = () => {
-    addNotification("Wait a moment ...");
-    router.push("/");
-  };
+  // const { addNotification } = useAppContext();
+  // const router = useRouter();
+  // const handle = () => {
+  //   addNotification("Wait a moment ...");
+  //   router.push("/");
+  // };
   return (
     <>
-      <div className="relative mx-auto p-4 min-h-screen min-h-screen bg-gradient-to-br from-darker-blue via-darker-purple to-darker-gray bg-[length:200%_200%] animate-gradient-move">
-        <button onClick={handle}>
+      <div className="relative mx-auto p-7 min-h-screen">
+        {/* <button onClick={handle}>
           <div className="absolute top-5 left-5 z-20 text-xl hover:text-gray-600">
             <AiOutlineArrowLeft className="h-8 w-8" />
           </div>
-        </button>
+        </button> */}
         <h1 className="text-2xl font-bold mb-6 text-center">
           My Favorite Movies
         </h1>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 ">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {videos.map((video, index) => (
             <div
               key={index}

@@ -34,3 +34,17 @@ body {
     text-wrap: balance;
   }
 }
+
+/* src/styles/global.css */
+.card-3d {
+  perspective: 1000px;
+}
+
+.card-content {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card-content:hover {
+  transform: rotateX(10deg) rotateY(0deg) scale(1.05);
+}

@@ -22,6 +22,12 @@ const config: Config = {
         blueGrotto: '#189ab4',
         blueGreen: '#75e6da',
         babyBlue: '#d4f1f4',
+        primary: "#050816",
+        secondary: "#aaa6c3",
+        tertiary: "#151030",
+        "black-100": "#100d25",
+        "black-200": "#090325",
+        "white-100": "#f3f3f3",
         'darker-blue': '#000a1f', 
         'darker-purple': '#1e1b4b',
         'darker-gray': '#0d0d0d', 
@@ -29,6 +35,16 @@ const config: Config = {
           "image-shadow": "5px 5px 20px #2e2e2e",
           "back-cover-shadow": "-10px 0 50px 10px #2e2e2e",
         },
+        gray: {
+          200: "#D5DAE1"
+        },
+        black: {
+          DEFAULT: "#000",
+          500: "#1D2235"
+        },
+        blue: {
+          500: "#2b77e7"
+        }
       },
       animation: {
         blink: 'blink 1s step-end infinite',
@@ -135,4 +151,7 @@ const config: Config = {
     },
   ],
 };
+
+
+
 export default config;
