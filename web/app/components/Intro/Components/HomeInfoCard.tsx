@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { TbHandClick } from "react-icons/tb";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
+import { IconType } from "react-icons";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -11,11 +12,13 @@ interface CardProps {
   description: string;
   buttonText: string;
   buttonAction: () => void;
+  icon: IconType;
 }
 
 const HomeInfoCard: React.FC<CardProps> = ({
   title,
   description,
+  icon: Icon,
   buttonAction,
 }) => {
   const cardRef = useRef<HTMLDivElement | null>(null);
@@ -83,7 +86,14 @@ const HomeInfoCard: React.FC<CardProps> = ({
           <TbHandClick size={30} />
         </div>
       </motion.div>
-      <p className="font-medium sm:text-xl text-center mb-4">{title}</p>
+      <p className="font-medium sm:text-xl text-center mb-4">
+        {Icon && (
+          <div className="icon absolute top-5 left-7">
+            <Icon size={20} />
+          </div>
+        )}
+        {title}
+      </p>
       <p className="font-medium sm:text-xl text-center">{description}</p>
     </div>
   );

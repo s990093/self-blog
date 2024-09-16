@@ -27,9 +27,7 @@ class RecordVisitView(APIView):
 
         # 獲取 IP 地址
         ip_address = get_client_ip(request)
-        
     
-
         # 檢查是否是本地 IP 地址
         # if ip_address == '127.0.0.1' or ip_address == '::1':
         #     console.print(f"[bold green]IP Address:[/bold green] {ip_address} (Local IP, not recorded)")
