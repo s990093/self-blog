@@ -70,7 +70,7 @@ const HomeInfo: React.FC<HomeInfoProps> = ({ currentStage }) => {
     return (
       <div ref={sectionRef} className={`text-center py-4 px-8 mx-5 ${bgStyle}`}>
         <h1 className="sm:text-xl flex items-center justify-center">
-          <span className="font-semibold mx-2">Hi, I'm Lai Hung We</span>
+          <span className="font-semibold mx-2">{"Hi, I'm Lai Hung We"}</span>
           <motion.div
             className="ml-2"
             animate={{ rotate: [-15, 15, -15] }}
