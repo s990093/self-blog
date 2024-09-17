@@ -4,6 +4,7 @@ import { TbHandClick } from "react-icons/tb";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { IconType } from "react-icons";
+import Link from "next/link";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -92,7 +93,7 @@ const HomeInfoCard: React.FC<CardProps> = ({
             <Icon size={20} />
           </div>
         )}
-        {title}
+        <div className="text-white underline hover:text-gray-200">{title}</div>
       </p>
       <p className="font-medium sm:text-xl text-center">{description}</p>
     </div>

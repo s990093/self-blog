@@ -50,9 +50,7 @@ export function Bird() {
     }
   });
 
-  return (
-    // to create and display 3D objects
-    
+  return (    
     <mesh ref={birdRef} position={[-5, 2, 1]} scale={[0.1, 0.1, 0.1]}>
       <primitive object={scene} />
     </mesh>
