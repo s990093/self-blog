@@ -4,7 +4,6 @@ import { TbHandClick } from "react-icons/tb";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { IconType } from "react-icons";
-import Link from "next/link";
 
 gsap.registerPlugin(TextPlugin);
 

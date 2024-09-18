@@ -10,7 +10,7 @@ import { FaHandPeace } from "react-icons/fa";
 // self
 import { useAppContext } from "@/app/Context/AppContext";
 import { HomeInfoCard } from ".";
-import { FaStar, FaBlog, FaPhotoVideo } from "react-icons/fa"; // 引入需要的圖標
+import { FaStar, FaMusic, FaPhotoVideo } from "react-icons/fa"; // 引入需要的圖標
 
 interface HomeInfoProps {
   currentStage: number;
@@ -29,9 +29,9 @@ const HomeInfo: React.FC<HomeInfoProps> = ({ currentStage }) => {
     router.push("/about");
   };
 
-  const handleBlogPage = () => {
-    addNotification("Navigating to blog ...");
-    router.push("/blog");
+  const handleMusicCategoryPage = () => {
+    addNotification("Navigating to music ...");
+    router.push("/music");
   };
 
   const handleMoviePage = () => {
@@ -100,11 +100,11 @@ const HomeInfo: React.FC<HomeInfoProps> = ({ currentStage }) => {
   if (currentStage === 3) {
     return (
       <HomeInfoCard
-        title="My personal blog"
-        description="Sharing life stories and experiences"
-        buttonText="Visit Blog"
-        icon={FaBlog}
-        buttonAction={handleBlogPage}
+        title="Music Categories"
+        description="Explore different genres and styles of music"
+        buttonText="Browse Categories"
+        icon={FaMusic}
+        buttonAction={handleMusicCategoryPage}
       />
     );
   }

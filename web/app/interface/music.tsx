@@ -1,8 +1,17 @@
-// types/music.ts
 export interface Music {
   id: number;
-  album: string;
   song: string;
   artist: string;
-  imageUrl: string;
+}
+
+export enum MusicType {
+  BandList = "bandList",
+  SingleList = "singleList",
+  EmptyList = "emptyList",
+}
+
+export interface MusicAction {
+  id: number;
+  music: Music;
+  type: MusicType;
 }

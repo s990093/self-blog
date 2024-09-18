@@ -1,4 +1,4 @@
-import { Video } from "../interface/movie";
+import { Video } from "../../interface/movie";
 
 export const videos: Video[] = [
   {

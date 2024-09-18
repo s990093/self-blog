@@ -11,6 +11,7 @@ import {
   Seagull,
   Flamingo,
 } from "./components/Intro/Models";
+
 import { motion } from "framer-motion";
 
 const Home = () => {
