@@ -14,6 +14,7 @@ import {
 import { Loader, InfoCard } from "./Components/inedx";
 import { singleList, bandList } from "./myMusic";
 import { MusicAction, MusicType } from "@/app/interface/music";
+import StarsCanvas from "@/app/components/Common/BG/Stars";
 
 const MyMusicPage = () => {
   const [currentMusic, setCurrentMusic] = useState<MusicAction>({
@@ -121,6 +122,8 @@ const MyMusicPage = () => {
           />
         </Suspense>
       </Canvas>
+
+      <StarsCanvas />
     </div>
   );
 };
