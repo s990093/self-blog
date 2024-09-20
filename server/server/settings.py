@@ -43,7 +43,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 
 INSTALLED_APPS = [
-    'jazzmin',
+    # 'jazzmin',
     'daphne',
     'channels',
     'django.contrib.admin',

@@ -7,7 +7,7 @@ import { NOTIFICATION_DELAY } from "../cfg/control";
 interface AppState {
   user: { name: string } | null;
   theme: "light" | "dark";
-  notifications: { id: number; message: string }[]; // 添加 notifications
+  notifications: { id: number; message: string }[];
 }
 
 // 定义 Context 类型
@@ -15,7 +15,7 @@ interface AppContextType {
   state: AppState;
   setUser: (user: { name: string } | null) => void;
   setTheme: (theme: "light" | "dark") => void;
-  addNotification: (message: string) => void; // 添加 addNotification
+  addNotification: (message: string) => void;
 }
 
 // 创建 Context
@@ -28,7 +28,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
   const [state, setState] = useState<AppState>({
     user: null,
     theme: "light",
-    notifications: [], // 初始化 notifications
+    notifications: [],
   });
 
   const setUser = (user: { name: string } | null) =>

@@ -23,11 +23,6 @@ const BooksPage: React.FC = () => {
     <>
       <div className="relative mx-auto p-4 min-h-screen bg-gradient-to-br from-darker-blue via-darker-purple to-darker-gray bg-[length:200%_200%] animate-gradient-move">
         <h1 className="text-2xl font-bold mb-6 text-center">
-          {/* <button onClick={handle}>
-            <div className="  text-xl hover:text-gray-600">
-              <AiOutlineArrowLeft className="h-8 w-8" />
-            </div>
-          </button> */}
           My Favorite Books
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">

@@ -48,3 +48,86 @@ body {
 .card-content:hover {
   transform: rotateX(10deg) rotateY(0deg) scale(1.05);
 }
+
+/* markdown cunstom =================== */
+
+/* Markdown table styling */
+/* 为表格整体添加美观的样式 */
+.markdown-content table {
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
+  border-color: inherit !important;
+  display: block !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: auto !important;
+}
+
+/* 设置表格边框和单元格样式 */
+.markdown-content tbody,
+.markdown-content td,
+.markdown-content tfoot,
+.markdown-content th,
+.markdown-content thead,
+.markdown-content tr {
+  border-color: inherit !important;
+  border-style: solid !important;
+  border-width: 2px !important;
+  padding: 0.5rem;
+}
+
+/* 为表格的标题（th）增加背景颜色和圆角 */
+.markdown-content th {
+  background-color: #f0f0f0 !important; /* 设置标题背景颜色 */
+  padding: 0.75rem !important; /* 增加内边距以提高可读性 */
+  text-align: left !important; /* 左对齐标题内容 */
+}
+
+/* title style */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.5rem;
+}
+
+/* 添加颜色区分 */
+.markdown-content h1 {
+  color: #1a202c !important; /* 深色 */
+  font-size: 2.5rem !important; /* 特别大 */
+}
+
+.markdown-content h2 {
+  color: #2d3748 !important; /* 深灰色 */
+  font-size: 2rem !important;
+}
+
+.markdown-content h3 {
+  color: #4a5568 !important; /* 中灰色 */
+  font-size: 1.75rem !important;
+}
+
+.markdown-content h4 {
+  color: #718096 !important; /* 淡灰色 */
+  font-size: 1.5rem !important;
+}
+
+.markdown-content h5 {
+  color: #a0aec0 !important; /* 更淡的灰色 */
+  font-size: 1.25rem !important;
+}
+
+.markdown-content h6 {
+  color: #cbd5e0 !important; /* 最淡的灰色 */
+  font-size: 1rem !important;
+}
+
+/* .markdown-content img {
+  display: inline-block;
+  width: 45%;
+  margin: 0 10px;
+} */

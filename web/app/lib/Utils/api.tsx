@@ -1,5 +1,6 @@
 // utils/api.js
 
+import { BlogPostDetailProps, BlogPrevData } from "@/app/interface/blog";
 import axios from "axios";
 
 const DEFAULT_URL = "https://lai.api.iside.space/";
@@ -29,5 +30,27 @@ export const recordVisit = async () => {
   } catch (error) {
     console.error("Error recording visit:", error);
     throw error;
+  }
+};
+
+export const fetchBlogByIds = async () => {
+  try {
+    const response = await axios.get<BlogPrevData[]>(
+      getApiUrl("web/bugs/ids/")
+    );
+    return { data: response.data, error: null };
+  } catch (err) {
+    return { data: null, error: err as Error };
+  }
+};
+
+export const fetchBlogDetail = async (id: number) => {
+  try {
+    const response = await axios.get<BlogPostDetailProps>(
+      getApiUrl(`web/bugs/detail/${id}/`)
+    );
+    return { data: response.data, error: null };
+  } catch (err) {
+    return { data: null, error: err as Error };
   }
 };
