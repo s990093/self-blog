@@ -1,10 +1,12 @@
 import time
+from django.http import Http404, JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import *
 from django.utils.timezone import now
 from rich.console import Console
+from .models import BugManage
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -38,3 +40,27 @@ class RecordVisitView(APIView):
         visit_record = VisitRecord(ip_address=ip_address)
         visit_record.save()
         return Response({"ip_address": ip_address}, status=status.HTTP_200_OK)
+
+
+class BugManageIDList(APIView):
+    def get(self, request):
+        bugs = BugManage.objects.values_list('id', flat=True)  # 获取所有 BugManage 实例的 ID 列表
+        return Response(list(bugs), status=status.HTTP_200_OK)
+
+# 根据 id 返回特定 BugManage 实例的详细信息，包括 Markdown 内容
+class BugManageDetail(APIView):
+    def get_object(self, bug_id):
+        try:
+            return BugManage.objects.get(id=bug_id)
+        except BugManage.DoesNotExist:
+            raise Http404
+
+    def get(self, request, bug_id):
+        bug = self.get_object(bug_id)
+        data = {
+            "id": bug.id,
+            "title": bug.title,
+            "bug_detail": bug.bug_detail,  # 返回 markdown 内容
+            "blog_type": bug.blog_type.name if bug.blog_type else None
+        }
+        return Response(data, status=status.HTTP_200_OK)

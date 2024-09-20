@@ -18,7 +18,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ music, musicType }) => {
   let position: [number, number, number] = [2.5, -3, 0];
   switch (device) {
     case 1:
-      position = [1, -3, 0];
+      position = [1, -2, 0];
       break;
   }
 

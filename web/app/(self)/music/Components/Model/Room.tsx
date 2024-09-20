@@ -8,15 +8,6 @@ const Room = () => {
   const tableRef = useRef<Mesh | null>(null);
   const { scene } = useGLTF(getStaticUrl("3d/music/Room.glb"));
 
-  // const { actions } = useAnimations(animations, tableRef);
-
-  // useEffect(() => {
-  //   const action = actions["Play"];
-  //   if (action) {
-  //     action.play();
-  //     action.timeScale = 0.5;
-  //   }
-  // }, []);
   return (
     <mesh
       ref={tableRef}

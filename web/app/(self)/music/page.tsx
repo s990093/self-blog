@@ -1,8 +1,6 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useState } from "react";
-import { OrbitControls } from "@react-three/drei";
-
+import { Suspense, useRef, useState } from "react";
 import {
   Cover,
   RecordPlayer,
@@ -13,10 +11,18 @@ import {
 } from "./Components/Model/index";
 import { Loader, InfoCard } from "./Components/inedx";
 import { singleList, bandList } from "./myMusic";
-import { MusicAction, MusicType } from "@/app/interface/music";
+import { Music, MusicAction, MusicType } from "@/app/interface/music";
 import StarsCanvas from "@/app/components/Common/BG/Stars";
+import { motion } from "framer-motion";
 
 const MyMusicPage = () => {
+  let startX: number = 0;
+  let clienrX: number = 0;
+
+  const elementRef = useRef<HTMLDivElement | null>(null);
+
+  const BLOCK = 130;
+
   const [currentMusic, setCurrentMusic] = useState<MusicAction>({
     id: 0,
     music: bandList[0],
@@ -55,6 +61,63 @@ const MyMusicPage = () => {
     // playMusic();
   };
 
+  const handleNextSong = (type: MusicType = currentMusic.type) => {
+    setCurrentMusic((prevMusic) => {
+      setPrevMusic(currentMusic);
+
+      let newId: number;
+      let newMusic: Music;
+
+      // 根據傳入的 type 或當前的 currentMusic.type 決定歌曲列表
+      if (type === MusicType.BandList) {
+        newId = (prevMusic.id % bandList.length) + 1; // 計算新的歌曲 ID
+        newMusic = bandList[newId - 1]; // 取得新歌曲
+      } else if (type === MusicType.SingleList) {
+        newId = (prevMusic.id % singleList.length) + 1; // 計算新的歌曲 ID
+        newMusic = singleList[newId - 1]; // 取得新歌曲
+      } else {
+        // 如果不是這兩種列表，保持原狀
+        return prevMusic;
+      }
+
+      return {
+        id: newId,
+        music: newMusic,
+        type: type,
+      };
+    });
+  };
+
+  const handlePrevSong = (type: MusicType = currentMusic.type) => {
+    setCurrentMusic((prevMusic) => {
+      setPrevMusic(currentMusic);
+
+      let newId: number;
+      let newMusic: Music;
+
+      // 根據傳入的 type 或當前的 currentMusic.type 決定歌曲列表
+      if (type === MusicType.BandList) {
+        newId =
+          (prevMusic.id - 1 + bandList.length) % bandList.length ||
+          bandList.length; // 計算上一首的 ID
+        newMusic = bandList[newId - 1]; // 取得上一首歌曲
+      } else if (type === MusicType.SingleList) {
+        newId =
+          (prevMusic.id - 1 + singleList.length) % singleList.length ||
+          singleList.length; // 計算上一首的 ID
+        newMusic = singleList[newId - 1]; // 取得上一首歌曲
+      } else {
+        return prevMusic;
+      }
+
+      return {
+        id: newId,
+        music: newMusic,
+        type: type,
+      };
+    });
+  };
+
   // const playMusic = () => {
   //   const audio = new Audio(
   //     getStaticUrl(
@@ -69,8 +132,41 @@ const MyMusicPage = () => {
   //   });
   // };
 
+  const handlePointerDown = (
+    event: React.PointerEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
+  ) => {
+    startX = "touches" in event ? event.touches[0].clientX : event.clientX;
+  };
+
+  const handlePointerMove = (
+    event: React.PointerEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
+  ) => {
+    clienrX = "touches" in event ? event.touches[0].clientX : event.clientX;
+  };
+
+  const handlePointerUp = () => {
+    const deltaX = startX - clienrX;
+
+    if (Math.abs(startX - clienrX) > BLOCK) {
+      if (deltaX > 0) {
+        handleNextSong(); // 播放下一首歌曲
+      } else {
+        handlePrevSong(); // 播放上一首歌曲
+      }
+    }
+  };
+
   return (
-    <div className="fixed top-0 left-0 w-full h-screen">
+    <div
+      ref={elementRef}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onTouchStart={handlePointerDown}
+      onTouchMove={handlePointerMove}
+      onTouchEnd={handlePointerUp}
+      className="fixed top-0 left-0 w-full h-screen"
+    >
       <h1 className="text-2xl font-bold mb-6 p-4 text-center">
         My Favorite Song
       </h1>
@@ -112,18 +208,33 @@ const MyMusicPage = () => {
             song={currentMusic.music.song}
             type={currentMusic.type}
           />
+
           <VinyRecord type={currentMusic.type} id={currentMusic.id} />
           <Room />
-          <OrbitControls
+          {/* <OrbitControls
             enableZoom={false}
             enablePan={false}
             minPolarAngle={Math.PI / 3.5} // 锁定最小垂直角度
             maxPolarAngle={Math.PI / 2.2} // 锁定最大垂直角度
-          />
+          /> */}
         </Suspense>
       </Canvas>
-
       <StarsCanvas />
+      <div className="absolute rotate-90 bottom-3 w-full flex justify-center items-center">
+        <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
+          <motion.div
+            animate={{
+              y: [0, 24, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatType: "loop",
+            }}
+            className="w-3 h-3 rounded-full bg-secondary mb-1"
+          />
+        </div>
+      </div>
     </div>
   );
 };
