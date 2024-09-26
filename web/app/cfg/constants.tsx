@@ -3,6 +3,9 @@
 // 获取环境变量 BASE_URL，若未设置则使用默认值
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || "https://lai.iside.space/static/";
+const ip = process.env.NEXT_PUBLIC_IP;
+const port = process.env.NEXT_PUBLIC_PORT;
+const http = process.env.NEXT_PUBLIC_HTTP;
 
 /**
  * 根据给定的 path 生成静态文件的完整 URL。
@@ -16,4 +19,12 @@ export function getStaticUrl(path: string): string {
 
   // 拼接 BASE_URL 和路径
   return `${BASE_URL}${formattedPath}`;
+}
+
+export function getDjangoStaticUrl(path: string): string {
+  const finalIp = ip || "49.213.238.75";
+  const finalPort = port || 8000;
+  const finalHttp = http?.trim() !== "" ? http : "https";
+
+  return `${finalHttp}://${finalIp}:${finalPort}${path}`;
 }

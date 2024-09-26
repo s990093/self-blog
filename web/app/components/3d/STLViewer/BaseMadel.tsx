@@ -12,6 +12,7 @@ interface BaseMadeViewerProps extends STLViewerProps {
   name: string;
   animationConfig: AnimationConfig;
 }
+
 const BaseMedalViewer: React.FC<BaseMadeViewerProps> = ({
   height,
   width,
@@ -69,6 +70,7 @@ const BaseMedalViewer: React.FC<BaseMadeViewerProps> = ({
       // controlsRef.current?.update();
       rendererRef.current?.render(sceneRef.current!, cameraRef.current!);
     };
+
     animate();
 
     return () => {

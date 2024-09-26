@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { getDeviceType } from "../lib/Utils/func";
+import { getDeviceType } from "../Utils/func";
 
 const useDeviceType = () => {
   const [deviceType, setDeviceType] = useState(getDeviceType());

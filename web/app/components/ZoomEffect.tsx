@@ -25,7 +25,7 @@ const ZoomEffect: React.FC<ZoomEffectProps> = ({
             ease: "easeInOut",
           },
           rotate: {
-            duration: 3, // Time for continuous rotation
+            duration: 3, // Time for contiㄨㄛnuous rotation
             ease: "linear", // Continuous rotation
             repeat: 0, // Rotate for the duration only
             repeatType: "loop", // Loop the rotation

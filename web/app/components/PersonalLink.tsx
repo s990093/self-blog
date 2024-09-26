@@ -2,7 +2,7 @@
 
 import React from "react";
 import { PersonalLink } from "../interface/base";
-import { iconMapping } from "../lib/Utils/iconMapping";
+import { iconMapping } from "../Utils/iconMapping";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 import { TagName } from "./Common";

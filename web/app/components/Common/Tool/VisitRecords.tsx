@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, ReactNode } from "react";
-import { recordVisit } from "@/app/lib/Utils/api";
+import { recordVisit } from "@/app/Utils/api";
 
 interface VisitRecordsProps {
   children?: ReactNode;

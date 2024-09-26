@@ -67,14 +67,14 @@ export type AnimationAction = {
   distance?: number; // Translation distance for the object
 };
 
-export const getMedalColor = (
+export function getMedalColor(
   medalType:
     | "champion"
     | "runner-up"
     | "third-place"
     | "participation"
     | "other"
-): string => {
+): string {
   switch (medalType) {
     case "champion":
       return "#FFD700"; // Gold
@@ -89,7 +89,7 @@ export const getMedalColor = (
     default:
       return "#555555"; // Default color
   }
-};
+}
 
 /**
  * Checks if the text exceeds the maximum allowed length and truncates it if necessary.

@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
-import { BlogCardProps } from "./Interface";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { TiltWrapper } from "@/app/components/Animation";
 import { useAppContext } from "@/app/Context/AppContext";
 import { useRouter } from "next/navigation";
+import { getDjangoStaticUrl } from "@/app/cfg/constants";
+import { BlogCardProps } from "@/app/interface/blog";
 
 const BlogCard: React.FC<BlogCardProps> = ({
   id,
   title,
-  excerpt,
-  imageUrl,
+  photo,
   isBig = false,
 }) => {
   const { addNotification } = useAppContext();
@@ -29,7 +29,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
         }`}
       >
         <LazyLoadImage
-          src={imageUrl}
+          src={getDjangoStaticUrl(photo)}
           alt={title}
           className={`w-full ${isBig ? "h-full" : "h-64"} object-cover`}
         />
@@ -40,7 +40,6 @@ const BlogCard: React.FC<BlogCardProps> = ({
             {/* 上方的標題 */}
             <h1 className="text-2xl font-bold text-white">{title}</h1>
             {/* 底部的摘要 */}
-            <p className="text-gray-300">{excerpt}</p>
           </div>
         </div>
       </div>

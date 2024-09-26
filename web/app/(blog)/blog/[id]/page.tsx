@@ -1,21 +1,18 @@
 "use client";
 import { BlogPostDetailProps } from "@/app/interface/blog";
-import { fetchBlogDetail } from "@/app/lib/Utils/api";
+import { fetchBlogDetail } from "@/app/Utils/api";
 import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm"; // 支持表格、任务列表等
-import rehypeRaw from "rehype-raw"; // 支持 HTML 渲染
-import rehypeSanitize from "rehype-sanitize"; // 保证内容安全
-import rehypeHighlight from "rehype-highlight"; // 支持代码高亮
-import remarkMath from "remark-math"; // 支持数学公式
-import rehypeKatex from "rehype-katex"; // 用于渲染数学公式
-import "katex/dist/katex.min.css"; // 引入 KaTeX 样式
-import { FaHome, FaArrowRight } from "react-icons/fa"; // 引入React Icons
+import { MdPreview, MdCatalog } from "md-editor-rt";
+import { FaHome, FaArrowRight, FaArrowLeft } from "react-icons/fa"; // 引入React Icons
 import Link from "next/link";
+import "md-editor-rt/lib/preview.css";
+
+const scrollElement = document.documentElement;
 
 const BlogPostDetailpage = ({ params }: { params: { id: number } }) => {
   const [data, setData] = useState<BlogPostDetailProps>();
   const [loading, setLoading] = useState(true);
+  const [id] = useState("preview-only");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +42,7 @@ const BlogPostDetailpage = ({ params }: { params: { id: number } }) => {
   }
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
-      <div className="bg-white shadow-lg rounded-lg p-6 max-w-full md:max-w-2xl transition-transform transform">
+      <div className="bg-white shadow-lg rounded-lg p-6 w-3/4 transition-transform transform">
         <div className="flex justify-start w-full">
           <Link
             href="/blog"
@@ -56,24 +53,32 @@ const BlogPostDetailpage = ({ params }: { params: { id: number } }) => {
           </Link>
         </div>
         <div className="text-gray-600 leading-relaxed mb-6">
-          <ReactMarkdown
-            className="markdown-content"
-            remarkPlugins={[remarkGfm, remarkMath]}
-            rehypePlugins={[
-              rehypeRaw,
-              rehypeSanitize,
-              rehypeHighlight,
-              rehypeKatex,
-            ]}
-            remarkRehypeOptions={{ passThrough: ["link"] }}
-          >
-            {data?.bug_detail}
-          </ReactMarkdown>
+          {data?.id && (
+            <>
+              <MdPreview
+                editorId={id}
+                modelValue={data?.md_content}
+                language="en-Us"
+              />
+              <MdCatalog editorId={id} scrollElement={scrollElement} />
+            </>
+          )}
         </div>
         {/* 下一篇部落格按鈕 */}
-        <div className="flex justify-end w-full">
+        <div className="flex justify-between w-full mt-4">
+          {/* If id is greater than 1, show the previous blog link */}
+          {Number(params.id) > 1 && (
+            <Link
+              href={`/blog/${Number(params.id) - 1}`}
+              className="text-gray-700 hover:text-blue-500 flex items-center"
+            >
+              <FaArrowLeft className="mr-2" />
+              上一篇部落格
+            </Link>
+          )}
+
           <Link
-            href={`/blog/${params.id + 1}`}
+            href={`/blog/${Number(params.id) + 1}`}
             className="text-gray-700 hover:text-blue-500 flex items-center"
           >
             下一篇部落格

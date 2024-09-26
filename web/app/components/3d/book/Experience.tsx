@@ -1,7 +1,7 @@
 "use clinet ";
 import { Environment, Float } from "@react-three/drei";
 import { Book } from "./Book";
-import { getDeviceType } from "@/app/lib/Utils/func";
+import { getDeviceType } from "@/app/Utils/func";
 
 export const Experience = () => {
   const device = getDeviceType();

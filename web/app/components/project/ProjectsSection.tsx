@@ -2,7 +2,7 @@ import { ProjType } from "@/app/interface/base";
 import { motion } from "framer-motion";
 import { TypingEffect } from "../Animation";
 import { useMemo } from "react";
-import { generateRandomPosition } from "@/app/lib/Utils/func";
+import { generateRandomPosition } from "@/app/Utils/func";
 
 interface ProjectsSectionProps {
   filter: ProjType | "All";

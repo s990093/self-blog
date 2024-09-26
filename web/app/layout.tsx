@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { AppProvider } from "./Context/AppContext";
 import React from "react";
-import AnimatedCursor from "react-animated-cursor";
+// import AnimatedCursor from "react-animated-cursor";
 import VersionDisplay from "./components/VersionDisplay";
 import CheckBrowser from "./components/Common/CheckBrowser";
 import { CircleIcon } from "./components/Animation";
@@ -34,35 +34,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AnimatedCursor
-          innerSize={8}
-          outerSize={8}
-          color="193, 11, 111"
-          outerAlpha={0.2}
-          innerScale={0.7}
-          outerStyle={{
-            border: "3px solid var(--cursor-color)",
-          }}
-          innerStyle={{
-            backgroundColor: "var(--cursor-color)",
-          }}
-          clickables={[
-            "a",
-            'input[type="text"]',
-            'input[type="email"]',
-            'input[type="number"]',
-            'input[type="submit"]',
-            'input[type="image"]',
-            "label[for]",
-            "select",
-            "textarea",
-            "button",
-            ".link",
-            {
-              target: ".custom",
-            },
-          ]}
-        />
         <AppProvider>
           <div className="custom-cursor">
             <div className="relative min-h-screen font-mono">

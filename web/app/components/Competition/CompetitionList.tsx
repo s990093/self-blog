@@ -3,7 +3,7 @@ import { Competition } from "../../interface/base";
 import { TypingEffect } from "../Animation";
 import CompetitionCard from "./CompetitionCard";
 import { useInView } from "react-intersection-observer";
-import { getDeviceType } from "@/app/lib/Utils/func";
+import { getDeviceType } from "@/app/Utils/func";
 
 interface CompetitionListProps {
   competitions: Competition[];
@@ -32,7 +32,7 @@ const CompetitionList: React.FC<CompetitionListProps> = ({ competitions }) => {
   const [blockCount, setBlockCount] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [, setPass] = useState(false);
-  const [lastTouchY, setLastTouchY] = useState(0); // 新增：用來記錄觸摸位置
+  const [lastTouchY, setLastTouchY] = useState(0);
 
   let blockScale = 1;
   const device = getDeviceType();
