@@ -21,22 +21,20 @@ const BlogCard: React.FC<BlogCardProps> = ({
     router.push(`/blog/${id}`);
   };
   return (
-    <TiltWrapper>
+    <TiltWrapper className="w-full h-full">
       <div
         onClick={handleBlogPage}
-        className={`relative bg-white shadow-md rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow ${
-          isBig ? "w-full h-auto" : "w-full h-64"
-        }`}
+        className={`relative bg-white shadow-md rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow w-full h-full`}
       >
         <LazyLoadImage
           src={getDjangoStaticUrl(photo)}
           alt={title}
-          className={`w-full ${isBig ? "h-full" : "h-64"} object-cover`}
+          className={`w-full ${isBig ? "h-full" : "h-32"} object-cover`}
         />
 
         {/* 在圖片上疊加內容 */}
         <div className="absolute inset-0 bg-black bg-opacity-50 p-6">
-          <div className="absolute bottom-10">
+          <div className="absolute bottom-5">
             {/* 上方的標題 */}
             <h1 className="text-2xl font-bold text-white">{title}</h1>
             {/* 底部的摘要 */}

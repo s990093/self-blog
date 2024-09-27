@@ -1,8 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-import withPWA from 'next-pwa';
 
 /** @type {import('next').NextConfig} */
-const nextConfig = withPWA({
+const nextConfig = {
     enabled: process.env.ANALYZE === 'true',
 
     images: {
@@ -18,6 +17,6 @@ const nextConfig = withPWA({
         ],
     },
     exportTrailingSlash: true,
-});
+};
 
 export default nextConfig;

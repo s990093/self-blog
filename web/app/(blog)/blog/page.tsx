@@ -55,6 +55,7 @@ const BlogPage = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, type: "spring", stiffness: 200 }}
+            className="md:row-span-2" // This will span the big card across two rows on md and up
           >
             <BlogCard
               key={data[0].id}
@@ -71,12 +72,13 @@ const BlogPage = () => {
         {/* Only render the grid for smaller cards if there's more than one post */}
         {data.length > 1 && (
           <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {data.slice(1, 5).map((post, index) => (
+            {data.slice(1, 7).map((post, index) => (
               <motion.div
                 key={post.id}
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.3 }} // Stagger the animation
+                className="md:row-span-1"
               >
                 <BlogCard
                   id={post.id}
@@ -99,9 +101,9 @@ const BlogPage = () => {
           </div>
         </div>
         {/* block */}
-        {data.length > 1 && (
+        {data.length > 6 && (
           <div className="flex-1 grid grid-cols-1 md:grid-cols-4 gap-6">
-            {data.slice(5).map((post, index) => (
+            {data.slice(7).map((post, index) => (
               <motion.div
                 key={post.id}
                 initial={{ opacity: 0, x: 50 }}

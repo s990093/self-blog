@@ -1,7 +1,7 @@
-const { createServer } = require('http')
-const { join } = require('path')
-const { parse } = require('url')
-const next = require('next')
+import { createServer } from 'http'
+import { join } from 'path'
+import { parse } from 'url'
+import next from 'next'
 
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handle = app.getRequestHandler()
