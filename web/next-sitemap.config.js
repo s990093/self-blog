@@ -1,3 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-export const siteUrl = 'https://lai.iside.space/';
-export const generateRobotsTxt = true;
+module.exports = {
+    siteUrl: 'https://lai.iside.space/',
+    generateRobotsTxt: true,
+};
