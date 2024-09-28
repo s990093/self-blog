@@ -5,7 +5,6 @@ import VantaEffect from "vanta";
 
 import FOG from "vanta/dist/vanta.halo.min";
 import * as THREE from "three";
-// import { getDeviceType } from "@/app/lib/utils/func";
 
 interface FogComponentProps {
   children?: ReactNode;
@@ -13,7 +12,7 @@ interface FogComponentProps {
 
 class FogComponent extends Component<FogComponentProps> {
   private vantaRef = React.createRef<HTMLDivElement>();
-  private vantaEffect?: ReturnType<typeof VantaEffect>; // Use ReturnType to infer the type of the FOG function
+  private vantaEffect?: ReturnType<typeof VantaEffect>;
   private scrollHandler?: () => void;
 
   componentDidMount() {
