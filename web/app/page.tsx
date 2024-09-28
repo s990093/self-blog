@@ -13,6 +13,7 @@ import {
 } from "./components/Intro/Models";
 
 import { motion } from "framer-motion";
+// import { log, rootLog } from "./cfg/constants";
 
 const Home = () => {
   // const audioRef = useRef(new Audio(getStaticUrl("audios/sakura.mp3")));
