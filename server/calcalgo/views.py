@@ -21,7 +21,6 @@ class PostList(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        console.log(request.data)
         serializer = UploadPostSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -56,9 +55,6 @@ class PostDetail(APIView):
         post = self.get_object(pk)
         post.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-# views.py
 
 
 @api_view(['POST'])
