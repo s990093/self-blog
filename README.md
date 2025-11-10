@@ -1,6 +1,7 @@
 # self-blog
 
 # Resume Showcase Project
+<img width="948" height="819" alt="image" src="https://github.com/user-attachments/assets/b781e5da-8f01-4c32-b012-b05752dd5a6e" />
 
 ## Overview
 
