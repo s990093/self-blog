@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://github.com/s990093/TriSphere/index.html
+Host: https://github.com/s990093/self-blog/index.html
 
 # Sitemaps
-Sitemap: https://github.com/s990093/TriSphere/index.html/sitemap.xml
+Sitemap: https://github.com/s990093/self-blog/index.html/sitemap.xml
