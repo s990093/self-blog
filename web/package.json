@@ -7,8 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d out"
   },
+  "homepage": "https://github.com/s990093/self-blog",
   "dependencies": {
     "@arctext/react": "^1.0.0",
     "@fontsource/fira-code": "^5.0.20",
@@ -22,7 +25,8 @@
     "axios": "^1.7.7",
     "chart.js": "^4.4.4",
     "framer-motion": "^11.5.4",
-    "gsap": "^3.12.5",
+    "gh-pages": "^6.3.0",
+    "gsap": "^3.12.7",
     "gsap-trial": "^3.12.5",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",

@@ -94,7 +94,7 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({
             />
             <div className="flex items-center justify-center mt-4">
               <div className="border border-gray-300 p-4 rounded-lg shadow-lg mt-[30px]">
-                <div className="text-lg font-mono">For NTU GDSC</div>
+                <div className="text-lg font-mono">Hello World!</div>
               </div>
             </div>
             <div className="flex items-center justify-center mt-4">

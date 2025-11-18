@@ -3,6 +3,7 @@ import { PrizeType } from "@/app/interface/base";
 import { TextItem } from "./STLViewer/helper";
 import BaseMedalViewer from "./STLViewer/BaseMadel";
 import React from "react";
+import { getStaticUrl } from "@/app/cfg/constants";
 
 interface MedalProps {
   name: string;
@@ -56,9 +57,9 @@ const Medal: React.FC<MedalProps> = React.memo(
         medalType="champion"
         reflectivity={10}
         shininess={100}
-        texturePath="/3d/textures/metal.jpg"
+        texturePath={getStaticUrl("/3d/textures/metal.jpg")}
         textArray={textItems}
-        fontPath="/fonts/helvetiker_bold.typeface.json"
+        fontPath={getStaticUrl("/fonts/helvetiker_bold.typeface.json")}
         animationConfig={{
           type: "rotation",
           axis: "y",

@@ -2,14 +2,11 @@
 import React, { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
-
 import { motion } from "framer-motion";
-import { FaHandPeace } from "react-icons/fa";
-
-// self
+import { FaArrowRight, FaHandPeace } from "react-icons/fa";
 import { useAppContext } from "@/app/Context/AppContext";
 import { HomeInfoCard } from ".";
-import { FaStar, FaMusic, FaPhotoVideo } from "react-icons/fa"; // 引入需要的圖標
+import { FaStar, FaMusic, FaPhotoVideo } from "react-icons/fa";
 
 interface HomeInfoProps {
   currentStage: number;
@@ -17,9 +14,6 @@ interface HomeInfoProps {
 
 const HomeInfo: React.FC<HomeInfoProps> = ({ currentStage }) => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  // const textRef = useRef<HTMLSpanElement | null>(null);
-  // const helloTextRef = useRef<HTMLSpanElement | null>(null);
-
   const { addNotification } = useAppContext();
   const router = useRouter();
 
@@ -48,40 +42,40 @@ const HomeInfo: React.FC<HomeInfoProps> = ({ currentStage }) => {
     }
   }, [currentStage]);
 
-  // useEffect(() => {
-  //   if (textRef.current) {
-  //     gsap.to(textRef.current, {
-  //       duration: 1,
-  //       scrambleText: "Hi, I'm Lai Hung Wei",
-  //     });
-  //   }
-  //   if (helloTextRef.current) {
-  //     gsap.to(helloTextRef.current, {
-  //       duration: 2.5,
-  //       scrambleText: "I am a university student majoring in Computer Science",
-  //     });
-  //   }
-  // }, []);
-
-  const bgStyle =
-    "bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg p-5 shadow-lg text-white";
-
   if (currentStage === 1) {
     return (
-      <div ref={sectionRef} className={`text-center py-4 px-8 mx-5 ${bgStyle}`}>
-        <h1 className="sm:text-xl flex items-center justify-center">
-          <span className="font-semibold mx-2">{"Hi, I'm Lai Hung We"}</span>
+      <div
+        ref={sectionRef}
+        className="relative text-center py-6 px-4 mx-4 rounded-xl shadow-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white overflow-hidden sm:py-8 sm:px-6"
+      >
+        {/* 背景淡化，避免過亮 */}
+        <div className="absolute inset-0 opacity-20 blur-lg pointer-events-none" />
+
+        <h1 className="text-xl sm:text-2xl font-bold flex items-center justify-center space-x-2">
+          <span>{"Lai Hung Wei"}</span>
+
           <motion.div
-            className="ml-2"
+            className="cursor-pointer text-yellow-300 text-2xl sm:text-3xl"
             animate={{ rotate: [-15, 15, -15] }}
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            onClick={handleAboutPage} // 確保掛鉤
           >
-            <FaHandPeace className="ml-2" />
+            <FaHandPeace />
           </motion.div>
         </h1>
-        <p className="mt-2">
-          <span>I am a university student majoring in Computer Science</span>
+
+        <p className="mt-2 text-sm sm:text-lg opacity-90">
+          I am a university student majoring in Computer Science
         </p>
+
+        {/* 進入個人介紹按鈕 */}
+        <motion.button
+          className="mt-5 px-5 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold bg-white text-blue-600 rounded-lg flex items-center justify-center space-x-2 shadow-md hover:scale-105 active:scale-95 transition-all duration-150"
+          onClick={handleAboutPage} // 確保掛鉤
+        >
+          <span>進入個人介紹</span>
+          <FaArrowRight />
+        </motion.button>
       </div>
     );
   }
@@ -107,7 +101,6 @@ const HomeInfo: React.FC<HomeInfoProps> = ({ currentStage }) => {
       />
     );
   }
-
   if (currentStage === 4) {
     return (
       <HomeInfoCard

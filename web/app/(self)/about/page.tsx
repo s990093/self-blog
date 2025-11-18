@@ -6,7 +6,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 // data
 import { mockProfile } from "../../lib/Mock/mockProfile";
 // component
-import CompetitionList from "../../components/Competition/CompetitionList";
+// import CompetitionList from "../../components/Competition/CompetitionList";
 import HobbyList from "../../components/HobbyCard";
 import PersonalLinkList from "../../components/PersonalLink";
 import { SlideEffect, TypingEffect } from "../../components/Animation";
@@ -27,7 +27,7 @@ import BookLinker from "../../components/Common/BookLinker";
 import SkillSection from "../../components/Skill/SkillSection";
 import Book3D from "../../components/3d/Book/Book3D";
 import { HoverEffectDiv } from "../../components/Animation/index";
-import VisitRecords from "../../components/Common/Tool/VisitRecords";
+// import VisitRecords from "../../components/Common/Tool/VisitRecords";
 import StarsCanvas from "../../components/Common/BG/Stars";
 
 export default function PreLoadHomePage() {
@@ -49,10 +49,10 @@ export default function PreLoadHomePage() {
 
   return (
     <>
-      <VisitRecords>
-        <ResourceLoader resourceUrls={allUrls}>
-          <>
-            {/* {deviceType <= 2 ? (
+      {/* <VisitRecords> */}
+      <ResourceLoader resourceUrls={allUrls}>
+        <>
+          {/* {deviceType <= 2 ? (
               <FloatingBackground>
                 <Home />
                 <StarsCanvas />
@@ -64,16 +64,16 @@ export default function PreLoadHomePage() {
                 <StarsCanvas />
               </FloatingBackground>
             )} */}
-            {/* <div className="relative">
+          {/* <div className="relative">
             <Book3D />
             </div> */}
-            <FloatingBackground>
-              <Home />
-              <StarsCanvas />
-            </FloatingBackground>
-          </>
-        </ResourceLoader>
-      </VisitRecords>
+          <FloatingBackground>
+            <Home />
+            <StarsCanvas />
+          </FloatingBackground>
+        </>
+      </ResourceLoader>
+      {/* </VisitRecords> */}
     </>
   );
 }
@@ -260,7 +260,7 @@ function Home() {
             {/* proj */}
             <ProjectsList projects={mockProfile.aboutMe.projects} />
 
-            <CompetitionList competitions={mockProfile.aboutMe.competition} />
+            {/* <CompetitionList competitions={mockProfile.aboutMe.competition} /> */}
 
             {/* hobby */}
             <HobbyList hobbies={mockProfile.aboutMe.hobbies} />

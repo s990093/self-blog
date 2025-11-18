@@ -5,6 +5,7 @@ import RotatingWrapper from './RotatingWrapper';
 import HoverEffectDiv from './HoverEffectDiv';
 import TiltWrapper from './TiltWrapper';
 import CircleIcon from './CircleIcon';
+import Zipper from './Zipper';
 
 
 
@@ -15,5 +16,6 @@ export {
   RotatingWrapper,
   HoverEffectDiv,
   TiltWrapper,
-  CircleIcon
+  CircleIcon,
+  Zipper
 };
